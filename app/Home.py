@@ -104,17 +104,7 @@ st.markdown("""
         font-weight: 700;
         margin-top: 0.35rem;
     }
-    .persona-preview-box {
-        background: white;
-        border: 1px solid #e2e8f0;
-        border-radius: 16px;
-        padding: 1.3rem;
-        transition: all 0.25s ease;
-    }
-    .persona-preview-box:hover {
-        border-color: #38bdf8;
-        box-shadow: 0 8px 20px -4px rgba(56, 189, 248, 0.15);
-    }
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -185,60 +175,7 @@ with col4:
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# -------------------------------------------------------------
-# QUICK DEMO PERSONAS PREVIEW
-# -------------------------------------------------------------
-st.markdown("### 🎭 Ready-to-Test Applicant Profiles (Viva Demonstration)")
-st.markdown("Experience instant real-time risk decisioning in the [**Predict EMI Studio**](Predict_EMI) with these 3 calibrated personas:")
 
-p1, p2, p3 = st.columns(3)
-
-with p1:
-    st.markdown("""
-    <div class="persona-preview-box" style="border-top: 4px solid #10b981;">
-        <div style="font-size: 1.1rem; font-weight: 800; color: #065f46;">🌟 Persona 1: Rohan Sharma</div>
-        <div style="font-size: 0.8rem; font-weight: 700; color: #10b981; margin-bottom: 0.5rem;">TIER 1 • PRIME BORROWER</div>
-        <div style="font-size: 0.85rem; color: #475569; line-height: 1.5;">
-            • <b>Income:</b> ₹95,000/mo (MNC Lead)<br>
-            • <b>CIBIL Rating:</b> 780 (Prime Apex)<br>
-            • <b>DTI Ratio:</b> 8.42% (&lt;40% Cap)<br>
-            • <b>Free Cash Flow:</b> ₹59,000/mo<br>
-            • <b>Decision:</b> ✅ <b>Straight-Through Approval</b> (₹15,996 Safe EMI vs ₹10,416 Requested)
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-with p2:
-    st.markdown("""
-    <div class="persona-preview-box" style="border-top: 4px solid #f59e0b;">
-        <div style="font-size: 1.1rem; font-weight: 800; color: #92400e;">⚠️ Persona 2: Priya Patel</div>
-        <div style="font-size: 0.8rem; font-weight: 700; color: #f59e0b; margin-bottom: 0.5rem;">TIER 2 • CONDITIONAL RESTRUCTURE</div>
-        <div style="font-size: 0.85rem; color: #475569; line-height: 1.5;">
-            • <b>Income:</b> ₹42,000/mo (Startup Dev)<br>
-            • <b>CIBIL Rating:</b> 620 (Near-Prime)<br>
-            • <b>DTI Ratio:</b> 17.86% (Elevated)<br>
-            • <b>Free Cash Flow:</b> ₹13,500/mo<br>
-            • <b>Decision:</b> ⚠️ <b>Conditional Offer</b> (Safe EMI ₹4,820, tenure extension advised)
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-with p3:
-    st.markdown("""
-    <div class="persona-preview-box" style="border-top: 4px solid #ef4444;">
-        <div style="font-size: 1.1rem; font-weight: 800; color: #991b1b;">🛑 Persona 3: Vikram Singh</div>
-        <div style="font-size: 0.8rem; font-weight: 700; color: #ef4444; margin-bottom: 0.5rem;">TIER 3 • SUBPRIME / DECLINE</div>
-        <div style="font-size: 0.85rem; color: #475569; line-height: 1.5;">
-            • <b>Income:</b> ₹30,000/mo (Self-Employed)<br>
-            • <b>CIBIL Rating:</b> 510 (Subprime Floor)<br>
-            • <b>DTI Ratio:</b> 30.00% (High Debt)<br>
-            • <b>Free Cash Flow:</b> -₹14,500/mo (Deficit)<br>
-            • <b>Decision:</b> 🛑 <b>Automated Decline</b> (Critical leverage breach)
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-st.markdown("<br>", unsafe_allow_html=True)
 
 # Architecture & Overview
 left_col, right_col = st.columns([3, 2])

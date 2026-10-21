@@ -192,18 +192,19 @@ st.markdown("Choose a pre-calibrated test applicant for viva demonstration, or s
 persona_tabs = st.radio(
     "Choose Applicant Persona:",
     [
-        "🌟 Persona 1: Rohan Sharma (Prime Salaried • Clean Approval • RECOMMENDED FOR DEMO)",
+        "🌟 Persona 1: Reeva Shah (Prime Salaried • Clean Approval • RECOMMENDED FOR DEMO)",
         "⚠️ Persona 2: Priya Patel (Marginal Subprime • High Living Costs • Conditional Offer)",
         "🛑 Persona 3: Vikram Singh (Over-leveraged • High Debt Burden • Automated Decline)",
         "⚙️ Custom Applicant (Manual Adjustment)"
     ],
     index=0
 )
+preset_choice = persona_tabs
 
 # Preset Dictionaries
 presets = {
-    "🌟 Persona 1: Rohan Sharma (Prime Salaried • Clean Approval • RECOMMENDED FOR DEMO)": {
-        "age": 34, "gender": "Male", "marital_status": "Married", "education": "Post Graduate",
+    "🌟 Persona 1: Reeva Shah (Prime Salaried • Clean Approval • RECOMMENDED FOR DEMO)": {
+        "age": 34, "gender": "Female", "marital_status": "Married", "education": "Post Graduate",
         "monthly_salary": 95000.0, "employment_type": "Private", "years_of_employment": 8.0,
         "company_type": "MNC", "house_type": "Own", "monthly_rent": 0.0, "family_size": 3,
         "dependents": 1, "school_fees": 5000.0, "college_fees": 0.0, "travel_expenses": 4000.0,
@@ -237,7 +238,7 @@ presets = {
     }
 }
 
-p = presets.get(persona_tabs, presets["🌟 Persona 1: Rohan Sharma (Prime Salaried • Clean Approval • RECOMMENDED FOR DEMO)"])
+p = presets.get(persona_tabs, presets["🌟 Persona 1: Reeva Shah (Prime Salaried • Clean Approval • RECOMMENDED FOR DEMO)"])
 
 # Persona Quick Summary Pill
 if persona_tabs != "⚙️ Custom Applicant (Manual Adjustment)":

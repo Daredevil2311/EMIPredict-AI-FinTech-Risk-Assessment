@@ -52,9 +52,9 @@
 
 #### 4. Live Streamlit Application Demo & Relative Graph Defense (Minute 7)
 > *"Let me demonstrate the live platform using a real borrower profile:*
-> - *We select **Profile 1: Rohan Sharma**, a 34-year-old MNC professional earning ₹95,000/month with an existing ₹8,000 EMI and a 780 CIBIL score, requesting a ₹5,00,000 Vehicle Loan over 48 months.*
-> - *In under 200ms, our production dual engines evaluate all 22 features: the **Classifier** awards an instant **ELIGIBLE** badge (98.4% confidence), while the **Regressor** sizes his safe maximum monthly EMI at **₹15,996/month** (comfortably above his requested ₹10,416/month payment).*
-> - *Notice how Rohan's exact numbers map directly onto our EDA charts: his 780 CIBIL score sits right at the apex of our green **KDE distribution** (where default probability is < 0.5%); his ₹95,000 salary places him on the upper boundary of our **Salary vs Safe EMI scatter plot** as a yellow-green dot; and his ultra-low 8.4% DTI places him in the top 38% prime tier on our **Scenario Stacked Bar chart**.*
+> - *We select **Profile 1: Reeva Shah**, a 34-year-old MNC professional earning ₹95,000/month with an existing ₹8,000 EMI and a 780 CIBIL score, requesting a ₹5,00,000 Vehicle Loan over 48 months.*
+> - *In under 200ms, our production dual engines evaluate all 22 features: the **Classifier** awards an instant **ELIGIBLE** badge (98.4% confidence), while the **Regressor** sizes her safe maximum monthly EMI at **₹15,996/month** (comfortably above her requested ₹10,416/month payment).*
+> - *Notice how Reeva's exact numbers map directly onto our EDA charts: her 780 CIBIL score sits right at the apex of our green **KDE distribution** (where default probability is < 0.5%); her ₹95,000 salary places her on the upper boundary of our **Salary vs Safe EMI scatter plot** as a yellow-green dot; and her ultra-low 8.4% DTI places her in the top 38% prime tier on our **Scenario Stacked Bar chart**.*
 > - *Finally, our **Manage Data page** provides full administrative CRUD functionality, enabling credit officers to create, inspect, update, and audit borrower records."*
 
 ---
