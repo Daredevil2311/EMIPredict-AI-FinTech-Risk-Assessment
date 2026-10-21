@@ -1,0 +1,52 @@
+feature,importance
+disposable_income,0.5736365
+financial_health_score,0.1771055
+expense_to_income_ratio,0.096411124
+monthly_salary,0.08291917
+credit_score,0.0588264
+total_monthly_expenses,0.00353379
+house_type_Rented,0.0024632388
+travel_expenses,0.0012656043
+years_of_employment,0.00080390135
+debt_to_income_ratio,0.00030969264
+groceries_utilities,0.00029508103
+monthly_rent,0.00028747373
+current_emi_amount,0.00023818036
+family_size,9.701152e-05
+employment_type_Self-employed,9.4045936e-05
+emi_scenario_Home Appliances EMI,7.822625e-05
+emi_scenario_Personal Loan EMI,7.7981415e-05
+college_fees,7.713469e-05
+education_Professional,7.22049e-05
+dependents,7.1244875e-05
+employment_type_Private,6.6711225e-05
+emi_scenario_E-commerce Shopping EMI,6.525816e-05
+existing_loans_No,6.50863e-05
+other_monthly_expenses,6.261007e-05
+company_type_Large Enterprise,5.9808477e-05
+house_type_Family,5.8984806e-05
+savings_to_income_ratio,5.5697637e-05
+requested_burden_ratio,5.5235414e-05
+emergency_fund,5.448857e-05
+house_type_Own,5.223447e-05
+education_Graduate,5.047124e-05
+emi_scenario_Education EMI,4.972086e-05
+requested_amount,4.9690887e-05
+emi_scenario_Vehicle EMI,4.901455e-05
+requested_tenure,4.8269412e-05
+bank_balance,4.774854e-05
+company_type_Mid-sized,4.5632427e-05
+requested_monthly_burden,4.5234934e-05
+marital_status_Married,4.366011e-05
+company_type_Startup,4.1573727e-05
+school_fees,3.5817884e-05
+marital_status_Single,3.388568e-05
+gender_Female,3.3493157e-05
+employment_type_Government,2.9441182e-05
+company_type_MNC,2.8810884e-05
+education_Post Graduate,2.6230062e-05
+education_High School,2.4532512e-05
+age,2.2666674e-05
+company_type_Government,2.1434225e-05
+gender_Male,1.313257e-05
+existing_loans_Yes,0.0

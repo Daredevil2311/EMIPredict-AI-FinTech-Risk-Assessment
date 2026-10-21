@@ -1,0 +1,61 @@
+﻿Project Live Evaluation & Mock Interview Schedule
+
+
+
+
+Sl. No
+	Process
+	Timings
+	1
+	Self Introduction 
+	3 Mins
+	2
+	Project Problem Statement and Explanation of the project
+	12 Mins
+
+
+	3
+	Mock : 1-2 Questions from Each technology
+	10 Mins
+	4
+	FeedBack
+	5 Mins
+	
+
+	Total Mins
+	30 Mins
+	
+
+Evaluation Metrics
+
+
+Sl. No
+	Metrics
+	Marks
+	1
+	Code Quality / Data Transformations
+	10
+	2
+	Proper Documentation include git ReadMe/
+Insights or ppt 
+	10
+	3
+	Code Reusability (Modular Programming) /
+DAX Standard
+	10
+	4
+	Presentation 
+	10
+	5
+	Task Accomplishment 
+	10
+	6
+	5 Mock Question 
+	10
+	
+
+	Total Project Marks
+	60
+	
+
+*Average of All this metric should be the  Project Marks added into the ZEN Along with the Comments

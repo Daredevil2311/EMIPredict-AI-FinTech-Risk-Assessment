@@ -1,0 +1,18 @@
+﻿Project Excellence Series: Guided Learning & Problem Solving [Machine learning-Unsupervised learning] [English]
+  
+
+Recording link:   
+
+
+https://drive.google.com/drive/folders/1Clh9XbupfKaHYD_uJfFWrKnVSdnZuCuo?usp=sharing
+
+
+References:  
+
+
+
+
+PPT Link: Recommendation System
+
+
+Colab File: Recommendation_System.ipynb

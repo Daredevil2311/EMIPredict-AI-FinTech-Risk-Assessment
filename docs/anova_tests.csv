@@ -1,0 +1,18 @@
+Feature,Test,F_Statistic,p_value,Statistically_Significant,Interpretation
+age,One-Way ANOVA,0.79,0.45437567587959077,False,Equal group means
+monthly_salary,One-Way ANOVA,254.84,5.124274537431936e-110,True,Significant difference across risk classes
+years_of_employment,One-Way ANOVA,0.08,0.9251969398228718,False,Equal group means
+monthly_rent,One-Way ANOVA,12.58,3.470287494144389e-06,True,Significant difference across risk classes
+family_size,One-Way ANOVA,32.77,6.1738930018016905e-15,True,Significant difference across risk classes
+dependents,One-Way ANOVA,38.02,3.299204420577085e-17,True,Significant difference across risk classes
+school_fees,One-Way ANOVA,24.83,1.699312253826608e-11,True,Significant difference across risk classes
+college_fees,One-Way ANOVA,3.18,0.04170258016737538,True,Significant difference across risk classes
+travel_expenses,One-Way ANOVA,184.34,4.680403557724824e-80,True,Significant difference across risk classes
+groceries_utilities,One-Way ANOVA,176.84,7.398045842976714e-77,True,Significant difference across risk classes
+other_monthly_expenses,One-Way ANOVA,117.66,1.5891287655665645e-51,True,Significant difference across risk classes
+current_emi_amount,One-Way ANOVA,5.73,0.003259456820207311,True,Significant difference across risk classes
+credit_score,One-Way ANOVA,12469.75,0.0,True,Significant difference across risk classes
+bank_balance,One-Way ANOVA,117.94,1.1987922604789468e-51,True,Significant difference across risk classes
+emergency_fund,One-Way ANOVA,110.85,1.3238600063995157e-48,True,Significant difference across risk classes
+requested_amount,One-Way ANOVA,110.58,1.7339848989614604e-48,True,Significant difference across risk classes
+requested_tenure,One-Way ANOVA,18.63,8.278958910051222e-09,True,Significant difference across risk classes

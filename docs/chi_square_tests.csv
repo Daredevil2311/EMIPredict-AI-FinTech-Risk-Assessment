@@ -1,0 +1,9 @@
+Feature,Test,Chi2_Statistic,p_value,Degrees_of_Freedom,Statistically_Significant,Interpretation
+gender,Chi-Square Independence,1.05,0.5902925430439514,2,False,No significant association
+marital_status,Chi-Square Independence,2.09,0.35109323717097046,2,False,No significant association
+education,Chi-Square Independence,6.69,0.3507393194113509,6,False,No significant association
+employment_type,Chi-Square Independence,4.64,0.3266778715891109,4,False,No significant association
+company_type,Chi-Square Independence,3.51,0.8984571951597967,8,False,No significant association
+house_type,Chi-Square Independence,221.25,1.0077596537804945e-46,4,True,Significant association with eligibility
+existing_loans,Chi-Square Independence,164.22,2.188422578481169e-36,2,True,Significant association with eligibility
+emi_scenario,Chi-Square Independence,75.98,3.145310768521081e-13,8,True,Significant association with eligibility

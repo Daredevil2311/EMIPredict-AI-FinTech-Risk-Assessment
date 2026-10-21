@@ -1,0 +1,121 @@
+{
+    "best_classifier": {
+        "name": "XGBoost",
+        "metrics": {
+            "accuracy": 0.9895,
+            "precision_macro": 0.9839892263075628,
+            "recall_macro": 0.9822074500726257,
+            "f1_macro": 0.9830293001521052,
+            "f1_weighted": 0.989473693376888,
+            "roc_auc_ovr": 0.9997699174672272
+        }
+    },
+    "all_classifiers": {
+        "Logistic_Regression": {
+            "accuracy": 0.85975,
+            "precision_macro": 0.807342419746912,
+            "recall_macro": 0.8514550251527412,
+            "f1_macro": 0.8218430718928295,
+            "f1_weighted": 0.8674498345586926,
+            "roc_auc_ovr": 0.9617958348389547
+        },
+        "Random_Forest": {
+            "accuracy": 0.97325,
+            "precision_macro": 0.957441183732374,
+            "recall_macro": 0.9633199792211729,
+            "f1_macro": 0.9600473833453845,
+            "f1_weighted": 0.9732959204567261,
+            "roc_auc_ovr": 0.9982403839251771
+        },
+        "XGBoost": {
+            "accuracy": 0.9895,
+            "precision_macro": 0.9839892263075628,
+            "recall_macro": 0.9822074500726257,
+            "f1_macro": 0.9830293001521052,
+            "f1_weighted": 0.989473693376888,
+            "roc_auc_ovr": 0.9997699174672272
+        }
+    },
+    "best_regressor": {
+        "name": "XGBoost_Regressor",
+        "metrics": {
+            "rmse": 273.9228228364427,
+            "mae": 175.98061793701171,
+            "r2_score": 0.9994355703887146,
+            "mape_percent": 1.7464359734015735
+        }
+    },
+    "all_regressors": {
+        "Linear_Ridge_Regression": {
+            "rmse": 2641.45953530017,
+            "mae": 1846.8297896035635,
+            "r2_score": 0.9475142657798483,
+            "mape_percent": 34.97036042107797
+        },
+        "Random_Forest_Regressor": {
+            "rmse": 294.5983630844481,
+            "mae": 115.25107235098773,
+            "r2_score": 0.999347149093465,
+            "mape_percent": 0.8664730640876549
+        },
+        "XGBoost_Regressor": {
+            "rmse": 273.9228228364427,
+            "mae": 175.98061793701171,
+            "r2_score": 0.9994355703887146,
+            "mape_percent": 1.7464359734015735
+        }
+    },
+    "feature_names": [
+        "age",
+        "monthly_salary",
+        "years_of_employment",
+        "monthly_rent",
+        "family_size",
+        "dependents",
+        "school_fees",
+        "college_fees",
+        "travel_expenses",
+        "groceries_utilities",
+        "other_monthly_expenses",
+        "current_emi_amount",
+        "credit_score",
+        "bank_balance",
+        "emergency_fund",
+        "requested_amount",
+        "requested_tenure",
+        "total_monthly_expenses",
+        "disposable_income",
+        "debt_to_income_ratio",
+        "expense_to_income_ratio",
+        "requested_monthly_burden",
+        "requested_burden_ratio",
+        "savings_to_income_ratio",
+        "financial_health_score",
+        "gender_Female",
+        "gender_Male",
+        "marital_status_Married",
+        "marital_status_Single",
+        "education_Graduate",
+        "education_High School",
+        "education_Post Graduate",
+        "education_Professional",
+        "employment_type_Government",
+        "employment_type_Private",
+        "employment_type_Self-employed",
+        "company_type_Government",
+        "company_type_Large Enterprise",
+        "company_type_MNC",
+        "company_type_Mid-sized",
+        "company_type_Startup",
+        "house_type_Family",
+        "house_type_Own",
+        "house_type_Rented",
+        "existing_loans_No",
+        "existing_loans_Yes",
+        "emi_scenario_E-commerce Shopping EMI",
+        "emi_scenario_Education EMI",
+        "emi_scenario_Home Appliances EMI",
+        "emi_scenario_Personal Loan EMI",
+        "emi_scenario_Vehicle EMI"
+    ]
+}

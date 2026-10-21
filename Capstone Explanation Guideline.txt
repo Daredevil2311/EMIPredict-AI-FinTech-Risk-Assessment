@@ -1,0 +1,37 @@
+﻿Analysis Projects  
+1. Give the intro about the domain : in 3 lines
+2. Give the Introduction about the project: in 2 lines.
+3. Objective of the project: explain it in 2 lines.
+4. ELT Approach (if any)- talk about the process 
+5. Data Migration (if any): explain about the data transfer from MongoDB to SQL
+6. EDA: talk about your findings 
+7. Feature engineering (if any)
+8. Statistical Technique (if any) - talk about the tests – mention the test name and why you choose that. – 1 or 2 lines
+9. Conclusion: summarize the key findings of the project.
+10. Business suggestion/solution
+The explanation should be in 1 or 2 lines. And you should be clear about why did you choose those techniques for your project.
+Text-Extraction Projects
+1. Introduction about the project- explain in 2 lines.
+2. Objective of the project- explain in 2 lines.
+3. Text extraction: Image cleaning, OCR – explain about the process 
+4. Text cleaning – explain about the techniques used
+5.   Data storage- Explain about the process of storing
+6. Conclusion: summarize the key findings of the project.
+7. Business suggestion/solution
+The explanation should be in 1 or 2 lines. And you should be clear about why did you choose those techniques for your project
+Model Building Projects
+   1. Give the intro about the domain : in 3 lines  
+   2. Problem statement – explain in 1 line
+   3. Data cleaning and preprocessing – null value imputation, outliers etc., - just explain what are the techniques you used here.
+   4. EDA – univariate, bivariate, multivariate analysis – talk about your findings in 1 or 2 lines
+   5. Feature engineering (if any)
+   6. Statistical significance – talk about the tests – mention the test name and why you choose that. – 1 or 2 lines
+   7. Class imbalance technique (if any)
+   8. Model building – base model - why did you choose
+   9. Talk about the models that you used in your project – why did you choose those algorithms (hyper parameter tuning – if any)
+   10. Model evaluation metric – why did you choose that metric
+   11. Final model- why did you select that as your final model
+   12. Conclusion – feature importance
+   13. Business suggestion/solution
+  
+The explanation should be in 1 or 2 lines. And you should be clear about why did you choose those techniques for your project
