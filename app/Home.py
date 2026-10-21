@@ -140,7 +140,7 @@ with col1:
     <div class="kpi-card">
         <div class="kpi-num">{acc * 100:.2f}%</div>
         <div class="kpi-label">Classification Accuracy</div>
-        <div class="kpi-delta">▲ +8.95% vs &gt;90% Rubric Goal</div>
+        <div class="kpi-delta">▲ +8.95% vs Industry Standard (&gt;90%)</div>
     </div>
     """, unsafe_allow_html=True)
 

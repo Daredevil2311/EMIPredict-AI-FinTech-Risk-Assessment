@@ -171,7 +171,7 @@ with tabs[1]:
         
         st.markdown("""
         <div class="takeaway-box">
-            <b>💡 Viva Defense Takeaway (Graph 1):</b><br>
+            <b>💡 Executive Risk Insight (Graph 1):</b><br>
             • Vehicle & Personal Loan scenarios show elevated <b>High_Risk</b> proportions (~45%) due to larger ticket sizes.<br>
             • E-commerce & Home Appliances show higher straight-through <b>Eligible</b> rates (~48%) due to lower ticket sizes and shorter tenure.
         </div>
@@ -200,7 +200,7 @@ with tabs[1]:
         
         st.markdown("""
         <div class="takeaway-box">
-            <b>💡 Viva Defense Takeaway (Graph 2):</b><br>
+            <b>💡 Executive Risk Insight (Graph 2):</b><br>
             • Vehicle loans exhibit the highest median principal (~₹4,50,000) with wide IQR spread.<br>
             • Log transformation reveals clear separation across product tiers without outlier distortion.
         </div>
@@ -239,7 +239,7 @@ with tabs[2]:
         
         st.markdown("""
         <div class="takeaway-box">
-            <b>💡 Viva Defense Takeaway (Graph 3):</b><br>
+            <b>💡 Credit Quality Insight (Graph 3):</b><br>
             • Prime <b>Eligible</b> cohort peaks sharply above <b>750 CIBIL</b>.<br>
             • <b>Not_Eligible</b> dominates sub-600 scores; <b>High_Risk</b> clusters in the 600-720 transition zone.
         </div>
@@ -269,7 +269,7 @@ with tabs[2]:
         
         st.markdown("""
         <div class="takeaway-box">
-            <b>💡 Viva Defense Takeaway (Graph 4):</b><br>
+            <b>💡 Capacity Scaling Insight (Graph 4):</b><br>
             • Shows strict linear affordability ceiling: safe EMI never breaches ~30% of gross salary.<br>
             • High credit score (yellow dots) achieves higher safe capacity for identical salary levels.
         </div>

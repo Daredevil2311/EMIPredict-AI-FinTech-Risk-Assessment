@@ -184,17 +184,17 @@ except Exception as e:
     st.stop()
 
 # -------------------------------------------------------------
-# 1-CLICK DEMO PERSONAS
+# PRE-CALIBRATED BORROWER PROFILES
 # -------------------------------------------------------------
-st.markdown("### 🎭 Step 1: Select a Live Demo Persona or Build Custom Profile")
-st.markdown("Choose a pre-calibrated test applicant for viva demonstration, or switch to custom input:")
+st.markdown("### 📋 Step 1: Select a Pre-Calibrated Profile or Enter Custom Application")
+st.markdown("Choose a calibrated retail profile to evaluate instant multi-task underwriting, or enter custom data:")
 
 persona_tabs = st.radio(
-    "Choose Applicant Persona:",
+    "Choose Borrower Profile:",
     [
-        "🌟 Persona 1: Reeva Shah (Prime Salaried • Clean Approval • RECOMMENDED FOR DEMO)",
-        "⚠️ Persona 2: Priya Patel (Marginal Subprime • High Living Costs • Conditional Offer)",
-        "🛑 Persona 3: Vikram Singh (Over-leveraged • High Debt Burden • Automated Decline)",
+        "🌟 Profile 1: Reeva Shah (Prime Salaried • Clean Approval)",
+        "⚠️ Profile 2: Priya Patel (Marginal Subprime • Conditional Offer)",
+        "🛑 Profile 3: Vikram Singh (Over-leveraged • Automated Decline)",
         "⚙️ Custom Applicant (Manual Adjustment)"
     ],
     index=0
@@ -203,7 +203,7 @@ preset_choice = persona_tabs
 
 # Preset Dictionaries
 presets = {
-    "🌟 Persona 1: Reeva Shah (Prime Salaried • Clean Approval • RECOMMENDED FOR DEMO)": {
+    "🌟 Profile 1: Reeva Shah (Prime Salaried • Clean Approval)": {
         "age": 34, "gender": "Female", "marital_status": "Married", "education": "Post Graduate",
         "monthly_salary": 95000.0, "employment_type": "Private", "years_of_employment": 8.0,
         "company_type": "MNC", "house_type": "Own", "monthly_rent": 0.0, "family_size": 3,
@@ -214,7 +214,7 @@ presets = {
         "requested_tenure": 48,
         "desc": "Senior software engineer with strong disposable surplus, 780 CIBIL, low 8.42% DTI, and ₹2 Lakhs liquid emergency reserve."
     },
-    "⚠️ Persona 2: Priya Patel (Marginal Subprime • High Living Costs • Conditional Offer)": {
+    "⚠️ Profile 2: Priya Patel (Marginal Subprime • Conditional Offer)": {
         "age": 28, "gender": "Female", "marital_status": "Single", "education": "Graduate",
         "monthly_salary": 42000.0, "employment_type": "Private", "years_of_employment": 3.0,
         "company_type": "Startup", "house_type": "Rented", "monthly_rent": 12000.0, "family_size": 2,
@@ -225,7 +225,7 @@ presets = {
         "requested_tenure": 36,
         "desc": "Early-career professional paying rent, existing debt eating 17.8% of salary, modest 620 credit score, tight ₹13k surplus."
     },
-    "🛑 Persona 3: Vikram Singh (Over-leveraged • High Debt Burden • Automated Decline)": {
+    "🛑 Profile 3: Vikram Singh (Over-leveraged • Automated Decline)": {
         "age": 45, "gender": "Male", "marital_status": "Married", "education": "High School",
         "monthly_salary": 30000.0, "employment_type": "Self-employed", "years_of_employment": 5.0,
         "company_type": "Startup", "house_type": "Rented", "monthly_rent": 10000.0, "family_size": 5,
@@ -238,7 +238,7 @@ presets = {
     }
 }
 
-p = presets.get(persona_tabs, presets["🌟 Persona 1: Reeva Shah (Prime Salaried • Clean Approval • RECOMMENDED FOR DEMO)"])
+p = presets.get(persona_tabs, presets["🌟 Profile 1: Reeva Shah (Prime Salaried • Clean Approval)"])
 
 # Persona Quick Summary Pill
 if persona_tabs != "⚙️ Custom Applicant (Manual Adjustment)":
@@ -533,9 +533,9 @@ if submit_btn:
     # ---------------------------------------------------------
     # DEEP DIVE TABS
     # ---------------------------------------------------------
-    tab_audit, tab_defense, tab_whatif = st.tabs([
+    tab_audit, tab_portfolio, tab_whatif = st.tabs([
         "🛡️ 1. Underwriter Audit & Risk Code Breakdown",
-        "📊 2. Evaluator Defense Cross-Reference (The 10 Project Graphs)",
+        "📊 2. Portfolio Risk & Macro Distribution Mapping",
         "🎛️ 3. Live What-If Sensitivity Sandbox"
     ])
     
@@ -578,22 +578,23 @@ if submit_btn:
                 - Pre-qualify applicant for optional credit line up to maximum safe capacity.
                 """)
 
-    with tab_defense:
-        st.markdown("##### 🎯 Non-Generalized Graph Mapping: Connecting This Profile to All Project Charts")
+    with tab_portfolio:
+        st.markdown("##### 🎯 Macro Portfolio Mapping: Where This Applicant Sits in the Dataset")
+        applicant_label = preset_choice.split(':')[1].split('(')[0].strip() if ':' in preset_choice else 'the Applicant'
         st.markdown(f"""
-        During your viva defense, use this exact mapping table to explain to the evaluators how **{preset_choice.split(':')[1].split('(')[0].strip() if ':' in preset_choice else 'the Applicant'}** directly maps to the project's analytical visualizations:
+        Empirical distribution alignment showing how **{applicant_label}** compares against historical borrower cohorts across all analytical dimensions:
         """)
         
         mapping_data = [
-            {"Graph #": "Graph 1", "Chart Name": "Scenario Stacked Bar", "Applicant's Exact Value": f"{emi_scenario} (DTI {dti:.1f}%)", "Viva Defense Explanation": f"Applicant applies for {emi_scenario}. In the dataset, {emi_scenario} has 45% High-Risk rate, but this applicant's DTI of {dti:.1f}% routes them to the {eligibility} cohort."},
-            {"Graph #": "Graph 2", "Chart Name": "Loan Amount Box Plot", "Applicant's Exact Value": f"₹{requested_amount:,.0f}", "Viva Defense Explanation": f"Requested amount sits squarely {'within the median IQR box (₹1.5L-₹8L)' if requested_amount <= 800000 else 'in the upper quartile'}, avoiding extreme outlier skew."},
-            {"Graph #": "Graph 3", "Chart Name": "Credit Score KDE Density", "Applicant's Exact Value": f"{credit_score} CIBIL", "Viva Defense Explanation": f"Maps to the {'green Prime density apex (>750)' if credit_score >= 750 else 'amber transition band (600-750)' if credit_score >= 600 else 'red default peak (<600)'} with <0.5% default probability."},
-            {"Graph #": "Graph 4", "Chart Name": "Salary vs EMI Scatter", "Applicant's Exact Value": f"(₹{monthly_salary/1000:.0f}K, ₹{safe_emi/1000:.1f}K)", "Viva Defense Explanation": f"Coordinates map to the {'upper affordability frontier' if safe_emi >= 10000 else 'conservative lower boundary'}, proving capacity scales with net surplus."},
-            {"Graph #": "Graph 5", "Chart Name": "Correlation Heatmap", "Applicant's Exact Value": f"FCF = ₹{fcf:,.0f} (r = +0.92)", "Viva Defense Explanation": "Discretionary cash flow is the #1 linear driver of safe EMI capacity in Pearson correlation."},
-            {"Graph #": "Graph 6", "Chart Name": "Confusion Matrix", "Applicant's Exact Value": f"Predicted: {eligibility}", "Viva Defense Explanation": f"Sits in the True {eligibility} diagonal quadrant. XGBoost achieves 98.95% accuracy with 0.00% default misclassification."},
-            {"Graph #": "Graph 7", "Chart Name": "Classifier Feature Importance", "Applicant's Exact Value": f"DTI {dti:.1f}% (#1 feature)", "Viva Defense Explanation": "DTI carries 28% feature importance gain, immediately directing the decision tree."},
-            {"Graph #": "Graph 8", "Chart Name": "Parity Plot (45° line)", "Applicant's Exact Value": f"Safe EMI ₹{safe_emi:,.0f}", "Viva Defense Explanation": f"Tightly hugs the 45° diagonal with <1.7% error margin, matching the test set RMSE of ₹273.92."},
-            {"Graph #": "Graph 9", "Chart Name": "Regressor Feature Importance", "Applicant's Exact Value": f"FCF ₹{fcf:,.0f} (#1 feature)", "Viva Defense Explanation": "Surplus cash flow carries 35% gain in sizing the rupee safe installment without overburdening."}
+            {"Graph #": "Distribution 1", "Portfolio Metric": "Scenario Breakdown", "Applicant's Exact Value": f"{emi_scenario} (DTI {dti:.1f}%)", "Risk & Statistical Rationale": f"Applicant applies for {emi_scenario}. In the historical portfolio, {emi_scenario} carries a 45% High-Risk rate, but this applicant's DTI of {dti:.1f}% places them in the {eligibility} tier."},
+            {"Graph #": "Distribution 2", "Portfolio Metric": "Requested Loan Principal", "Applicant's Exact Value": f"₹{requested_amount:,.0f}", "Risk & Statistical Rationale": f"Requested loan amount sits squarely {'within the median IQR box (₹1.5L-₹8L)' if requested_amount <= 800000 else 'in the upper quartile'}, avoiding unhedged balance sheet exposure."},
+            {"Graph #": "Distribution 3", "Portfolio Metric": "Credit Bureau Score", "Applicant's Exact Value": f"{credit_score} CIBIL", "Risk & Statistical Rationale": f"CIBIL rating of {credit_score} maps to the {'green Prime density apex (>750)' if credit_score >= 750 else 'amber transition band (600-750)' if credit_score >= 600 else 'red default peak (<600)'} with <0.5% default probability."},
+            {"Graph #": "Distribution 4", "Portfolio Metric": "Income vs EMI Frontier", "Applicant's Exact Value": f"(₹{monthly_salary/1000:.0f}K, ₹{safe_emi/1000:.1f}K)", "Risk & Statistical Rationale": f"Coordinates map to the {'upper affordability frontier' if safe_emi >= 10000 else 'conservative lower boundary'}, proving capacity scales with net liquid surplus."},
+            {"Graph #": "Distribution 5", "Portfolio Metric": "Feature Correlation", "Applicant's Exact Value": f"FCF = ₹{fcf:,.0f} (r = +0.92)", "Risk & Statistical Rationale": "Discretionary cash flow correlates at r = +0.92 with repayment capacity, acting as the primary liquidity driver."},
+            {"Graph #": "Distribution 6", "Portfolio Metric": "Model Classification Matrix", "Applicant's Exact Value": f"Predicted: {eligibility}", "Risk & Statistical Rationale": f"Predicted as {eligibility}. Production XGBoost engine maintains 98.95% overall accuracy with 0.00% critical default misclassification."},
+            {"Graph #": "Distribution 7", "Portfolio Metric": "Classifier Feature Weights", "Applicant's Exact Value": f"DTI {dti:.1f}% (#1 feature)", "Risk & Statistical Rationale": "Debt-to-Income (DTI) carries 28% feature importance gain, acting as the primary gating metric."},
+            {"Graph #": "Distribution 8", "Portfolio Metric": "45° Regression Parity", "Applicant's Exact Value": f"Safe EMI ₹{safe_emi:,.0f}", "Risk & Statistical Rationale": f"Predicted safe EMI of ₹{safe_emi:,.0f} aligns with the 45° parity line within a tight RMSE margin of ₹273.92."},
+            {"Graph #": "Distribution 9", "Portfolio Metric": "Regressor Feature Weights", "Applicant's Exact Value": f"FCF ₹{fcf:,.0f} (#1 feature)", "Risk & Statistical Rationale": "Surplus cash flow carries 35% gain in sizing the exact rupee safe installment without overburdening."}
         ]
         st.dataframe(pd.DataFrame(mapping_data), hide_index=True, use_container_width=True)
 

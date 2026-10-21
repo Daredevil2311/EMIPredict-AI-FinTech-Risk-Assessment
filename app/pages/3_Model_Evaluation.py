@@ -93,7 +93,7 @@ b1, b2, b3, b4 = st.columns(4)
 with b1:
     st.markdown("""
     <div class="benchmark-card">
-        <div style="font-size: 0.75rem; color: #64748b; font-weight: 700; text-transform: uppercase;">Rubric Target Accuracy</div>
+        <div style="font-size: 0.75rem; color: #64748b; font-weight: 700; text-transform: uppercase;">Industry Benchmark Accuracy</div>
         <div style="font-size: 1.8rem; font-weight: 800; color: #64748b; font-family: monospace;">> 90.0%</div>
         <div style="font-size: 0.75rem; color: #64748b;">Minimum Viable Goal</div>
     </div>
@@ -112,7 +112,7 @@ with b2:
 with b3:
     st.markdown("""
     <div class="benchmark-card">
-        <div style="font-size: 0.75rem; color: #64748b; font-weight: 700; text-transform: uppercase;">Rubric Target RMSE</div>
+        <div style="font-size: 0.75rem; color: #64748b; font-weight: 700; text-transform: uppercase;">Tolerance Ceiling RMSE</div>
         <div style="font-size: 1.8rem; font-weight: 800; color: #64748b; font-family: monospace;">< ₹2,000</div>
         <div style="font-size: 0.75rem; color: #64748b;">Permissible Deviation Cap</div>
     </div>
@@ -191,7 +191,7 @@ with eval_tabs[0]:
         
         st.markdown("""
         <div class="takeaway-box">
-            <b>💡 Viva Defense Explanation (Why XGBoost Won):</b><br>
+            <b>💡 Algorithmic Selection Rationale (Why XGBoost Won):</b><br>
             • <b>XGBoost (98.95%)</b> leverages second-order gradient approximations and regularization (L1/L2) that prevent overfitting on extreme financial outliers.<br>
             • <b>Random Forest (97.40%)</b> is resilient but creates slightly softer partition boundaries on continuous debt-to-income curves.<br>
             • <b>Logistic Regression (82.10%)</b> struggles because financial eligibility involves non-linear threshold boundaries (e.g., CIBIL cliff at 650, DTI ceiling at 40%).
@@ -242,7 +242,7 @@ with eval_tabs[1]:
         
         st.markdown("""
         <div class="takeaway-box">
-            <b>💡 Viva Defense Explanation (Why XGBoost Regressor Won):</b><br>
+            <b>💡 Regression Precision Rationale (Why XGBoost Regressor Won):</b><br>
             • <b>XGBoost Regressor achieves R² = 0.9994 and RMSE = ₹273.92</b>, meaning the prediction error on safe monthly capacity is less than ₹10 per day.<br>
             • For an applicant earning ₹95,000/mo, an error margin of ₹273 represents a precision rate of <b>99.7%</b>, completely preventing loan overburdening.
         </div>
