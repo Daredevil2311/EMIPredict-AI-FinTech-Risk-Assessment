@@ -19,26 +19,26 @@ st.set_page_config(
 # Custom Styling
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap');
     
     html, body, [class*="css"] {
         font-family: 'Inter', sans-serif;
     }
 
     .hero-banner {
-        background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
-        padding: 2.2rem 2.4rem;
-        border-radius: 20px;
+        background: linear-gradient(135deg, #090d16 0%, #1e1b4b 50%, #0f172a 100%);
+        padding: 2.5rem 2.8rem;
+        border-radius: 22px;
         color: white;
         margin-bottom: 2rem;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow: 0 14px 40px -10px rgba(0, 0, 0, 0.45);
     }
     .hero-title {
-        font-size: 2.4rem;
-        font-weight: 800;
+        font-size: 2.6rem;
+        font-weight: 900;
         letter-spacing: -0.03em;
-        background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+        background: linear-gradient(90deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         margin-bottom: 0.4rem;
@@ -46,7 +46,7 @@ st.markdown("""
     .hero-subtitle {
         font-size: 1.05rem;
         color: #cbd5e1;
-        max-width: 800px;
+        max-width: 860px;
         line-height: 1.6;
     }
     .status-pill {
@@ -57,9 +57,9 @@ st.markdown("""
         border-radius: 9999px;
         font-size: 0.75rem;
         font-weight: 700;
-        background: rgba(16, 185, 129, 0.15);
+        background: rgba(16, 185, 129, 0.16);
         color: #34d399;
-        border: 1px solid rgba(16, 185, 129, 0.3);
+        border: 1px solid rgba(16, 185, 129, 0.35);
         margin-bottom: 1rem;
     }
     .pulse-dot {
@@ -72,20 +72,20 @@ st.markdown("""
     .kpi-card {
         background: white;
         border: 1px solid #e2e8f0;
-        border-radius: 16px;
-        padding: 1.4rem 1.2rem;
-        box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.05);
+        border-radius: 18px;
+        padding: 1.5rem 1.3rem;
         text-align: center;
+        box-shadow: 0 4px 18px -3px rgba(0, 0, 0, 0.05);
         transition: all 0.3s ease;
     }
     .kpi-card:hover {
         transform: translateY(-4px);
-        box-shadow: 0 12px 25px -5px rgba(37, 99, 235, 0.12);
+        box-shadow: 0 12px 25px -5px rgba(37, 99, 235, 0.14);
         border-color: #93c5fd;
     }
     .kpi-num {
-        font-size: 2.2rem;
-        font-weight: 800;
+        font-size: 2.3rem;
+        font-weight: 900;
         color: #1e3a8a;
         font-family: 'JetBrains Mono', monospace;
         letter-spacing: -0.02em;
@@ -96,13 +96,24 @@ st.markdown("""
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        margin-top: 0.2rem;
+        margin-top: 0.25rem;
     }
     .kpi-delta {
-        font-size: 0.75rem;
+        font-size: 0.78rem;
         color: #059669;
-        font-weight: 600;
-        margin-top: 0.3rem;
+        font-weight: 700;
+        margin-top: 0.35rem;
+    }
+    .persona-preview-box {
+        background: white;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        padding: 1.3rem;
+        transition: all 0.25s ease;
+    }
+    .persona-preview-box:hover {
+        border-color: #38bdf8;
+        box-shadow: 0 8px 20px -4px rgba(56, 189, 248, 0.15);
     }
 </style>
 """, unsafe_allow_html=True)
@@ -172,30 +183,85 @@ with col4:
     </div>
     """, unsafe_allow_html=True)
 
-st.markdown("---")
+st.markdown("<br>", unsafe_allow_html=True)
+
+# -------------------------------------------------------------
+# QUICK DEMO PERSONAS PREVIEW
+# -------------------------------------------------------------
+st.markdown("### 🎭 Ready-to-Test Applicant Profiles (Viva Demonstration)")
+st.markdown("Experience instant real-time risk decisioning in the [**Predict EMI Studio**](Predict_EMI) with these 3 calibrated personas:")
+
+p1, p2, p3 = st.columns(3)
+
+with p1:
+    st.markdown("""
+    <div class="persona-preview-box" style="border-top: 4px solid #10b981;">
+        <div style="font-size: 1.1rem; font-weight: 800; color: #065f46;">🌟 Persona 1: Rohan Sharma</div>
+        <div style="font-size: 0.8rem; font-weight: 700; color: #10b981; margin-bottom: 0.5rem;">TIER 1 • PRIME BORROWER</div>
+        <div style="font-size: 0.85rem; color: #475569; line-height: 1.5;">
+            • <b>Income:</b> ₹95,000/mo (MNC Lead)<br>
+            • <b>CIBIL Rating:</b> 780 (Prime Apex)<br>
+            • <b>DTI Ratio:</b> 8.42% (&lt;40% Cap)<br>
+            • <b>Free Cash Flow:</b> ₹59,000/mo<br>
+            • <b>Decision:</b> ✅ <b>Straight-Through Approval</b> (₹15,996 Safe EMI vs ₹10,416 Requested)
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+with p2:
+    st.markdown("""
+    <div class="persona-preview-box" style="border-top: 4px solid #f59e0b;">
+        <div style="font-size: 1.1rem; font-weight: 800; color: #92400e;">⚠️ Persona 2: Priya Patel</div>
+        <div style="font-size: 0.8rem; font-weight: 700; color: #f59e0b; margin-bottom: 0.5rem;">TIER 2 • CONDITIONAL RESTRUCTURE</div>
+        <div style="font-size: 0.85rem; color: #475569; line-height: 1.5;">
+            • <b>Income:</b> ₹42,000/mo (Startup Dev)<br>
+            • <b>CIBIL Rating:</b> 620 (Near-Prime)<br>
+            • <b>DTI Ratio:</b> 17.86% (Elevated)<br>
+            • <b>Free Cash Flow:</b> ₹13,500/mo<br>
+            • <b>Decision:</b> ⚠️ <b>Conditional Offer</b> (Safe EMI ₹4,820, tenure extension advised)
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+with p3:
+    st.markdown("""
+    <div class="persona-preview-box" style="border-top: 4px solid #ef4444;">
+        <div style="font-size: 1.1rem; font-weight: 800; color: #991b1b;">🛑 Persona 3: Vikram Singh</div>
+        <div style="font-size: 0.8rem; font-weight: 700; color: #ef4444; margin-bottom: 0.5rem;">TIER 3 • SUBPRIME / DECLINE</div>
+        <div style="font-size: 0.85rem; color: #475569; line-height: 1.5;">
+            • <b>Income:</b> ₹30,000/mo (Self-Employed)<br>
+            • <b>CIBIL Rating:</b> 510 (Subprime Floor)<br>
+            • <b>DTI Ratio:</b> 30.00% (High Debt)<br>
+            • <b>Free Cash Flow:</b> -₹14,500/mo (Deficit)<br>
+            • <b>Decision:</b> 🛑 <b>Automated Decline</b> (Critical leverage breach)
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+st.markdown("<br>", unsafe_allow_html=True)
 
 # Architecture & Overview
 left_col, right_col = st.columns([3, 2])
 
 with left_col:
-    st.subheader("🎯 Problem Statement & Objective")
+    st.subheader("🎯 Core Problem Statement & Solution")
     st.markdown("""
-    In contemporary lending, defaults and non-performing assets (NPAs) predominantly stem from **inadequate financial capacity modeling** and **rigid, static rule-based checks**. Borrowers frequently over-leverage across multiple consumer credit lines without visibility into their aggregate monthly debt burden.
+    In contemporary retail banking, loan defaults and NPAs predominantly arise from **inadequate financial capacity modeling** and **inflexible, static rule-based checks**. Borrowers frequently over-leverage across multiple consumer credit lines without lenders having clear visibility into their aggregate monthly debt burden.
     
-    **EMIPredict AI** solves this critical challenge via a **Dual-Task Machine Learning Architecture**:
+    **EMIPredict AI** solves this critical challenge via an integrated **Dual-Task Machine Learning Architecture**:
     1. **Multi-Class Eligibility Classification**: Accurately categorizes applicants into **`Eligible`** (Prime), **`High_Risk`** (Subprime/Marginal), and **`Not_Eligible`** (High Risk).
     2. **Continuous Maximum Safe EMI Regression**: Predicts the exact, safe maximum monthly debt repayment capacity (₹500 to ₹50,000) using 22 financial, demographic, and behavioral features.
     3. **Full Lifecycle Governance**: Integrated with **MLflow** experiment tracking and continuous model registry for complete regulatory auditability.
     """)
     
-    st.subheader("📐 System Architecture")
+    st.subheader("📐 Production Pipeline Architecture")
     st.info("""
     **Data Ingestion** (400,000 Records across 5 Lending Scenarios) ➔  
     **Preprocessing & Outlier Treatment** (IQR Capping + Standard Scaling + One-Hot Encoding) ➔  
     **Domain Feature Engineering** (DTI, ETI, Disposable Cash Flow, Financial Health Score) ➔  
     **Hypothesis Testing** (Chi-Square Independence + ANOVA + Pearson/Spearman Correlations) ➔  
     **Dual ML Model Training & Selection** (Logistic Regression, Random Forest, XGBoost) ➔  
-    **MLflow Tracking & Model Registry** ➔ **Streamlit Web Application**
+    **MLflow Tracking & Model Registry** ➔ **Interactive Streamlit Web Suite**
     """)
 
 with right_col:
@@ -209,12 +275,12 @@ with right_col:
     ])
     st.dataframe(scenario_data, hide_index=True, use_container_width=True)
     
-    st.subheader("🚀 Quick Navigation")
+    st.subheader("🚀 Platform Modules")
     st.markdown("""
-    - 👉 **[Predict EMI](Predict_EMI)**: Run instant real-time risk assessment and loan qualification.
-    - 📊 **[EDA & Visual Insights](EDA_Insights)**: Explore scenario trends, correlations, and distributions.
-    - 🧪 **[Model Evaluation & MLflow](Model_Evaluation)**: Inspect model leaderboards, ROC curves, and metrics.
+    - 👉 **[Predict EMI Studio](Predict_EMI)**: Live Underwriting Studio with Plotly gauges, waterfalls & what-if sensitivity.
+    - 📊 **[EDA & Visual Insights](EDA_Insights)**: Interactive distributions, scenario analysis & statistical tests.
+    - 🧪 **[Model Evaluation & MLflow](Model_Evaluation)**: Audit leaderboard, comparative benchmarks & registry artifacts.
     - 📂 **[Data Management](Manage_Data)**: Administrative interface with complete CRUD operations.
     """)
 
-st.caption("EMIPredict AI Platform • FinTech Risk Engineering • Built with Python, Scikit-Learn, XGBoost, MLflow & Streamlit")
+st.caption("EMIPredict AI Platform • FinTech Risk Engineering • Built with Python, Scikit-Learn, XGBoost, MLflow, Plotly & Streamlit")
