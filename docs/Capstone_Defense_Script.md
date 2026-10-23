@@ -1,26 +1,43 @@
 # Capstone Project Presentation & Live Defense Script
 ## EMIPredict AI - Intelligent Financial Risk Assessment Platform
-*Calibrated for the Mentor-Instructed 17 to 20-Minute Master Video Presentation (Target: 18 Minutes 30 Seconds).*
+*Mentor-Calibrated 17 to 20-Minute Master Video Presentation & Operational Task Playbook (Target: 18m 30s).*
 
 ---
 
-## 🎥 Master Video Presentation Schedule (17 to 20 Minutes)
+## 🚀 Pre-Recording Preparation Checklist (Do Before Hitting Record)
+- [ ] **Task P1: Launch Streamlit Web App:** Run `streamlit run app/Home.py` in PowerShell. Verify running on `http://localhost:8501`.
+- [ ] **Task P2: Pre-Open 10 Core Files in VS Code:** Open tabs for `config.py`, `data_loader.py`, `feature_engineering.py`, `preprocessing.py`, `statistical_tests.py`, `classification_models.py`, `regression_models.py`, `mlflow_utils.py`, `pipeline.py`, and `predict.py`.
+- [ ] **Task P3: Set Display Zoom Levels:** In VS Code press `Ctrl + +` to zoom to 120% for sharp line readability on 1080p recording. In browser set zoom to 100%.
+- [ ] **Task P4: Audio & Mic Check:** Test microphone levels in your recording tool (OBS / Loom / Windows Game Bar `Win + Alt + R`). Confirm audio is clear with zero background echo.
+- [ ] **Task P5: Timer Ready:** Set timer for 18:30 (within the strict 17:00 to 20:00 range).
 
-| Part | Section | Time Allocation | Cumulative | Screen Action / Visual Cue | Core Speaking Focus |
+---
+
+## 🎥 Master Video Presentation Schedule: Tasks To Be Done + Spoken Script
+
+| Part | Section | Time Allocation | Cumulative | Physical Screen / On-Screen Tasks | Spoken Speaking Target |
 | :---: | :--- | :---: | :---: | :--- | :--- |
-| **1** | **Why & Problem Statement** | **2.5 Min** | 00:00 – 02:30 | Webcam / Title Slide | Retail credit boom, 2 Fatal Flaws (Salary Multiple Fallacy, Multi-line Credit Blindness), & Dual-Task solution. |
-| **2** | **VS Code File-by-File Tour** | **3.0 Min** | 02:30 – 05:30 | VS Code File Tree | Highlight all 10 core files (`config`, `data_loader`, `feature_engineering`, `preprocessing`, `statistical_tests`, `classification`, `regression`, `mlflow`, `pipeline`, `predict`, `app/`). |
-| **3** | **5 Core Code Logics Breakdown** | **3.5 Min** | 05:30 – 09:00 | VS Code Code Lines | Line-by-line breakdown: Split-Before-Fit leakage, Outlier capper, DTI & Health score math, XGBoost Taylor params, Dual inference. |
-| **4** | **Scientific Hypothesis Testing** | **2.0 Min** | 09:00 – 11:00 | Test CSVs / EDA Page | Chi-Square ($p < 0.001$), One-Way ANOVA ($F > 450$), Pearson & Spearman correlations ($r > 0.88$). |
-| **5** | **Model Tournament & Results** | **3.0 Min** | 11:00 – 14:00 | Confusion Matrix & Parity Plot | 98.95% accuracy, ₹273.92 RMSE, 0.00% Eligible vs Ineligible error, homoscedastic residuals, Gini feature gain. |
-| **6** | **Live Streamlit App Demo** | **2.75 Min** | 14:00 – 16:45 | Browser (Streamlit App) | 3 Personas (Reeva Shah, Priya Patel, Vikram Singh), Plotly gauges, Waterfall cash flow, and What-If sandbox. |
-| **7** | **Future Expansion Roadmap & Closing** | **1.75 Min** | 16:45 – 18:30 | Architecture Diagram / Webcam | 4 Pillars: Account Aggregator (AA), Explainable AI (SHAP/LIME), Kafka/FastAPI streaming, Evidently AI MLOps drift. |
+| **1** | **Why & Problem Statement** | **2.5 Min** | 00:00 – 02:30 | Webcam / Title Slide | 2 Fatal Flaws (Salary Multiple Fallacy, Multi-line Credit Blindness) & Dual-Task solution. |
+| **2** | **VS Code File-by-File Tour** | **3.0 Min** | 02:30 – 05:30 | Click 10 file tabs in VS Code | Show and explain what each specific file does across all modules. |
+| **3** | **5 Core Code Logics Breakdown** | **3.5 Min** | 05:30 – 09:00 | Highlight exact line numbers | Explain: Split-before-fit, Outlier capper zero floor, DTI & Health score math, XGBoost Taylor params, Dual inference. |
+| **4** | **Scientific Hypothesis Testing** | **2.0 Min** | 09:00 – 11:00 | Show test CSVs / EDA page | Chi-Square ($p < 0.001$), ANOVA ($F > 450$), Pearson ($r = +0.92$). |
+| **5** | **Model Tournament & Results** | **3.0 Min** | 11:00 – 14:00 | Show Confusion Matrix & Parity plot | 98.95% accuracy, ₹273.92 RMSE, 0.00% Eligible vs Ineligible error, homoscedastic residuals. |
+| **6** | **Live Streamlit App Demo** | **2.75 Min** | 14:00 – 16:45 | Browser at `localhost:8501` | Click Reeva Shah ➔ Underwrite ➔ Plotly gauges ➔ Waterfall cash flow ➔ Priya & Vikram contrast. |
+| **7** | **Future Expansion Roadmap & Closing** | **1.75 Min** | 16:45 – 18:30 | Architecture graphic / Webcam | 4 Pillars: Account Aggregator, SHAP/LIME, Kafka/FastAPI streaming, Evidently AI drift. |
 
 ---
 
-### Part 1: Why Am I Doing This Project & The Problem Statement (00:00 – 02:30 | 2.5 Min)
-> **[SCREEN ACTION: Start with your webcam on screen or project title slide in fullscreen. Speak with energy, authority, and enterprise presence.]**
->
+### Part 1: Why Am I Doing This Project & Problem Statement (00:00 – 02:30 | 2.5 Min)
+
+#### 🛠️ Tasks To Be Done (On-Screen Actions)
+- [ ] **Task 1.1:** Start recording software (OBS / Loom / Windows Game Bar) and start stopwatch/timer.
+- [ ] **Task 1.2:** Position webcam in top corner or fullscreen. Look directly into camera lens.
+- [ ] **Task 1.3:** Display title slide or EMIPredict AI header banner.
+- [ ] **Task 1.4:** Use hand gestures to emphasize the two fatal flaws (Gross Salary Multiple vs Living Costs).
+- [ ] **Task 1.5:** Announce core results: **98.95% accuracy** and **₹273.92 RMSE**.
+- [ ] **Task 1.6:** Time Checkpoint: Finish Part 1 right at **02:30** before pressing `Alt + Tab` to VS Code.
+
+#### 🗣️ What To Say Aloud (Word-for-Word Script)
 > *"Good day, respected evaluators and mentor. My name is Devansh. Today, I am proud to present **EMIPredict AI**, an enterprise-grade financial risk assessment and dual-target loan underwriting intelligence platform built for modern retail banks and FinTech lenders.
 >
 > **Why am I doing this project?**
@@ -39,70 +56,76 @@
 
 ---
 
-### Part 2: Codebase Tour in VS Code — Showing Files & Module Architecture (02:30 – 05:30 | 3.0 Min)
-> **[SCREEN ACTION: Switch screen sharing to VS Code. Open the file explorer sidebar on the left showing `src/` and `app/`. Click into each file as you introduce it.]**
->
+### Part 2: VS Code File-by-File Tour (02:30 – 05:30 | 3.0 Min)
+
+#### 🛠️ Tasks To Be Done (On-Screen Actions)
+- [ ] **Task 2.1:** Press `Alt + Tab` to transition smoothly to VS Code. Show explorer sidebar on left.
+- [ ] **Task 2.2:** Click tab `src/config.py`. Scroll to highlight lines 24–64 (features) and lines 69–96 (benchmarks).
+- [ ] **Task 2.3:** Click tab `src/data_loader.py`. Scroll to `split_data()` (lines 175–200).
+- [ ] **Task 2.4:** Click tab `src/feature_engineering.py`. Point out `compute_financial_features()`.
+- [ ] **Task 2.5:** Click tab `src/preprocessing.py`. Show `OutlierCapper` (lines 34–66) & `ColumnTransformer`.
+- [ ] **Task 2.6:** Click tab `src/statistical_tests.py`. Show Chi-Square, ANOVA, and Correlation functions.
+- [ ] **Task 2.7:** Click tabs `classification_models.py` & `regression_models.py`.
+- [ ] **Task 2.8:** Click tab `src/mlflow_utils.py`. Highlight line 21: `sqlite:///mlflow.db`.
+- [ ] **Task 2.9:** Click tabs `pipeline.py` & `predict.py` (dual inference engine).
+- [ ] **Task 2.10:** Expand `app/` folder in explorer: show `Home.py` and the 4 page modules.
+- [ ] **Task 2.11:** Time Checkpoint: Conclude codebase tour at the **05:30** mark.
+
+#### 🗣️ What To Say Aloud (Word-for-Word Script)
 > *"Now, let us examine the engineering structure of the project inside VS Code. As you can see in the explorer tree, the codebase is architected into modular, production-ready Python packages under `src/`, complemented by our interactive multi-page Streamlit application under `app/`. Let me show you what each specific file does:
 >
-> 1. **`src/config.py`:** [Click into `config.py`, highlight lines 24–64 and lines 69–96]
->    This file is our centralized configuration nerve center. It defines absolute project paths, the schemas for our 17 raw numerical features and 8 categorical features, the target definitions, our class mapping dictionary (Eligible = 0, High_Risk = 1, Not_Eligible = 2), and our strict capstone benchmarks—requiring over 90% classification accuracy and an RMSE under ₹2,000.
->
-> 2. **`src/data_loader.py`:** [Click into `data_loader.py`, highlight `split_data()` lines 175–200]
->    This module handles data ingestion and validation. If the full 400K dataset is downloaded, it stages it into `data/raw/`. Furthermore, it contains our `split_data()` function, which performs stratified Train/Validation/Test splitting—70% for training, 10% for validation, and 20% for final test evaluation—guaranteeing zero data leakage.
->
-> 3. **`src/feature_engineering.py`:** [Click into `feature_engineering.py`, highlight lines 40–77]
->    This is the heart of our domain intelligence. Rather than feeding raw unnormalized numbers into an algorithm, this module calculates real-world financial ratios: unencumbered disposable cash flow, Debt-to-Income (DTI), Expense-to-Income (ETI), Requested Monthly Burden, and our calibrated 0–100 Composite Financial Health Score.
->
-> 4. **`src/preprocessing.py`:** [Click into `preprocessing.py`, highlight lines 34–66 and lines 68–95]
->    Here we construct our production Scikit-Learn `ColumnTransformer`. It includes our custom `OutlierCapper`, which applies IQR Winsorization with strict non-negativity floors, alongside median imputers, `StandardScaler` for continuous variables, and `OneHotEncoder` with unknown category handling for categoricals.
->
-> 5. **`src/statistical_tests.py`:** [Click into `statistical_tests.py`, highlight lines 19–64]
->    This module implements our hypothesis testing battery using SciPy. It runs Chi-Square tests of independence for categorical variables, One-Way ANOVA tests across eligibility risk tiers, and Pearson/Spearman correlations against safe EMI capacity.
->
-> 6. **`src/classification_models.py` & `src/regression_models.py`:** [Click into both files]
->    These two modules define and benchmark our candidate model suites: Logistic Regression, Random Forest Classifier, and XGBoost Classifier for multi-class risk; and Linear Ridge, Random Forest Regressor, and XGBoost Regressor for continuous EMI capacity.
->
-> 7. **`src/mlflow_utils.py`:** [Click into `mlflow_utils.py`, highlight lines 20–70]
->    This file encapsulates enterprise MLOps. It connects to an SQLite database tracking URI (`sqlite:///mlflow.db`), logging parameters, loss metrics, confusion matrix heatmaps, parity plots, and serialized model binaries.
->
-> 8. **`src/pipeline.py` & `src/predict.py`:** [Click into `pipeline.py` and `predict.py`]
->    `pipeline.py` is the master training orchestrator that runs the entire end-to-end workflow from raw data to saved models in `models/`. `predict.py` provides our real-time `EMIPredictor` class, which loads the serialized models and executes sub-200ms dual inference with automated underwriting risk explanations.
->
-> 9. **`app/` Directory:** [Expand `app/` folder in explorer]
->    Finally, our `app/` folder contains our production Streamlit suite: `Home.py`, `1_Predict_EMI.py` for the Underwriting Studio, `2_EDA_Insights.py`, `3_Model_Evaluation.py`, and `4_Manage_Data.py` for administrative CRUD operations."*
+> 1. **`src/config.py`:** [Click into config.py] This file is our centralized configuration nerve center. It defines absolute project paths, schemas for our 17 raw numerical and 8 categorical features, target definitions, class mapping dictionary (Eligible = 0, High_Risk = 1, Not_Eligible = 2), and benchmark thresholds (90% accuracy, ₹2,000 RMSE).
+> 2. **`src/data_loader.py`:** [Click into data_loader.py] Ingestion and validation module. Contains `split_data()` which performs stratified Train/Validation/Test splitting—70% train, 10% validation, 20% test—guaranteeing zero data leakage.
+> 3. **`src/feature_engineering.py`:** [Click into feature_engineering.py] Domain intelligence heart. Calculates: disposable cash flow, Debt-to-Income (DTI), Expense-to-Income (ETI), Requested Burden, and our 0–100 Composite Financial Health Score.
+> 4. **`src/preprocessing.py`:** [Click into preprocessing.py] Scikit-Learn `ColumnTransformer`. Houses our custom `OutlierCapper` with non-negativity floors, median imputers, `StandardScaler`, and `OneHotEncoder`.
+> 5. **`src/statistical_tests.py`:** [Click into statistical_tests.py] SciPy hypothesis testing battery: Chi-Square tests of independence, One-Way ANOVA tests across risk tiers, and Pearson/Spearman correlations.
+> 6. **`src/classification_models.py` & `src/regression_models.py`:** [Click into both files] Defines candidate model suites: Logistic Regression, Random Forest, and XGBoost Classifier for risk tiers; and Linear Ridge, Random Forest Regressor, and XGBoost Regressor for EMI capacity.
+> 7. **`src/mlflow_utils.py`:** [Click into mlflow_utils.py] Enterprise MLOps utility. Connects to `sqlite:///mlflow.db`, logging parameters, metrics, confusion matrix heatmaps, parity plots, and serialized binaries.
+> 8. **`src/pipeline.py` & `src/predict.py`:** [Click into pipeline.py and predict.py] `pipeline.py` is the master orchestrator running the full training workflow. `predict.py` provides our real-time `EMIPredictor` class executing sub-200ms dual inference with automated underwriting risk explanations.
+> 9. **`app/` Directory:** [Expand app/ folder in explorer] Contains our production Streamlit suite: `Home.py`, `1_Predict_EMI.py` for the Underwriting Studio, `2_EDA_Insights.py`, `3_Model_Evaluation.py`, and `4_Manage_Data.py` for administrative CRUD operations."*
 
 ---
 
-### Part 3: 5 Critical Code Logics Deep Dive — Line-by-Line Breakdown (05:30 – 09:00 | 3.5 Min)
-> **[SCREEN ACTION: In VS Code, navigate directly to each file and highlight the exact line numbers specified below so the evaluator sees the code on screen.]**
->
+### Part 3: 5 Critical Code Logics Deep Dive (05:30 – 09:00 | 3.5 Min)
+
+#### 🛠️ Tasks To Be Done (On-Screen Actions)
+- [ ] **Task 3.1 (Logic 1):** In `src/data_loader.py`, drag mouse to select lines 175–195 (stratified split). Then switch to `pipeline.py` and select lines 58–62 (`fit_transform` on train, `transform` on test).
+- [ ] **Task 3.2 (Logic 2):** Switch to `src/preprocessing.py`, scroll to lines 49–57. Circle line 56: `lower = max(0.0, lower)` with mouse cursor.
+- [ ] **Task 3.3 (Logic 3):** Switch to `src/feature_engineering.py`, highlight line 46 (disposable cash flow) and lines 66–77 (4-factor health score formula).
+- [ ] **Task 3.4 (Logic 4):** Switch to `src/classification_models.py`, highlight lines 40–49 (`XGBClassifier` hyperparameters: `subsample=0.85`, `colsample_bytree=0.85`).
+- [ ] **Task 3.5 (Logic 5):** Switch to `src/predict.py`, highlight lines 29–85 (`predict_single()` dual inference and risk flags).
+- [ ] **Task 3.6:** Time Checkpoint: Conclude code logics at the **09:00** mark.
+
+#### 🗣️ What To Say Aloud (Word-for-Word Script)
 > *"Now, let us examine the critical code logics that give our platform its mathematical rigor. I will highlight five specific sections in the code:
 >
-> **Logic 1: Zero Data Leakage Split-Before-Fit Pipeline (`src/data_loader.py` lines 175–195 & `src/pipeline.py` lines 58–62)**
-> [Highlight lines 175–195 in `data_loader.py`]
-> Notice this code block: we split raw data into 70% Train, 10% Validation, and 20% Test using `stratify=df['emi_eligibility']`. In `pipeline.py`, notice that we call `preprocessor.fit_transform(train_feat)` strictly on the training partition! For test evaluation and live inference, we ONLY invoke `preprocessor.transform()`. This guarantees that test distribution parameters—such as imputation medians and standard deviation scalers—never contaminate model training.
+> **Logic 1: Zero Data Leakage Split-Before-Fit Pipeline:** [Highlight lines 175–195 in data_loader.py]
+> This particular section of code guarantees zero data leakage: we split raw data into 70% Train, 10% Validation, and 20% Test using `stratify=df['emi_eligibility']`. In `pipeline.py`, notice that we call `preprocessor.fit_transform(train_feat)` strictly on the training partition! For test evaluation and live inference, we ONLY invoke `preprocessor.transform()`. This guarantees that test distribution parameters—such as imputation medians and standard deviation scalers—never contaminate model training.
 >
-> **Logic 2: Domain-Informed Outlier Capper with Non-Negativity Floors (`src/preprocessing.py` lines 34–66)**
-> [Open `preprocessing.py`, highlight lines 49–57]
-> Standard IQR capping at 1.5× can calculate negative lower bounds for positive financial variables. Notice lines 55–57 in our custom `OutlierCapper`: `lower = max(0.0, lower)`. For financial features like `monthly_salary`, `requested_amount`, and `current_emi_amount`, we strictly enforce an absolute zero floor. This preserves physical financial reality while clipping extreme tail outliers using the 1st and 99th percentiles.
+> **Logic 2: Domain-Informed Outlier Capper with Non-Negativity Floors:** [Highlight lines 49–57 in preprocessing.py]
+> This particular section of code handles extreme financial outliers: standard IQR capping at 1.5× can calculate negative lower bounds for positive financial variables. Notice line 56 in our custom `OutlierCapper`: `lower = max(0.0, lower)`. For financial features like `monthly_salary`, `requested_amount`, and `current_emi_amount`, we strictly enforce an absolute zero floor. This preserves physical financial reality while clipping extreme tail outliers using the 1st and 99th percentiles.
 >
-> **Logic 3: Mathematical Free Cash Flow & 4-Factor Financial Health Scoring (`src/feature_engineering.py` lines 40–77)**
-> [Open `feature_engineering.py`, highlight lines 40–77]
-> Look at line 46: we compute `disposable_income = salary - total_monthly_expenses`, where total expenses sums rent, utilities, school fees, and current EMIs. Then, at lines 66–77, we compute our composite 0–100 Financial Health Score: credit score contributes 40 points, Debt-to-Income ratio contributes 25 points, disposable income buffer contributes 20 points, and employment stability contributes 15 points. This single feature captures over 21% of XGBoost's decision weight.
+> **Logic 3: Mathematical Free Cash Flow & 4-Factor Health Scoring:** [Highlight lines 40–77 in feature_engineering.py]
+> This particular section of code derives unencumbered liquidity: look at line 46—we compute `disposable_income = salary - total_monthly_expenses`, where total expenses sums rent, utilities, school fees, and current EMIs. Then, at lines 66–77, we compute our composite 0–100 Financial Health Score: credit score contributes 40 points, Debt-to-Income ratio contributes 25 points, disposable income buffer contributes 20 points, and employment stability contributes 15 points. This single feature captures over 21% of XGBoost's decision weight.
 >
-> **Logic 4: XGBoost Objective & Regularized Tree Tuning (`src/classification_models.py` lines 40–49 & `src/regression_models.py` lines 37–46)**
-> [Open `classification_models.py`, highlight lines 40–49]
-> Notice our hyperparameters: `max_depth=6`, `learning_rate=0.08`, `subsample=0.85`, and `colsample_bytree=0.85` with `eval_metric='mlogloss'`. We utilize 2nd-order Taylor expansions of the loss function, and by subsampling 85% of features per tree split, we completely eliminate multicollinearity between salary and disposable income.
+> **Logic 4: XGBoost Objective & Taylor Gradient Optimization:** [Highlight lines 40–49 in classification_models.py]
+> This particular section of code configures our champion algorithms: notice our hyperparameters—`max_depth=6`, `learning_rate=0.08`, `subsample=0.85`, and `colsample_bytree=0.85` with `eval_metric='mlogloss'`. We utilize 2nd-order Taylor expansions of the loss function, and by subsampling 85% of features per tree split, we completely eliminate multicollinearity between salary and disposable income.
 >
-> **Logic 5: Real-Time Dual-Target Inference & Underwriter Risk Rules (`src/predict.py` lines 29–85)**
-> [Open `predict.py`, highlight lines 29–85]
-> In our `predict_single()` method, a single JSON applicant payload is transformed through the fitted pipeline, evaluated by the classifier for multi-class risk, and sized by the regressor for maximum safe EMI. Then, lines 59–85 apply automated underwriter decision logic—generating human-readable audit flags whenever credit score is under 650, DTI exceeds 40%, or living expenses exceed cash flow."*
+> **Logic 5: Real-Time Dual-Target Inference & Underwriter Rules:** [Highlight lines 29–85 in predict.py]
+> This particular section of code bridges ML predictions with banking business rules: in our `predict_single()` method, a single JSON applicant payload is transformed through the fitted pipeline, evaluated by the classifier for multi-class risk, and sized by the regressor for maximum safe EMI. Then, lines 59–85 apply automated underwriter decision logic—generating human-readable audit flags whenever credit score is under 650, DTI exceeds 40%, or living expenses exceed cash flow."*
 
 ---
 
 ### Part 4: Scientific Hypothesis Testing Battery (09:00 – 11:00 | 2.0 Min)
-> **[SCREEN ACTION: In VS Code, open `docs/chi_square_tests.csv` or show the EDA page in the browser under Tab 3.]**
->
+
+#### 🛠️ Tasks To Be Done (On-Screen Actions)
+- [ ] **Task 4.1:** In VS Code, open `docs/chi_square_tests.csv` (or switch to Streamlit Page 2 Tab 3).
+- [ ] **Task 4.2:** Point mouse to Chi-Square table: highlight p-values strictly < 0.001 ($\chi^2 > 1200$).
+- [ ] **Task 4.3:** Open `docs/anova_tests.csv`: highlight ANOVA F-statistic > 450.0 ($p = 0.000$) across risk groups.
+- [ ] **Task 4.4:** Open `docs/correlation_tests.csv`: show Pearson $r = +0.92$ for Disposable Cash Flow.
+- [ ] **Task 4.5:** Time Checkpoint: Conclude statistical section at the **11:00** mark.
+
+#### 🗣️ What To Say Aloud (Word-for-Word Script)
 > *"Before training any machine learning models, we conducted a rigorous hypothesis testing battery using SciPy. In machine learning engineering, algorithms should never be trained on assumed feature relevance—every predictor must be statistically proven:
 >
 > 1. **Chi-Square ($\chi^2$) Test of Independence for Categorical Variables:**
@@ -117,8 +140,15 @@
 ---
 
 ### Part 5: Model Tournament & Empirical Results Deep Dive (11:00 – 14:00 | 3.0 Min)
-> **[SCREEN ACTION: Open `models/XGBoost_confusion_matrix.png` and `models/XGBoost_Regressor_actual_vs_predicted.png`, or show them in the Model Evaluation tab of Streamlit.]**
->
+
+#### 🛠️ Tasks To Be Done (On-Screen Actions)
+- [ ] **Task 5.1:** In VS Code or Streamlit Page 3, display the Model Comparison Tournament table.
+- [ ] **Task 5.2:** Open `models/XGBoost_confusion_matrix.png`. Circle the diagonal and highlight the **0.00% Eligible vs Ineligible misclassification rate**.
+- [ ] **Task 5.3:** Open `models/XGBoost_Regressor_actual_vs_predicted.png`. Trace the tight 45-degree parity ribbon.
+- [ ] **Task 5.4:** Open feature importance plots. Point out how DTI rules classification while Cash Flow rules regression.
+- [ ] **Task 5.5:** Time Checkpoint: Wrap up results tournament at the **14:00** mark.
+
+#### 🗣️ What To Say Aloud (Word-for-Word Script)
 > *"Now let us examine the core machine learning results and our model comparison tournament. To satisfy both tasks, we trained and compared three candidate models per problem type, tracking all runs inside MLflow:
 >
 > **Multi-Class Eligibility Classification Tournament:**
@@ -138,9 +168,19 @@
 
 ---
 
-### Part 6: Live Streamlit Application Demo & Relative Graph Walkthrough (14:00 – 16:45 | 2.75 Min)
-> **[SCREEN ACTION: Switch browser window to the live running Streamlit app at `http://localhost:8501`. Open Page 1: `Predict EMI`.]**
->
+### Part 6: Live Streamlit Application Demo (14:00 – 16:45 | 2.75 Min)
+
+#### 🛠️ Tasks To Be Done (On-Screen Actions)
+- [ ] **Task 6.1:** Press `Alt + Tab` to Chrome. Navigate to Page 1: `Predict EMI`.
+- [ ] **Task 6.2:** Click button `🌟 Persona 1: Reeva Shah`. Point out auto-filled 22 inputs (₹95K salary, 780 CIBIL, ₹8K current EMI).
+- [ ] **Task 6.3:** Click `⚡ Run Real-Time Underwriting Assessment`.
+- [ ] **Task 6.4:** Point cursor to **ELIGIBLE** badge (98.4%) and Safe EMI: **₹15,996 / mo**.
+- [ ] **Task 6.5:** Scroll down to Plotly Gauges: show DTI at 8.42% (green) and Health Score at 84/100.
+- [ ] **Task 6.6:** Scroll down to Waterfall Cash Flow: trace ₹95K salary ➔ ₹61K surplus.
+- [ ] **Task 6.7:** (20-second demo): Click `⚠️ Persona 2: Priya Patel` and `🛑 Persona 3: Vikram Singh` to show conditional and decline logic.
+- [ ] **Task 6.8:** Time Checkpoint: Conclude live demo at the **16:45** mark.
+
+#### 🗣️ What To Say Aloud (Word-for-Word Script)
 > *"Now, let us experience the live production platform deployed on Streamlit. I navigate to Page 1: the **Real-Time Underwriting Studio**.
 >
 > [Click '🌟 Persona 1: Reeva Shah' and click 'Run Underwriting Assessment']
@@ -160,8 +200,14 @@
 ---
 
 ### Part 7: Future Expansion Roadmap & Concluding Defense (16:45 – 18:30 | 1.75 Min)
-> **[SCREEN ACTION: Switch back to camera or show the 4-Pillar Architecture Diagram in the browser.]**
->
+
+#### 🛠️ Tasks To Be Done (On-Screen Actions)
+- [ ] **Task 7.1:** Switch screen back to camera or show the 4-Pillar Architecture graphic in Tab 1.
+- [ ] **Task 7.2:** Enumerate the 4 Pillars (Account Aggregator, SHAP/LIME, Kafka/FastAPI streaming, Evidently AI).
+- [ ] **Task 7.3:** Deliver the final concluding defense statement with confidence and polite gratitude.
+- [ ] **Task 7.4:** Stop recording at **18:30** (confirm within 17:00 – 20:00 range!).
+
+#### 🗣️ What To Say Aloud (Word-for-Word Script)
 > *"**How would I expand EMIPredict AI in a production enterprise environment?** While our current dual-model architecture achieves state-of-the-art accuracy, I have designed a **Four-Pillar Engineering Roadmap** to scale this platform for tier-1 commercial banking:
 >
 > 1. **Account Aggregator (AA) Integration:** Connecting with RBI-regulated Account Aggregator NBFCs to ingest verified GST invoices and bank statements directly via Open Banking APIs, eliminating self-reported data bias.
@@ -171,6 +217,14 @@
 >
 > In conclusion, EMIPredict AI replaces outdated, manual loan underwriting with mathematical cash flow intelligence—achieving **98.95% classification accuracy**, an **RMSE of ₹273.92**, and complete experiment lineage via MLflow.
 > Thank you, respected evaluators and mentor, for your time and guidance. I am now ready for your questions!"*
+
+---
+
+## 🏁 Post-Recording Quality & Submission Checklist
+- [ ] **Check 1: Exact Runtime:** Verify the video file length is $\ge$ 17:00 and $\le$ 20:00 (optimal: 18m 30s).
+- [ ] **Check 2: Audio & Video Sync:** Ensure spoken words match screen actions and mouse clicks throughout.
+- [ ] **Check 3: Code Legibility:** Verify that code lines in VS Code are sharp and readable at 1080p.
+- [ ] **Check 4: Export Format:** Save file as `Devansh_EMIPredict_AI_Capstone_Presentation.mp4` ready for upload.
 
 ---
 
