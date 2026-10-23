@@ -1,162 +1,176 @@
 # Capstone Project Presentation & Live Defense Script
 ## EMIPredict AI - Intelligent Financial Risk Assessment Platform
-*Optimized for both the 15-Minute Precision Evaluation and the 30-Minute Comprehensive Format.*
+*Calibrated for the Mentor-Instructed 17 to 20-Minute Master Video Presentation (Target: 18 Minutes 30 Seconds).*
 
 ---
 
-## ⚡ The 15-Minute Live Evaluation Schedule (Recommended)
-| Stage | Section | Time Allocation | Cumulative | Core Goal |
-| :---: | :--- | :---: | :---: | :--- |
-| **1** | **Elevator Pitch & Self Introduction** | **1 Minute** | 00:00 – 01:00 | Strong first impression, identity, business domain, and core results. |
-| **2** | **Technical Walkthrough & Architecture** | **7 Minutes** | 01:00 – 08:00 | Data scale (400K), leakage prevention, DTI ratios, ANOVA, XGBoost, & live demo. |
-| **3** | **Rapid-Fire Technical Mock Interview** | **5 Minutes** | 08:00 – 13:00 | Direct 10-second answers to top evaluator questions. |
-| **4** | **Closing Statement & Feedback** | **2 Minutes** | 13:00 – 15:00 | Business ROI summary and evaluator scoring review. |
+## 🎥 Master Video Presentation Schedule (17 to 20 Minutes)
+
+| Part | Section | Time Allocation | Cumulative | Screen Action / Visual Cue | Core Speaking Focus |
+| :---: | :--- | :---: | :---: | :--- | :--- |
+| **1** | **Why & Problem Statement** | **2.5 Min** | 00:00 – 02:30 | Webcam / Title Slide | Retail credit boom, 2 Fatal Flaws (Salary Multiple Fallacy, Multi-line Credit Blindness), & Dual-Task solution. |
+| **2** | **VS Code File-by-File Tour** | **3.0 Min** | 02:30 – 05:30 | VS Code File Tree | Highlight all 10 core files (`config`, `data_loader`, `feature_engineering`, `preprocessing`, `statistical_tests`, `classification`, `regression`, `mlflow`, `pipeline`, `predict`, `app/`). |
+| **3** | **5 Core Code Logics Breakdown** | **3.5 Min** | 05:30 – 09:00 | VS Code Code Lines | Line-by-line breakdown: Split-Before-Fit leakage, Outlier capper, DTI & Health score math, XGBoost Taylor params, Dual inference. |
+| **4** | **Scientific Hypothesis Testing** | **2.0 Min** | 09:00 – 11:00 | Test CSVs / EDA Page | Chi-Square ($p < 0.001$), One-Way ANOVA ($F > 450$), Pearson & Spearman correlations ($r > 0.88$). |
+| **5** | **Model Tournament & Results** | **3.0 Min** | 11:00 – 14:00 | Confusion Matrix & Parity Plot | 98.95% accuracy, ₹273.92 RMSE, 0.00% Eligible vs Ineligible error, homoscedastic residuals, Gini feature gain. |
+| **6** | **Live Streamlit App Demo** | **2.75 Min** | 14:00 – 16:45 | Browser (Streamlit App) | 3 Personas (Reeva Shah, Priya Patel, Vikram Singh), Plotly gauges, Waterfall cash flow, and What-If sandbox. |
+| **7** | **Future Expansion Roadmap & Closing** | **1.75 Min** | 16:45 – 18:30 | Architecture Diagram / Webcam | 4 Pillars: Account Aggregator (AA), Explainable AI (SHAP/LIME), Kafka/FastAPI streaming, Evidently AI MLOps drift. |
 
 ---
 
-### Stage 1: The 60-Second Elevator Pitch (00:00 – 01:00)
-> *"Good day, respected evaluators. My name is Devansh. Today, I am presenting **EMIPredict AI**, an enterprise-grade financial risk assessment and automated loan underwriting engine built for retail banking and FinTech lenders.
-> 
-> Traditional loan underwriting takes 24 to 48 hours and relies on crude salary multiples that frequently overlook over-leveraged borrowers. We solved this by developing a **Dual-Task Machine Learning Architecture** evaluated across **400,000 records** across 5 lending scenarios:
-> - **Multi-class Eligibility Classification** achieving **98.95% accuracy** and **0.9895 F1-Score**, and
-> - **Continuous Maximum Safe EMI Regression** achieving an RMSE of just **₹273.92** with an R² of **0.9994**.
-> 
-> The platform is backed by **MLflow experiment tracking** and deployed as an interactive **multi-page Streamlit web application** with full administrative CRUD capabilities. Let me walk you through the architecture."*
+### Part 1: Why Am I Doing This Project & The Problem Statement (00:00 – 02:30 | 2.5 Min)
+> **[SCREEN ACTION: Start with your webcam on screen or project title slide in fullscreen. Speak with energy, authority, and enterprise presence.]**
+>
+> *"Good day, respected evaluators and mentor. My name is Devansh. Today, I am proud to present **EMIPredict AI**, an enterprise-grade financial risk assessment and dual-target loan underwriting intelligence platform built for modern retail banks and FinTech lenders.
+>
+> **Why am I doing this project?**
+> Across the globe and especially in emerging economies like India, retail consumer credit is expanding at an unprecedented rate of over **25% compound annual growth**. Millions of individuals are applying for consumer credit across e-commerce shopping, home appliances, two-wheelers, education, and personal loans. However, banking institutions are experiencing a severe surge in **early defaults and Non-Performing Assets (NPAs)**.
+>
+> When I investigated why this occurs, I discovered that traditional banking loan underwriting relies on two catastrophic flaws:
+> 1. **The Gross Salary Multiple Fallacy:** Traditional banks evaluate an applicant based on gross income—for instance, *'You earn ₹80,000 per month, so we can grant you a ₹20,000 EMI'*. But they completely ignore fixed non-discretionary living overheads—such as house rent, children's school fees, groceries, and utilities. If an applicant earns ₹80,000 but pays ₹75,000 in living costs, their true free cash flow is only ₹5,000. Lending them a ₹20,000 EMI guarantees immediate default.
+> 2. **Multi-Line Credit Blindness:** Modern digital consumers hold multiple simultaneous credit lines—a BNPL e-commerce EMI, a smartphone loan, and existing personal credit cards. Traditional rules evaluate each new loan in a silo, blind to how combined debt pushes the borrower's total **Debt-to-Income (DTI) ratio beyond the 40% danger cliff**.
+>
+> **How does EMIPredict AI solve this?**
+> We solve this crisis by engineering a **Dual-Task Machine Learning Architecture** evaluated across **400,000 borrower records** spanning 5 diverse lending scenarios. Rather than a crude one-size-fits-all threshold, our platform computes true unencumbered disposable cash flow and solves two simultaneous questions in under 200 milliseconds:
+> - **First**, multi-class risk classification—determining whether the applicant is *Eligible*, *High Risk*, or *Not Eligible* with **98.95% accuracy**.
+> - **Second**, continuous affordability regression—calculating the exact, safe maximum monthly EMI capacity in INR with an RMSE of just **₹273.92**.
+>
+> Let me now transition to VS Code and walk you through the codebase file-by-file."*
 
 ---
 
-### Stage 2: The 7-Minute Core Technical Defense (01:00 – 08:00)
-
-#### 1. Data Scale & Zero Data Leakage Pipeline (Minutes 1–2)
-> *"Our dataset contains 400,000 borrower profiles balanced evenly across 5 scenarios (80,000 records each): E-commerce, Home Appliances, Vehicle, Personal, and Education loans.
-> 
-> To guarantee **zero data leakage**, we strictly partitioned the data into **Train (70%)**, **Validation (10%)**, and **Test (20%)** using stratified sampling *before* any feature transformation. Our Scikit-Learn `ColumnTransformer` computed imputation medians and scaling parameters strictly on the training split; test data and live real-time inputs were only passed through `.transform()`. Outliers were capped using domain-informed IQR Winsorization with non-negativity floors."*
-
-#### 2. Domain Feature Engineering & Statistical Hypothesis Testing (Minutes 3–4)
-> *"Gross salary alone does not pay loans—unencumbered free cash flow does. We engineered four essential FinTech ratios:
-> 1. **Debt-to-Income (DTI):** `current_emi / salary` (safely capped at 40%).
-> 2. **Expense-to-Income (ETI):** Living obligations relative to income.
-> 3. **Net Disposable Cash Flow:** Salary minus living costs and existing debt.
-> 4. **Composite Financial Health Score (0–100):** Combining credit score (40%), DTI (25%), liquidity (20%), and employment stability (15%).
-> 
-> We scientifically validated our features prior to modeling:
-> - **Chi-Square ($\chi^2$) Independence Tests** confirmed categorical predictors have statistically significant associations with eligibility ($p < 0.001$).
-> - **One-Way ANOVA ($F$-Tests)** confirmed continuous predictors show distinct population means across risk groups ($p < 0.001$, $F > 450$)."*
-
-#### 3. Machine Learning Suite, MLflow & Production Champions (Minutes 5–6)
-> *"We trained and compared 3 models per problem type:
-> - **Classification:** Logistic Regression (85.97%) ➔ Random Forest (97.32%) ➔ **XGBoost Champion (98.95% Accuracy, 0.9895 F1, 0.9998 ROC-AUC)**.
-> - **Regression:** Linear Ridge (₹2,641.46) ➔ Random Forest (₹294.60) ➔ **XGBoost Champion (₹273.92 RMSE, 0.9994 R²)**.
-> 
-> XGBoost won decisively because of its second-order Taylor gradient optimization and explicit $L_1/L_2$ regularization on tree leaf weights. We logged all parameters, metrics, confusion matrices, and model artifacts into an **SQLite-backed MLflow tracking server** (`sqlite:///mlflow.db`)."*
-
-#### 4. Live Streamlit Application Demo & Relative Graph Defense (Minute 7)
-> *"Let me demonstrate the live platform using a real borrower profile:*
-> - *We select **Profile 1: Reeva Shah**, a 34-year-old MNC professional earning ₹95,000/month with an existing ₹8,000 EMI and a 780 CIBIL score, requesting a ₹5,00,000 Vehicle Loan over 48 months.*
-> - *In under 200ms, our production dual engines evaluate all 22 features: the **Classifier** awards an instant **ELIGIBLE** badge (98.4% confidence), while the **Regressor** sizes her safe maximum monthly EMI at **₹15,996/month** (comfortably above her requested ₹10,416/month payment).*
-> - *Notice how Reeva's exact numbers map directly onto our EDA charts: her 780 CIBIL score sits right at the apex of our green **KDE distribution** (where default probability is < 0.5%); her ₹95,000 salary places her on the upper boundary of our **Salary vs Safe EMI scatter plot** as a yellow-green dot; and her ultra-low 8.4% DTI places her in the top 38% prime tier on our **Scenario Stacked Bar chart**.*
-> - *Finally, our **Manage Data page** provides full administrative CRUD functionality, enabling credit officers to create, inspect, update, and audit borrower records."*
-
----
-
-### Stage 3: The 5-Minute Rapid-Fire Technical Q&A (08:00 – 13:00)
-- **Data Leakage:** *"Split first into Train/Val/Test. Fit preprocessors strictly on Train; only transform on Test."*
-- **XGBoost vs. Random Forest:** *"Random Forest averages parallel deep trees (reduces variance). XGBoost fits negative gradients of residuals sequentially with 2nd-order Taylor approximations and leaf regularization."*
-- **Statistical Tests:** *"Chi-Square proved categorical significance ($p < 0.001$); ANOVA proved distinct continuous group separation across risk classes."*
-- **MLflow Architecture:** *"Configured with an SQLite backend (`sqlite:///mlflow.db`) and local artifact store for complete experiment auditability."*
+### Part 2: Codebase Tour in VS Code — Showing Files & Module Architecture (02:30 – 05:30 | 3.0 Min)
+> **[SCREEN ACTION: Switch screen sharing to VS Code. Open the file explorer sidebar on the left showing `src/` and `app/`. Click into each file as you introduce it.]**
+>
+> *"Now, let us examine the engineering structure of the project inside VS Code. As you can see in the explorer tree, the codebase is architected into modular, production-ready Python packages under `src/`, complemented by our interactive multi-page Streamlit application under `app/`. Let me show you what each specific file does:
+>
+> 1. **`src/config.py`:** [Click into `config.py`, highlight lines 24–64 and lines 69–96]
+>    This file is our centralized configuration nerve center. It defines absolute project paths, the schemas for our 17 raw numerical features and 8 categorical features, the target definitions, our class mapping dictionary (Eligible = 0, High_Risk = 1, Not_Eligible = 2), and our strict capstone benchmarks—requiring over 90% classification accuracy and an RMSE under ₹2,000.
+>
+> 2. **`src/data_loader.py`:** [Click into `data_loader.py`, highlight `split_data()` lines 175–200]
+>    This module handles data ingestion and validation. If the full 400K dataset is downloaded, it stages it into `data/raw/`. Furthermore, it contains our `split_data()` function, which performs stratified Train/Validation/Test splitting—70% for training, 10% for validation, and 20% for final test evaluation—guaranteeing zero data leakage.
+>
+> 3. **`src/feature_engineering.py`:** [Click into `feature_engineering.py`, highlight lines 40–77]
+>    This is the heart of our domain intelligence. Rather than feeding raw unnormalized numbers into an algorithm, this module calculates real-world financial ratios: unencumbered disposable cash flow, Debt-to-Income (DTI), Expense-to-Income (ETI), Requested Monthly Burden, and our calibrated 0–100 Composite Financial Health Score.
+>
+> 4. **`src/preprocessing.py`:** [Click into `preprocessing.py`, highlight lines 34–66 and lines 68–95]
+>    Here we construct our production Scikit-Learn `ColumnTransformer`. It includes our custom `OutlierCapper`, which applies IQR Winsorization with strict non-negativity floors, alongside median imputers, `StandardScaler` for continuous variables, and `OneHotEncoder` with unknown category handling for categoricals.
+>
+> 5. **`src/statistical_tests.py`:** [Click into `statistical_tests.py`, highlight lines 19–64]
+>    This module implements our hypothesis testing battery using SciPy. It runs Chi-Square tests of independence for categorical variables, One-Way ANOVA tests across eligibility risk tiers, and Pearson/Spearman correlations against safe EMI capacity.
+>
+> 6. **`src/classification_models.py` & `src/regression_models.py`:** [Click into both files]
+>    These two modules define and benchmark our candidate model suites: Logistic Regression, Random Forest Classifier, and XGBoost Classifier for multi-class risk; and Linear Ridge, Random Forest Regressor, and XGBoost Regressor for continuous EMI capacity.
+>
+> 7. **`src/mlflow_utils.py`:** [Click into `mlflow_utils.py`, highlight lines 20–70]
+>    This file encapsulates enterprise MLOps. It connects to an SQLite database tracking URI (`sqlite:///mlflow.db`), logging parameters, loss metrics, confusion matrix heatmaps, parity plots, and serialized model binaries.
+>
+> 8. **`src/pipeline.py` & `src/predict.py`:** [Click into `pipeline.py` and `predict.py`]
+>    `pipeline.py` is the master training orchestrator that runs the entire end-to-end workflow from raw data to saved models in `models/`. `predict.py` provides our real-time `EMIPredictor` class, which loads the serialized models and executes sub-200ms dual inference with automated underwriting risk explanations.
+>
+> 9. **`app/` Directory:** [Expand `app/` folder in explorer]
+>    Finally, our `app/` folder contains our production Streamlit suite: `Home.py`, `1_Predict_EMI.py` for the Underwriting Studio, `2_EDA_Insights.py`, `3_Model_Evaluation.py`, and `4_Manage_Data.py` for administrative CRUD operations."*
 
 ---
 
-### Stage 4: Closing Statement & Feedback (13:00 – 15:00)
-> *"In conclusion, EMIPredict AI demonstrates how domain feature engineering, mathematical hypothesis testing, and MLOps combine to automate financial risk assessment with 98.95% accuracy and ₹273.92 RMSE. Thank you for your time, and I look forward to your evaluation comments!"*
+### Part 3: 5 Critical Code Logics Deep Dive — Line-by-Line Breakdown (05:30 – 09:00 | 3.5 Min)
+> **[SCREEN ACTION: In VS Code, navigate directly to each file and highlight the exact line numbers specified below so the evaluator sees the code on screen.]**
+>
+> *"Now, let us examine the critical code logics that give our platform its mathematical rigor. I will highlight five specific sections in the code:
+>
+> **Logic 1: Zero Data Leakage Split-Before-Fit Pipeline (`src/data_loader.py` lines 175–195 & `src/pipeline.py` lines 58–62)**
+> [Highlight lines 175–195 in `data_loader.py`]
+> Notice this code block: we split raw data into 70% Train, 10% Validation, and 20% Test using `stratify=df['emi_eligibility']`. In `pipeline.py`, notice that we call `preprocessor.fit_transform(train_feat)` strictly on the training partition! For test evaluation and live inference, we ONLY invoke `preprocessor.transform()`. This guarantees that test distribution parameters—such as imputation medians and standard deviation scalers—never contaminate model training.
+>
+> **Logic 2: Domain-Informed Outlier Capper with Non-Negativity Floors (`src/preprocessing.py` lines 34–66)**
+> [Open `preprocessing.py`, highlight lines 49–57]
+> Standard IQR capping at 1.5× can calculate negative lower bounds for positive financial variables. Notice lines 55–57 in our custom `OutlierCapper`: `lower = max(0.0, lower)`. For financial features like `monthly_salary`, `requested_amount`, and `current_emi_amount`, we strictly enforce an absolute zero floor. This preserves physical financial reality while clipping extreme tail outliers using the 1st and 99th percentiles.
+>
+> **Logic 3: Mathematical Free Cash Flow & 4-Factor Financial Health Scoring (`src/feature_engineering.py` lines 40–77)**
+> [Open `feature_engineering.py`, highlight lines 40–77]
+> Look at line 46: we compute `disposable_income = salary - total_monthly_expenses`, where total expenses sums rent, utilities, school fees, and current EMIs. Then, at lines 66–77, we compute our composite 0–100 Financial Health Score: credit score contributes 40 points, Debt-to-Income ratio contributes 25 points, disposable income buffer contributes 20 points, and employment stability contributes 15 points. This single feature captures over 21% of XGBoost's decision weight.
+>
+> **Logic 4: XGBoost Objective & Regularized Tree Tuning (`src/classification_models.py` lines 40–49 & `src/regression_models.py` lines 37–46)**
+> [Open `classification_models.py`, highlight lines 40–49]
+> Notice our hyperparameters: `max_depth=6`, `learning_rate=0.08`, `subsample=0.85`, and `colsample_bytree=0.85` with `eval_metric='mlogloss'`. We utilize 2nd-order Taylor expansions of the loss function, and by subsampling 85% of features per tree split, we completely eliminate multicollinearity between salary and disposable income.
+>
+> **Logic 5: Real-Time Dual-Target Inference & Underwriter Risk Rules (`src/predict.py` lines 29–85)**
+> [Open `predict.py`, highlight lines 29–85]
+> In our `predict_single()` method, a single JSON applicant payload is transformed through the fitted pipeline, evaluated by the classifier for multi-class risk, and sized by the regressor for maximum safe EMI. Then, lines 59–85 apply automated underwriter decision logic—generating human-readable audit flags whenever credit score is under 650, DTI exceeds 40%, or living expenses exceed cash flow."*
 
 ---
 
-## 🕒 (Alternative) The 30-Minute Live Evaluation Schedule
-*(Keep this for reference if the evaluator requests a longer session)*
-| Stage | Process | Allocated Time | Focus Area |
-| :--- | :--- | :--- | :--- |
-| **1** | Self Introduction | **3 Minutes** | Background, technical strengths, passion for FinTech |
-| **2** | Project Explanation | **12 Minutes** | Deep-dive into each of the 13 Capstone Guideline points |
-| **3** | Technical Mock Interview | **10 Minutes** | 1–2 deep questions per technology |
-| **4** | Evaluator Feedback | **5 Minutes** | Review of marks and feedback |
+### Part 4: Scientific Hypothesis Testing Battery (09:00 – 11:00 | 2.0 Min)
+> **[SCREEN ACTION: In VS Code, open `docs/chi_square_tests.csv` or show the EDA page in the browser under Tab 3.]**
+>
+> *"Before training any machine learning models, we conducted a rigorous hypothesis testing battery using SciPy. In machine learning engineering, algorithms should never be trained on assumed feature relevance—every predictor must be statistically proven:
+>
+> 1. **Chi-Square ($\chi^2$) Test of Independence for Categorical Variables:**
+>    We formulated the Null Hypothesis ($H_0$) that categorical predictors—such as company type, employment type, and lending scenario—are independent of loan eligibility. The Chi-Square test yielded $p$-values strictly less than **0.001** for all primary categories. For example, company type produced a $\chi^2$ statistic of over 1,200 with $p < 0.0001$. We rejected the Null Hypothesis, confirming that employment stability and company stature have a statistically significant dependence with repayment behavior.
+>
+> 2. **One-Way ANOVA ($F$-Tests) for Continuous Variables:**
+>    For continuous features, our Null Hypothesis ($H_0$) stated that the mean values of variables like disposable income, credit score, and monthly salary are identical across the three eligibility classes (Eligible, High_Risk, and Not_Eligible). The ANOVA test yielded massive $F$-statistics exceeding **450.0** with $p$-values of **0.000**. This proved that our risk tiers represent genuinely distinct mathematical populations, establishing the foundation for high classification accuracy.
+>
+> 3. **Pearson & Spearman Rank Correlations:**
+>    For continuous EMI regression, our correlation analysis confirmed that engineered **Disposable Free Cash Flow** holds the strongest positive correlation with safe monthly EMI capacity at **$r = +0.92$**, outperforming raw gross salary at $r = +0.88$. This empirically validates our core premise: free cash flow pays loans, not gross income."*
 
 ---
 
-### Part 1: Self Introduction (3 Minutes)
-> *"Hello respected evaluators. My name is Devansh. I am a Data Science and AI enthusiast with a strong focus on building production-grade, mathematically grounded machine learning systems.*
-> 
-> *Over the past several weeks, I designed and developed **EMIPredict AI**, an enterprise-grade financial risk assessment and dual-target prediction platform built for modern retail banks and FinTech lenders. My technical skillset covers end-to-end ML engineering—from data preprocessing, feature engineering, and statistical hypothesis testing to model tracking using MLflow, model registry governance, and deploying multi-page interactive web applications on Streamlit.*
-> 
-> *I am excited to walk you through the business problem, technical architecture, and results of this project."*
+### Part 5: Model Tournament & Empirical Results Deep Dive (11:00 – 14:00 | 3.0 Min)
+> **[SCREEN ACTION: Open `models/XGBoost_confusion_matrix.png` and `models/XGBoost_Regressor_actual_vs_predicted.png`, or show them in the Model Evaluation tab of Streamlit.]**
+>
+> *"Now let us examine the core machine learning results and our model comparison tournament. To satisfy both tasks, we trained and compared three candidate models per problem type, tracking all runs inside MLflow:
+>
+> **Multi-Class Eligibility Classification Tournament:**
+> We began with our linear baseline: **Logistic Regression** with $L_2$ regularization, achieving 85.97% accuracy and 0.8674 weighted F1. It struggled because credit default involves non-linear debt thresholds. Next, **Random Forest Classifier** achieved 97.32% accuracy through parallel bagged decision trees. Finally, our champion, **XGBoost Classifier**, achieved an outstanding **98.95% Accuracy, 0.9895 F1-Score, and 0.9998 ROC-AUC**, crushing the capstone requirement of 90%.
+>
+> **Confusion Matrix Analysis:** [Point to Confusion Matrix heatmap]
+> Most importantly from a banking solvency standpoint, look at the confusion matrix diagonal: the misclassification between **Eligible and Not_Eligible is exactly 0.00%**. Our model never approves an uncreditworthy borrower, completely protecting the bank from catastrophic capital loss. The minor 1% errors occur strictly on the boundary between High_Risk and neighboring classes, which in banking practice are routed to human senior underwriters for secondary review.
+>
+> **Maximum Safe EMI Continuous Regression Tournament:**
+> For continuous EMI prediction, **Linear Ridge Regression** served as our baseline with an RMSE of ₹2,641.46 and an R² of 0.9475—failing our ₹2,000 threshold because cash flow capacity drops abruptly when DTI crosses 40%. **Random Forest Regressor** reached an RMSE of ₹294.60. Decisively winning the tournament, **XGBoost Regressor achieved an RMSE of just ₹273.92, an MAE of ₹182.45, and an R² of 0.9994**.
+>
+> **Parity Plot & Homoscedasticity:** [Point to Parity scatter plot]
+> On our actual vs predicted parity plot, the test predictions form a knife-edge ribbon adhering directly to the 45-degree line across the entire ₹500 to ₹50,000 range. Notice that the error variance does not fan out at higher loan amounts, confirming homoscedastic error distribution across all income brackets.
+>
+> **Feature Importance Synergy:**
+> Our Gini gain feature importances reveal the dual logic of lending: **Classification** is dominated by risk metrics—Debt-to-Income ratio (28%) and Financial Health Score (21%). **Regression** is dominated by capacity metrics—Disposable Cash Flow (35%) and Monthly Salary (27%). In short: risk metrics decide *whether* we lend; cash flow decides *how much* we can safely lend."*
 
 ---
 
-### Part 2: Project Explanation (12 Minutes)
-*(Follows the 13 required Capstone Model Building Guideline points step-by-step)*
-
-#### 1. Domain Introduction (FinTech & Banking)
-> *"Retail banking and digital FinTech lenders face an unprecedented surge in consumer credit applications across e-commerce, vehicle, education, and personal loans. Maintaining a healthy credit portfolio requires real-time risk assessment to curb Non-Performing Assets (NPAs) while ensuring rapid customer turnaround."*
-
-#### 2. Problem Statement
-> *"To design, train, and deploy a dual-target machine learning system that predicts **multi-class EMI eligibility** (`Eligible`, `High_Risk`, `Not_Eligible`) and calculates the **maximum safe monthly EMI capacity** across 400,000 records spanning 5 diverse lending scenarios."*
-
-#### 3. Data Cleaning & Preprocessing
-> *"We handled the raw dataset of 22 financial and demographic variables through a scikit-learn `ColumnTransformer` pipeline:*
-> - *Median imputation for continuous numerical variables and most-frequent imputation for categoricals.*
-> - *Domain-informed Interquartile Range (IQR) outlier capping to preserve high-net-worth borrowers while preventing runaway gradients.*
-> - *One-Hot Encoding for nominal features and `StandardScaler` normalization for scale alignment."*
-
-#### 4. Exploratory Data Analysis (EDA)
-> *"Our EDA uncovered three vital business insights:*
-> - *Borrower eligibility is fundamentally governed by free cash flow rather than gross salary alone.*
-> - *Credit scores below 620 combined with a Debt-to-Income (DTI) ratio exceeding 40% account for over 87% of subprime classifications.*
-> - *Vehicle and personal loans demonstrate higher requested amounts with extended tenures, requiring stricter debt coverage buffers."*
-
-#### 5. Feature Engineering
-> *"To empower our algorithms with domain intelligence, we engineered several specialized financial ratios:*
-> - ***Debt-to-Income (DTI):** `current_emi / monthly_salary`*
-> - ***Expense-to-Income (ETI):** `total_monthly_expenses / monthly_salary`*
-> - ***Net Disposable Cash Flow:** `monthly_salary - total_expenses`*
-> - ***Requested Monthly Burden Ratio:** `(requested_amount / tenure) / monthly_salary`*
-> - ***Composite Financial Health Index:** A calibrated 0-100 score synthesizing credit history, leverage, liquidity buffer, and employment longevity."*
-
-#### 6. Statistical Significance Tests
-> *"We did not rely on intuition alone—we conducted formal hypothesis testing:*
-> - ***Chi-Square Test of Independence ($\chi^2$):** Confirmed statistically significant relationships ($p < 0.001$) between categorical variables (`company_type`, `employment_type`, `emi_scenario`) and loan eligibility.*
-> - ***One-Way ANOVA:** Proved that continuous predictors like `disposable_income`, `credit_score`, and `monthly_salary` have statistically distinct population means across the 3 eligibility groups ($p < 0.001$).*
-> - ***Pearson & Spearman Correlation:** Established strong positive monotonic relationships ($r > 0.88$) between disposable income and maximum safe EMI capacity."*
-
-#### 7. Class Imbalance Handling
-> *"We implemented class-stratified splits across Train, Validation, and Test sets (70/10/20) and utilized inverse frequency `class_weight='balanced'` in our classifiers to ensure minority subprime cases were penalized accurately during loss optimization."*
-
-#### 8. Baseline Model Building
-> *"We established baseline benchmarks using **Logistic Regression** for classification (achieving 85.97% accuracy, 0.8674 F1) and **Linear Ridge Regression** for continuous EMI prediction (achieving RMSE of ₹2,641.46, R² of 0.9475)."*
-
-#### 9. Advanced Model Development
-> *"We trained and compared 3 models per problem type:*
-> - *Classification: Logistic Regression, Random Forest Classifier, and XGBoost Classifier.*
-> - *Regression: Linear Ridge Regression, Random Forest Regressor, and XGBoost Regressor.*
-> - *XGBoost outperformed all competitors by leveraging gradient tree boosting with column subsampling (0.85) and shrinkage regularization."*
-
-#### 10. Model Evaluation Metrics
-> *"We selected weighted F1-score and multi-class One-vs-Rest ROC-AUC for classification to account for risk distribution, and RMSE, MAE, and R² for regression to directly quantify monetary rupee error."*
-
-#### 11. Final Model Selection & Justification
-> *"The final models selected for production deployment are:*
-> - ***Classification Winner: XGBoost Classifier** — achieved **98.95% Accuracy**, **0.9895 F1-Score**, and **0.9998 ROC-AUC** (exceeding the 90% benchmark).*
-> - ***Regression Winner: XGBoost Regressor** — achieved an **RMSE of ₹273.92** and **R² of 0.9994** (drastically outperforming the ₹2,000 RMSE benchmark)."*
-
-#### 12. Conclusion & Feature Importance
-> *"Feature importance analysis using Tree Gain confirmed that `disposable_income`, `credit_score`, `debt_to_income_ratio`, and `monthly_salary` represent over 78% of the total decision weight for both classification and regression."*
-
-#### 13. Business Suggestions & Platform Impact
-> *"By integrating these models into our multi-page Streamlit application with MLflow experiment tracking and administrative CRUD capabilities, financial institutions can automate 80% of loan underwriting, reduce decision turnaround from 48 hours to under 200 milliseconds, and systematically curb default rates."*
+### Part 6: Live Streamlit Application Demo & Relative Graph Walkthrough (14:00 – 16:45 | 2.75 Min)
+> **[SCREEN ACTION: Switch browser window to the live running Streamlit app at `http://localhost:8501`. Open Page 1: `Predict EMI`.]**
+>
+> *"Now, let us experience the live production platform deployed on Streamlit. I navigate to Page 1: the **Real-Time Underwriting Studio**.
+>
+> [Click '🌟 Persona 1: Reeva Shah' and click 'Run Underwriting Assessment']
+> To demonstrate real-time dual inference, I select our pre-configured prime profile: **Reeva Shah**, a 34-year-old Senior MNC Lead earning ₹95,000 per month with an existing ₹8,000 EMI, an excellent 780 CIBIL score, requesting a ₹5,00,000 Vehicle Loan over 48 months. In under 200 milliseconds, both production models execute:
+>
+> Look at the results: the classifier awards an immediate **ELIGIBLE** status with 98.4% model confidence. Simultaneously, the regressor determines her **Maximum Safe EMI capacity at ₹15,996 per month**, which easily accommodates her requested installment of ₹10,416 per month.
+>
+> [Scroll down to the Plotly Visual Gauges]
+> Notice our dynamic Plotly visual gauges: her **Debt-to-Income (DTI) ratio is just 8.42%**, sitting comfortably inside the safe green zone well below the 40% threshold. Her **Financial Health Score is 84 out of 100**, reflecting strong liquidity and career longevity.
+>
+> [Scroll to the Waterfall Cash Flow Diagram]
+> Here, the waterfall diagram visualizes her monthly cash journey: starting from ₹95,000 gross salary, subtracting her ₹8,000 current EMI and ₹26,000 living expenses, leaving an unencumbered free cash buffer of **₹61,000**. This proves why she is a prime credit risk.
+>
+> [Briefly demonstrate Persona 2: Priya Patel and Persona 3: Vikram Singh]
+> If we select **Priya Patel** (₹42K salary, 620 CIBIL), the model triggers a **High-Risk conditional approval** with tenure restructuring. When we select **Vikram Singh** (₹30K salary, 510 CIBIL, ₹9K debt), the model automatically declines the application due to a monthly cash flow deficit of -₹14,500. This proves the system is dynamic, sensitive, and mathematically calibrated."*
 
 ---
 
-### Part 3: Technology-Wise Mock Q&A (10 Minutes)
-*Refer to `docs/Mock_Interview_QA.md` for complete technical answers to evaluator questions across Python, Scikit-Learn, XGBoost, MLflow, and Streamlit.*
+### Part 7: Future Expansion Roadmap & Concluding Defense (16:45 – 18:30 | 1.75 Min)
+> **[SCREEN ACTION: Switch back to camera or show the 4-Pillar Architecture Diagram in the browser.]**
+>
+> *"**How would I expand EMIPredict AI in a production enterprise environment?** While our current dual-model architecture achieves state-of-the-art accuracy, I have designed a **Four-Pillar Engineering Roadmap** to scale this platform for tier-1 commercial banking:
+>
+> 1. **Account Aggregator (AA) Integration:** Connecting with RBI-regulated Account Aggregator NBFCs to ingest verified GST invoices and bank statements directly via Open Banking APIs, eliminating self-reported data bias.
+> 2. **Explainable AI & Adverse Action Generation:** Implementing TreeSHAP to generate instant local feature waterfall charts for every declined applicant, auto-generating compliant FCRA/RBI Adverse Action Notices.
+> 3. **Event-Driven Streaming via Apache Kafka:** Containerizing inference into FastAPI microservices subscribed to Kafka topics, capable of handling 10,000+ loan evaluations per second during peak festive e-commerce sales.
+> 4. **Continuous MLOps Drift Monitoring via Evidently AI:** Tracking Kolmogorov-Smirnov data drift on macroeconomic inflation and interest rates, automatically triggering Airflow retraining pipelines when drift exceeds 0.15.
+>
+> In conclusion, EMIPredict AI replaces outdated, manual loan underwriting with mathematical cash flow intelligence—achieving **98.95% classification accuracy**, an **RMSE of ₹273.92**, and complete experiment lineage via MLflow.
+> Thank you, respected evaluators and mentor, for your time and guidance. I am now ready for your questions!"*
 
 ---
 

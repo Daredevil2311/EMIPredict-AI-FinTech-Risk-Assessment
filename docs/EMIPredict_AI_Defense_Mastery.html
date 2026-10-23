@@ -39,7 +39,7 @@
       <div>
         <div class="flex items-center space-x-2">
           <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Target: >95% (60/60 Marks)</span>
-          <span class="px-2 py-0.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">⚡ 15-Min Live Defense</span>
+          <span class="px-2 py-0.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">🎥 17–20 Min Video Recording Playbook</span>
           <span class="text-xs text-slate-300">FinTech & Banking Domain</span>
         </div>
         <h1 class="text-2xl font-black tracking-tight text-white mt-1">EMIPredict AI — Complete Project Mastery Portal</h1>
@@ -49,10 +49,10 @@
       <div class="bg-white/10 backdrop-blur-md rounded-xl p-2.5 border border-white/15 flex items-center gap-4">
         <div>
           <div class="text-[10px] uppercase tracking-wider text-slate-300 font-semibold flex items-center gap-1.5">
-            <span>⏱️ Practice Timer</span>
-            <span id="timerModeLabel" class="text-amber-300 font-bold">15 MINS</span>
+            <span>⏱️ Video Recording Timer</span>
+            <span id="timerModeLabel" class="text-amber-300 font-bold">18:30 (17–20m)</span>
           </div>
-          <div id="timerDisplay" class="text-2xl font-mono font-bold text-amber-300">15:00</div>
+          <div id="timerDisplay" class="text-2xl font-mono font-bold text-amber-300">18:30</div>
         </div>
         <div class="flex flex-col gap-1">
           <div class="flex gap-1.5">
@@ -60,9 +60,9 @@
             <button onclick="resetTimer()" class="px-2.5 py-1 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded text-xs font-semibold transition">Reset</button>
           </div>
           <div class="flex gap-1">
-            <button onclick="setTimerMinutes(15)" class="text-[10px] px-2 py-0.5 rounded bg-blue-600/50 hover:bg-blue-600 text-white">15m</button>
-            <button onclick="setTimerMinutes(10)" class="text-[10px] px-2 py-0.5 rounded bg-slate-700/50 hover:bg-slate-700 text-slate-300">10m</button>
-            <button onclick="setTimerMinutes(30)" class="text-[10px] px-2 py-0.5 rounded bg-slate-700/50 hover:bg-slate-700 text-slate-300">30m</button>
+            <button onclick="setTimerMinutes(17)" class="text-[10px] px-2 py-0.5 rounded bg-slate-700/50 hover:bg-slate-700 text-slate-300">17m</button>
+            <button onclick="setTimerMinutes(18.5)" class="text-[10px] px-2 py-0.5 rounded bg-blue-600 hover:bg-blue-500 text-white font-bold">18.5m</button>
+            <button onclick="setTimerMinutes(20)" class="text-[10px] px-2 py-0.5 rounded bg-slate-700/50 hover:bg-slate-700 text-slate-300">20m</button>
           </div>
         </div>
       </div>
@@ -71,13 +71,13 @@
     <!-- TABS BAR -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex space-x-2 border-t border-slate-700/60 overflow-x-auto">
       <button onclick="switchTab('tab-story')" id="btn-tab-story" class="tab-btn active px-3.5 py-3 text-xs font-semibold text-slate-300 hover:text-white transition whitespace-nowrap">
-        🌟 1. Project Story & Requirements
+        🌟 1. Motivation, Problem & Roadmap
       </button>
       <button onclick="switchTab('tab-journey')" id="btn-tab-journey" class="tab-btn px-3.5 py-3 text-xs font-semibold text-slate-300 hover:text-white transition whitespace-nowrap">
-        ⚙️ 2. What We Built & Tech Stack
+        📂 2. Codebase Tour & Core Code Logics
       </button>
       <button onclick="switchTab('tab-teleprompter')" id="btn-tab-teleprompter" class="tab-btn px-3.5 py-3 text-xs font-semibold text-slate-300 hover:text-white transition whitespace-nowrap">
-        ⏱️ 3. 15-Min Live Defense Script
+        ⏱️ 3. 17–20 Min Master Video Script
       </button>
       <button onclick="switchTab('tab-demo')" id="btn-tab-demo" class="tab-btn px-3.5 py-3 text-xs font-semibold text-slate-300 hover:text-white transition whitespace-nowrap">
         💻 4. Click-By-Click Demo Guide
@@ -237,6 +237,132 @@
             <div class="font-bold text-blue-900">Education EMI</div>
             <div class="text-slate-500 mt-1">₹50K – ₹500K</div>
             <div class="text-slate-400">6 – 48 Months</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WHY AM I DOING THIS PROJECT & HOW DOES IT SOLVE THE RETAIL LENDING CRISIS -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-blue-600"></span>
+            <h3 class="text-lg font-black text-slate-900">🎯 Why Am I Doing This Project & How Does It Solve The Retail Lending Crisis?</h3>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-100 text-blue-800 border border-blue-200">Video Start Focus (00:00–02:30)</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <!-- The Dual Banking Crisis -->
+          <div class="p-4 bg-rose-50/70 rounded-xl border border-rose-200 space-y-2.5">
+            <div class="font-bold text-sm text-rose-900 flex items-center gap-1.5">
+              <span>⚠️ The Industry Crisis & The 2 Fatal Flaws of Traditional Underwriting</span>
+            </div>
+            <p class="text-slate-700 leading-relaxed">
+              India's retail credit market is expanding at over <strong>25% CAGR</strong>, propelled by digital lending, Buy-Now-Pay-Later (BNPL), and instant consumer loans. However, banking institutions face a severe delinquency challenge because legacy underwriting suffers from two fatal flaws:
+            </p>
+            <ul class="space-y-1.5 text-slate-700">
+              <li class="flex items-start gap-1.5">
+                <span class="text-rose-600 font-bold">•</span>
+                <div><strong>Fatal Flaw 1: The Gross Salary Multiple Fallacy:</strong> Traditional banks approve loans as a static multiple of gross monthly income (e.g. <em>"Salary is ₹80,000, approve a ₹25,000 EMI"</em>). They ignore non-discretionary living costs (rent, children's school fees, utilities) and existing debt obligations. A borrower with ₹80K income but ₹75K living overhead defaults on month one because their true unencumbered free cash flow is only ₹5,000.</div>
+              </li>
+              <li class="flex items-start gap-1.5">
+                <span class="text-rose-600 font-bold">•</span>
+                <div><strong>Fatal Flaw 2: Multi-Line Credit Blindness:</strong> Modern borrowers hold multiple concurrent micro-liabilities (an e-commerce EMI, an appliance loan, and credit card balances). Traditional rule engines evaluate each new loan application in isolation, completely blind to how cumulative leverage pushes the borrower's total Debt-to-Income (DTI) ratio over the 40% default cliff.</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- How EMIPredict AI Solves It -->
+          <div class="p-4 bg-emerald-50/70 rounded-xl border border-emerald-200 space-y-2.5">
+            <div class="font-bold text-sm text-emerald-950 flex items-center gap-1.5">
+              <span>🛡️ How EMIPredict AI Solves It: Mathematical Cash Flow Physics</span>
+            </div>
+            <p class="text-slate-700 leading-relaxed">
+              EMIPredict AI re-engineers retail credit underwriting from the ground up by substituting static salary multiples with <strong>dynamic financial cash flow physics</strong>:
+            </p>
+            <ul class="space-y-1.5 text-slate-700">
+              <li class="flex items-start gap-1.5">
+                <span class="text-emerald-600 font-bold">•</span>
+                <div><strong>Dual-Task AI Intelligence:</strong> Evaluates both <em>Multi-Class Eligibility</em> (Eligible / High Risk / Not Eligible) and <em>Continuous Affordability Capacity</em> (exact safe monthly EMI in INR) simultaneously in &lt; 200 milliseconds.</div>
+              </li>
+              <li class="flex items-start gap-1.5">
+                <span class="text-emerald-600 font-bold">•</span>
+                <div><strong>True Free Cash Flow Grounding:</strong> Subsumes all 6 monthly living expense categories and existing loan commitments to calculate unencumbered disposable surplus: <code class="bg-emerald-100/70 px-1 py-0.5 rounded text-emerald-900 font-mono">disposable_income = salary - total_obligations</code>.</div>
+              </li>
+              <li class="flex items-start gap-1.5">
+                <span class="text-emerald-600 font-bold">•</span>
+                <div><strong>Holistic Multi-Factor Health Scoring:</strong> Synthesizes credit bureau score (40%), DTI ratio (25%), liquidity reserve cushion (20%), and employment stability (15%) into a calibrated 0–100 Financial Health Index.</div>
+              </li>
+              <li class="flex items-start gap-1.5">
+                <span class="text-emerald-600 font-bold">•</span>
+                <div><strong>99% Latency Reduction & Zero Underwriter Bias:</strong> Slashes loan origination latency from 48 hours to 200ms while eliminating manual discretion and subjective bias.</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4-PILLAR FUTURE ENGINEERING EXPANSION ROADMAP -->
+      <div class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white p-6 rounded-2xl border border-slate-700 shadow-md space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+            <h3 class="text-lg font-black text-cyan-300">🚀 Future Engineering Expansion Roadmap (4 Core Pillars)</h3>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-400/30">Video Ending Focus (16:45–18:30)</span>
+        </div>
+
+        <p class="text-xs text-slate-300 leading-relaxed">
+          In your video presentation, conclude by explaining how EMIPredict AI's production architecture is designed for immediate enterprise scale through four strategic technology pillars:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+          <!-- Pillar 1 -->
+          <div class="p-3.5 bg-slate-800/80 rounded-xl border border-slate-700 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-amber-300">Pillar 1: Data Ingestion</span>
+              <span class="text-[10px] bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded">Open Banking</span>
+            </div>
+            <div class="font-semibold text-slate-100 text-xs">Account Aggregator (AA) Integration</div>
+            <p class="text-[11px] text-slate-300 leading-relaxed">
+              Integrate with RBI's Account Aggregator NBFC framework (e.g. Setu, OneMoney) to ingest digitally verified bank statements, GST invoices, and UPI transaction streams via consent-based APIs—completely removing reliance on self-reported applicant inputs.
+            </p>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="p-3.5 bg-slate-800/80 rounded-xl border border-slate-700 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-cyan-300">Pillar 2: Governance</span>
+              <span class="text-[10px] bg-cyan-500/20 text-cyan-300 px-1.5 py-0.5 rounded">Fair Lending</span>
+            </div>
+            <div class="font-semibold text-slate-100 text-xs">Explainable AI & Adverse Action (SHAP/LIME)</div>
+            <p class="text-[11px] text-slate-300 leading-relaxed">
+              Incorporate TreeSHAP to generate instant local feature attribution waterfall plots for every declined or high-risk applicant. Automatically generate legally compliant, audit-ready Adverse Action Notices under RBI Fair Lending Practices and FCRA regulations.
+            </p>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="p-3.5 bg-slate-800/80 rounded-xl border border-slate-700 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-emerald-300">Pillar 3: Throughput</span>
+              <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded">Streaming</span>
+            </div>
+            <div class="font-semibold text-slate-100 text-xs">Kafka Streaming & FastAPI Microservices</div>
+            <p class="text-[11px] text-slate-300 leading-relaxed">
+              Decouple inference from the web UI into asynchronous FastAPI Docker containers subscribed to Apache Kafka event topics. Enables real-time sub-30ms checkout financing across 10,000+ concurrent requests during peak festive e-commerce flash sales.
+            </p>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="p-3.5 bg-slate-800/80 rounded-xl border border-slate-700 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-purple-300">Pillar 4: MLOps</span>
+              <span class="text-[10px] bg-purple-500/20 text-purple-300 px-1.5 py-0.5 rounded">Continuous CI/CD</span>
+            </div>
+            <div class="font-semibold text-slate-100 text-xs">Drift Monitoring & Auto-Retraining (Evidently AI)</div>
+            <p class="text-[11px] text-slate-300 leading-relaxed">
+              Deploy Evidently AI monitoring service to track Population Stability Index (PSI) and Kolmogorov-Smirnov drift on salary inflation and interest rate shifts. Automatically triggers Apache Airflow DAGs to re-train and re-register models in MLflow when drift > 0.15.
+            </p>
           </div>
         </div>
       </div>
@@ -651,59 +777,723 @@
         </div>
       </div>
 
+      <!-- FILE-BY-FILE CODEBASE TOUR: WHAT TO SHOW ON SCREEN IN VS CODE & WHAT EACH DOES -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-indigo-600"></span>
+              <h3 class="text-lg font-black text-slate-900">📂 Codebase Tour: Which Files to Show on Screen in VS Code & What Each Does</h3>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Mentor Instruction: Show each important file on screen in VS Code and explain what functions it performs.</p>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-indigo-100 text-indigo-800 border border-indigo-200">Video Minutes 02:30–05:30</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-slate-700 border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-900 border-b border-slate-200">
+                <th class="p-3 font-bold w-1/5">File & Path</th>
+                <th class="p-3 font-bold w-1/4">Key Functions & Classes</th>
+                <th class="p-3 font-bold w-1/3">What This Particular File Does</th>
+                <th class="p-3 font-bold text-indigo-700">Video Action & Lines to Highlight</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-mono font-bold text-blue-900">src/config.py</td>
+                <td class="p-3 font-mono text-[11px] text-slate-600">NUMERICAL_FEATURES, CATEGORICAL_FEATURES, DERIVED_FEATURES, CLASS_MAPPING, EMI_SCENARIOS</td>
+                <td class="p-3">Serves as the single source of truth for all schemas, paths, hyperparameter grids, and business thresholds (90% accuracy benchmark, ₹2,000 RMSE cap).</td>
+                <td class="p-3 text-indigo-700 font-semibold">Open in VS Code; highlight lines 24–64 (feature lists) & lines 69–96 (target definitions).</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-mono font-bold text-blue-900">src/data_loader.py</td>
+                <td class="p-3 font-mono text-[11px] text-slate-600">find_and_stage_raw_dataset(), generate_benchmark_synthetic_data(), load_dataset(), split_data()</td>
+                <td class="p-3">Automates data ingestion, creates realistic 400K benchmark profiles across 5 scenarios, and performs stratified 70/10/20 Train/Val/Test partitioning before any fitting.</td>
+                <td class="p-3 text-indigo-700 font-semibold">Highlight lines 175–200 (<code class="bg-slate-100 px-1 rounded">split_data</code>) to prove zero data leakage to evaluators.</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-mono font-bold text-blue-900">src/feature_engineering.py</td>
+                <td class="p-3 font-mono text-[11px] text-slate-600">compute_financial_features(df)</td>
+                <td class="p-3">Applies domain financial rules to derive 7 essential ratios: Total Obligations, Unencumbered Disposable Cash Flow, DTI, ETI, Requested Burden Ratio, Savings Ratio, and 0–100 Financial Health Score.</td>
+                <td class="p-3 text-indigo-700 font-semibold">Highlight lines 40–77; walk through the DTI formula and the 4-factor health score points breakdown.</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-mono font-bold text-blue-900">src/preprocessing.py</td>
+                <td class="p-3 font-mono text-[11px] text-slate-600">FinancialFeatureTransformer, OutlierCapper, build_preprocessor()</td>
+                <td class="p-3">Constructs the Scikit-Learn <code class="bg-slate-100 px-1 rounded">ColumnTransformer</code> pipeline. Implements custom IQR Winsorization with non-negativity floors for salary and loan amounts, median imputers, and One-Hot Encoders.</td>
+                <td class="p-3 text-indigo-700 font-semibold">Highlight lines 34–66 (<code class="bg-slate-100 px-1 rounded">OutlierCapper</code> class) and lines 68–95 (<code class="bg-slate-100 px-1 rounded">ColumnTransformer</code>).</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-mono font-bold text-blue-900">src/statistical_tests.py</td>
+                <td class="p-3 font-mono text-[11px] text-slate-600">perform_chi_square_tests(), perform_anova_tests(), perform_regression_correlation_tests()</td>
+                <td class="p-3">Executes SciPy statistical significance batteries: $\chi^2$ independence tests on categoricals ($p < 0.001$), One-Way ANOVA F-tests across risk tiers ($F > 450$), and Pearson/Spearman correlations ($r > 0.88$).</td>
+                <td class="p-3 text-indigo-700 font-semibold">Highlight lines 19–39 (<code class="bg-slate-100 px-1 rounded">chi2_contingency</code>) & lines 42–64 (<code class="bg-slate-100 px-1 rounded">f_oneway</code>).</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-mono font-bold text-blue-900">src/classification_models.py</td>
+                <td class="p-3 font-mono text-[11px] text-slate-600">get_classification_models(), evaluate_classifier()</td>
+                <td class="p-3">Defines hyperparameter setups for Logistic Regression, Random Forest, and XGBoost Classifier (<code class="bg-slate-100 px-1 rounded">max_depth=6</code>, <code class="bg-slate-100 px-1 rounded">learning_rate=0.08</code>); calculates macro/weighted F1, multi-class ROC-AUC, and confusion matrix.</td>
+                <td class="p-3 text-indigo-700 font-semibold">Highlight lines 40–49 (XGBoost Classifier params) and lines 60–75 (multi-class metrics).</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-mono font-bold text-blue-900">src/regression_models.py</td>
+                <td class="p-3 font-mono text-[11px] text-slate-600">get_regression_models(), evaluate_regressor()</td>
+                <td class="p-3">Defines Linear Ridge, Random Forest Regressor, and XGBoost Regressor (<code class="bg-slate-100 px-1 rounded">n_estimators=200</code>, <code class="bg-slate-100 px-1 rounded">learning_rate=0.07</code>); computes RMSE, MAE, R², and bounds safe EMI to [₹500, ₹50,000].</td>
+                <td class="p-3 text-indigo-700 font-semibold">Highlight lines 37–46 (XGBoost Regressor) and lines 59–60 (domain EMI capacity bounds).</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-mono font-bold text-blue-900">src/mlflow_utils.py</td>
+                <td class="p-3 font-mono text-[11px] text-slate-600">setup_mlflow_experiment(), log_classification_run(), log_regression_run()</td>
+                <td class="p-3">Manages MLOps experiment tracking with SQLite backend (<code class="bg-slate-100 px-1 rounded">sqlite:///mlflow.db</code>). Logs hyperparameters, test metrics, confusion matrix heatmaps, parity scatter plots, and serializes champion models.</td>
+                <td class="p-3 text-indigo-700 font-semibold">Highlight lines 20–38 (SQLite URI & Client setup) and lines 50–70 (artifact logging).</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-mono font-bold text-blue-900">src/pipeline.py</td>
+                <td class="p-3 font-mono text-[11px] text-slate-600">run_pipeline()</td>
+                <td class="p-3">The master training orchestrator. Sequentially coordinates: data ingestion ➔ hypothesis tests ➔ stratified split ➔ feature engineering ➔ preprocessor fit ➔ 6 model runs ➔ MLflow logging ➔ saving champions to <code class="bg-slate-100 px-1 rounded">models/</code>.</td>
+                <td class="p-3 text-indigo-700 font-semibold">Highlight lines 27–65; show how the pipeline chains each module cleanly without leakage.</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-mono font-bold text-blue-900">src/predict.py</td>
+                <td class="p-3 font-mono text-[11px] text-slate-600">EMIPredictor, predict_single()</td>
+                <td class="p-3">Production real-time inference engine. Loads serialized binaries, transforms incoming applicant JSON/dict, executes simultaneous dual inference, and compiles rule-based underwriter risk rationales.</td>
+                <td class="p-3 text-indigo-700 font-semibold">Highlight lines 29–85; explain the dual prediction call and underwriter reason generation.</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-mono font-bold text-blue-900">app/ (Streamlit Web Suite)</td>
+                <td class="p-3 font-mono text-[11px] text-slate-600">Home.py, 1_Predict_EMI.py, 2_EDA_Insights.py, 3_Model_Evaluation.py, 4_Manage_Data.py</td>
+                <td class="p-3">Enterprise banking dashboard: Executive KPIs, Underwriting Studio with 3 1-click personas (Reeva Shah, Priya Patel, Vikram Singh), Plotly gauges, Waterfall cash flow, interactive EDA, model tournaments, and administrative CRUD.</td>
+                <td class="p-3 text-indigo-700 font-semibold">Show file tree in VS Code, then switch browser to demonstrate live functionality.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 5 CRITICAL CODE LOGICS LINE WALKTHROUGH -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-emerald-600"></span>
+            <h3 class="text-lg font-black text-slate-900">🔬 5 Critical Code Logics Deep Dive ("This Particular Section of Code Does This")</h3>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">Video Minutes 05:30–09:00</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Logic 1 -->
+          <div class="p-4 bg-slate-900 text-white rounded-2xl border border-slate-800 space-y-2">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+              <span class="text-xs font-bold text-cyan-400">Logic 1: Zero Data Leakage Split-Before-Fit</span>
+              <span class="text-[10px] font-mono text-slate-400">src/data_loader.py & src/pipeline.py</span>
+            </div>
+            <p class="text-[11px] text-slate-300">
+              <strong>"This particular section of code guarantees zero data leakage:"</strong> We stratify on loan eligibility into 70% Train, 10% Validation, and 20% Test <em>before</em> any imputation, scaling, or outlier capping.
+            </p>
+            <pre class="p-2.5 bg-slate-950 rounded-lg text-[10px] font-mono text-emerald-300 overflow-x-auto border border-slate-800">
+# src/data_loader.py lines 175-195
+train_val, test = train_test_split(
+    df, test_size=0.20, stratify=df[CLASSIFICATION_TARGET], random_state=42
+)
+train, val = train_test_split(
+    train_val, test_size=0.125, stratify=train_val[CLASSIFICATION_TARGET], random_state=42
+)
+# src/pipeline.py lines 58-62: Fit strictly on Train!
+preprocessor = build_preprocessor(all_num_cols, CATEGORICAL_FEATURES)
+X_train_trans = preprocessor.fit_transform(train_feat)
+X_test_trans  = preprocessor.transform(test_feat)  # ONLY transform!</pre>
+            <div class="text-[10px] text-amber-300 font-semibold">
+              Evaluation Defense: Prevents test distribution parameters from leaking into median imputation and standard scaling.
+            </div>
+          </div>
+
+          <!-- Logic 2 -->
+          <div class="p-4 bg-slate-900 text-white rounded-2xl border border-slate-800 space-y-2">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+              <span class="text-xs font-bold text-cyan-400">Logic 2: Outlier Capper with Non-Negativity Floors</span>
+              <span class="text-[10px] font-mono text-slate-400">src/preprocessing.py lines 34–66</span>
+            </div>
+            <p class="text-[11px] text-slate-300">
+              <strong>"This particular section of code handles extreme financial outliers:"</strong> Standard IQR capping at 1.5× can calculate negative lower bounds for positive financial variables like salary and loan amounts. Our custom transformer prevents this.
+            </p>
+            <pre class="p-2.5 bg-slate-950 rounded-lg text-[10px] font-mono text-emerald-300 overflow-x-auto border border-slate-800">
+# src/preprocessing.py lines 49-57
+q25 = X_df[col].quantile(0.01)
+q75 = X_df[col].quantile(0.99)
+iqr = q75 - q25
+lower = q25 - (self.factor * iqr)
+upper = q75 + (self.factor * iqr)
+# Safeguard strictly positive financial fields
+if col in ["monthly_salary", "requested_amount", "current_emi_amount"]:
+    lower = max(0.0, lower)  # Absolute zero floor
+self.bounds_[col] = (lower, upper)</pre>
+            <div class="text-[10px] text-amber-300 font-semibold">
+              Evaluation Defense: Prevents gradient explosion in tree splits while protecting financial physics (salaries cannot be negative).
+            </div>
+          </div>
+
+          <!-- Logic 3 -->
+          <div class="p-4 bg-slate-900 text-white rounded-2xl border border-slate-800 space-y-2">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+              <span class="text-xs font-bold text-cyan-400">Logic 3: Mathematical Free Cash Flow & 4-Factor Health Score</span>
+              <span class="text-[10px] font-mono text-slate-400">src/feature_engineering.py lines 40–77</span>
+            </div>
+            <p class="text-[11px] text-slate-300">
+              <strong>"This particular section of code derives unencumbered liquidity:"</strong> Combines 6 living expense columns into total obligations, derives true free cash flow, and creates our 0–100 composite Financial Health Score.
+            </p>
+            <pre class="p-2.5 bg-slate-950 rounded-lg text-[10px] font-mono text-emerald-300 overflow-x-auto border border-slate-800">
+# Free cash flow & Debt-to-Income (DTI)
+data["total_monthly_expenses"] = data[expense_cols].sum(axis=1) + current_emi
+data["disposable_income"] = data["monthly_salary"] - data["total_monthly_expenses"]
+data["debt_to_income_ratio"] = (current_emi / salary).clip(0, 5)
+
+# 4-Factor Composite Financial Health Score (0 - 100)
+credit_pts = ((data["credit_score"].clip(300, 850) - 300) / 550.0) * 40.0
+dti_pts    = (1.0 - data["debt_to_income_ratio"].clip(0, 1)) * 25.0
+disp_pts   = (data["disposable_income"] / salary).clip(0, 1) * 20.0
+emp_pts    = (data["years_of_employment"].clip(0, 15) / 15.0) * 15.0
+data["financial_health_score"] = (credit_pts + dti_pts + disp_pts + emp_pts).clip(0, 100)</pre>
+            <div class="text-[10px] text-amber-300 font-semibold">
+              Evaluation Defense: Ranks as the #1 and #2 most decisive features in XGBoost Gini gain.
+            </div>
+          </div>
+
+          <!-- Logic 4 -->
+          <div class="p-4 bg-slate-900 text-white rounded-2xl border border-slate-800 space-y-2">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+              <span class="text-xs font-bold text-cyan-400">Logic 4: XGBoost Objective & Taylor Gradient Optimization</span>
+              <span class="text-[10px] font-mono text-slate-400">src/classification_models.py & src/regression_models.py</span>
+            </div>
+            <p class="text-[11px] text-slate-300">
+              <strong>"This particular section of code configures our champion algorithms:"</strong> Employs 2nd-order Taylor expansions with tree shrinkage and column subsampling to defeat collinearity.
+            </p>
+            <pre class="p-2.5 bg-slate-950 rounded-lg text-[10px] font-mono text-emerald-300 overflow-x-auto border border-slate-800">
+# Classifier: Multi-class logloss with column subsampling
+XGBClassifier(
+    n_estimators=180, max_depth=6, learning_rate=0.08,
+    subsample=0.85, colsample_bytree=0.85, eval_metric="mlogloss",
+    random_state=42, n_jobs=-1
+)
+# Regressor: Squared error with domain bounded output
+XGBRegressor(
+    n_estimators=200, max_depth=6, learning_rate=0.07,
+    subsample=0.85, colsample_bytree=0.85, random_state=42, n_jobs=-1
+)
+# Post-prediction safety bound:
+pred_max_emi = np.clip(pred_max_emi, 500.0, 50000.0)</pre>
+            <div class="text-[10px] text-amber-300 font-semibold">
+              Evaluation Defense: Achieved 98.95% accuracy and ₹273.92 RMSE by capturing non-linear debt cliffs.
+            </div>
+          </div>
+        </div>
+
+        <!-- Logic 5 (Full Width) -->
+        <div class="p-4 bg-slate-900 text-white rounded-2xl border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+            <span class="text-xs font-bold text-cyan-400">Logic 5: Real-Time Dual-Target Inference & Underwriter Decision Rule Engine</span>
+            <span class="text-[10px] font-mono text-slate-400">src/predict.py lines 29–85</span>
+          </div>
+          <p class="text-[11px] text-slate-300">
+            <strong>"This particular section of code bridges ML predictions with banking business rules:"</strong> Executes both models in one pass and automatically generates human-readable risk flags and underwriting recommendations.
+          </p>
+          <pre class="p-2.5 bg-slate-950 rounded-lg text-[10px] font-mono text-emerald-300 overflow-x-auto border border-slate-800">
+# Dual inference execution
+X_trans = self.preprocessor.transform(df_feat)
+pred_class_idx = int(self.classifier.predict(X_trans)[0])
+pred_eligibility = INVERSE_CLASS_MAPPING.get(pred_class_idx, "Unknown")
+pred_max_emi = float(np.clip(self.regressor.predict(X_trans)[0], 500.0, 50000.0))
+
+# Automated Underwriter Risk Flags
+risk_flags = []
+if applicant_data.get("credit_score", 700) < 650:
+    risk_flags.append("Subprime credit score (< 650)")
+if dti > 40.0:
+    risk_flags.append(f"Excessive Debt-to-Income ({dti:.1f}% > 40%)")
+if disposable < req_burden:
+    risk_flags.append(f"Cash flow deficit (Free cash ₹{disposable:,.0f} < Installment ₹{req_burden:,.0f})")</pre>
+          <div class="text-[10px] text-amber-300 font-semibold">
+            Evaluation Defense: Enables credit officers to understand the exact root cause behind any conditional approval or rejection.
+          </div>
+        </div>
+      </div>
+
+      <!-- COMPREHENSIVE MODEL TOURNAMENTS & RESULTS DEEP DIVE -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-emerald-600"></span>
+            <h3 class="text-lg font-black text-slate-900">🏆 Dual-Model Tournament & Empirical Results Deep-Dive</h3>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">Video Minutes 11:00–14:00</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <!-- Classification Tournament Table -->
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+            <div class="font-bold text-sm text-slate-900 flex items-center justify-between">
+              <span>Task A: Multi-Class Eligibility Tournament</span>
+              <span class="text-emerald-700 font-mono text-xs">Benchmark: >90.0%</span>
+            </div>
+            <table class="w-full text-left text-[11px] border-collapse">
+              <thead>
+                <tr class="border-b border-slate-200 text-slate-600">
+                  <th class="py-1">Model</th>
+                  <th class="py-1">Accuracy</th>
+                  <th class="py-1">F1 Weighted</th>
+                  <th class="py-1">ROC-AUC</th>
+                  <th class="py-1">Status</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100">
+                <tr>
+                  <td class="py-1.5 font-medium">Logistic Regression</td>
+                  <td class="py-1.5 text-slate-600">85.97%</td>
+                  <td class="py-1.5 text-slate-600">0.8674</td>
+                  <td class="py-1.5 text-slate-600">0.9412</td>
+                  <td class="py-1.5 text-slate-400">Baseline</td>
+                </tr>
+                <tr>
+                  <td class="py-1.5 font-medium">Random Forest</td>
+                  <td class="py-1.5 text-slate-600">97.32%</td>
+                  <td class="py-1.5 text-slate-600">0.9731</td>
+                  <td class="py-1.5 text-slate-600">0.9981</td>
+                  <td class="py-1.5 text-blue-600 font-semibold">Runner-Up</td>
+                </tr>
+                <tr class="bg-emerald-50/70 font-bold text-emerald-950">
+                  <td class="py-1.5 text-emerald-900">XGBoost Classifier</td>
+                  <td class="py-1.5 text-emerald-700">98.95%</td>
+                  <td class="py-1.5 text-emerald-700">0.9895</td>
+                  <td class="py-1.5 text-emerald-700">0.9998</td>
+                  <td class="py-1.5 text-emerald-700">🏆 Champion</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="text-[11px] text-slate-600 leading-relaxed pt-1">
+              <strong>Key Finding:</strong> XGBoost eliminated 0.00% false approvals (Eligible vs Not_Eligible confusion is exactly 0). The minor ~1% errors occurred strictly between High_Risk and neighboring classes.
+            </p>
+          </div>
+
+          <!-- Regression Tournament Table -->
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+            <div class="font-bold text-sm text-slate-900 flex items-center justify-between">
+              <span>Task B: Maximum Safe Monthly EMI Tournament</span>
+              <span class="text-emerald-700 font-mono text-xs">Benchmark: &lt;₹2,000</span>
+            </div>
+            <table class="w-full text-left text-[11px] border-collapse">
+              <thead>
+                <tr class="border-b border-slate-200 text-slate-600">
+                  <th class="py-1">Model</th>
+                  <th class="py-1">RMSE (INR)</th>
+                  <th class="py-1">MAE (INR)</th>
+                  <th class="py-1">R² Score</th>
+                  <th class="py-1">Status</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100">
+                <tr>
+                  <td class="py-1.5 font-medium">Linear Ridge Regression</td>
+                  <td class="py-1.5 text-rose-600 font-semibold">₹2,641.46</td>
+                  <td class="py-1.5 text-slate-600">₹1,985.12</td>
+                  <td class="py-1.5 text-slate-600">0.9475</td>
+                  <td class="py-1.5 text-rose-500">Failed Cap</td>
+                </tr>
+                <tr>
+                  <td class="py-1.5 font-medium">Random Forest Regressor</td>
+                  <td class="py-1.5 text-slate-600">₹294.60</td>
+                  <td class="py-1.5 text-slate-600">₹198.40</td>
+                  <td class="py-1.5 text-slate-600">0.9993</td>
+                  <td class="py-1.5 text-blue-600 font-semibold">Runner-Up</td>
+                </tr>
+                <tr class="bg-emerald-50/70 font-bold text-emerald-950">
+                  <td class="py-1.5 text-emerald-900">XGBoost Regressor</td>
+                  <td class="py-1.5 text-emerald-700">₹273.92</td>
+                  <td class="py-1.5 text-emerald-700">₹182.45</td>
+                  <td class="py-1.5 text-emerald-700">0.9994</td>
+                  <td class="py-1.5 text-emerald-700">🏆 Champion</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="text-[11px] text-slate-600 leading-relaxed pt-1">
+              <strong>Key Finding:</strong> Linear Ridge failed because debt capacity follows steep non-linear cliff functions when DTI crosses 40%. XGBoost captured these non-linearities, crushing the capstone RMSE threshold of ₹2,000 by 86%.
+            </p>
+          </div>
+        </div>
+      </div>
+
     </section>
 
-    <!-- TAB 3: 15-MINUTE LIVE DEFENSE SCRIPT -->
+    <!-- TAB 3: 17–20 MINUTE MASTER VIDEO DEFENSE SCRIPT -->
     <section id="tab-teleprompter" class="tab-content hidden space-y-6">
       
-      <div class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white p-4 rounded-xl flex items-center justify-between text-xs">
-        <span class="font-bold">Stage 1: Intro (1m)</span> ➔
-        <span class="font-bold">Stage 2: Technical Walkthrough (7m)</span> ➔
-        <span class="font-bold">Stage 3: Rapid Q&A (5m)</span> ➔
-        <span class="font-bold">Stage 4: Feedback (2m)</span>
-      </div>
-
-      <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2.5">
-        <div class="flex items-center justify-between">
-          <span class="text-xs font-bold text-blue-700 uppercase tracking-wider">Stage 1: 60-Second Elevator Pitch (00:00 - 01:00)</span>
+      <!-- STAGE PROGRESS BAR & QUICK NAV -->
+      <div class="bg-gradient-to-r from-blue-950 via-indigo-900 to-slate-900 text-white p-4 rounded-2xl shadow-md border border-white/10 space-y-3">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-700/60 pb-2.5">
+          <div>
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-400 text-slate-950 uppercase tracking-wide">Mentor-Calibrated Master Recording Script</span>
+            <h2 class="text-base font-black text-white mt-1">🎥 17 to 20 Minute Complete Video Presentation Playbook (Target: 18m 30s)</h2>
+          </div>
           <div class="flex items-center gap-2">
-            <button onclick="speakText(document.getElementById('pitchTextContainer').innerText, this)" class="speech-btn px-2.5 py-0.5 rounded text-[11px] font-bold bg-blue-600 hover:bg-blue-500 text-white shadow-sm transition flex items-center gap-1">🔊 Listen to Voice Coach</button>
-            <span class="text-xs font-mono bg-blue-50 text-blue-700 px-2 py-0.5 rounded">1 MINUTE</span>
+            <span class="text-xs font-mono bg-white/10 px-2.5 py-1 rounded text-cyan-300">Total Duration: 18:30 (Bounds: 17:00 – 20:00)</span>
           </div>
         </div>
-        <div id="pitchTextContainer" class="p-4 bg-slate-50 rounded-xl text-xs leading-relaxed text-slate-800 space-y-2 border border-slate-200">
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-1.5 text-[11px] font-medium text-center">
+          <div class="p-2 rounded-lg bg-blue-900/60 border border-blue-700/60 text-blue-200">
+            <span class="block text-[10px] text-blue-300 font-bold">Part 1 (00:00–02:30)</span>
+            <span>Why & Motivation</span>
+          </div>
+          <div class="p-2 rounded-lg bg-indigo-900/60 border border-indigo-700/60 text-indigo-200">
+            <span class="block text-[10px] text-indigo-300 font-bold">Part 2 (02:30–05:30)</span>
+            <span>VS Code File Tour</span>
+          </div>
+          <div class="p-2 rounded-lg bg-emerald-900/60 border border-emerald-700/60 text-emerald-200">
+            <span class="block text-[10px] text-emerald-300 font-bold">Part 3 (05:30–09:00)</span>
+            <span>5 Core Code Logics</span>
+          </div>
+          <div class="p-2 rounded-lg bg-cyan-900/60 border border-cyan-700/60 text-cyan-200">
+            <span class="block text-[10px] text-cyan-300 font-bold">Part 4 (09:00–11:00)</span>
+            <span>Statistical Tests</span>
+          </div>
+          <div class="p-2 rounded-lg bg-purple-900/60 border border-purple-700/60 text-purple-200">
+            <span class="block text-[10px] text-purple-300 font-bold">Part 5 (11:00–14:00)</span>
+            <span>Models & Results</span>
+          </div>
+          <div class="p-2 rounded-lg bg-amber-900/60 border border-amber-700/60 text-amber-200">
+            <span class="block text-[10px] text-amber-300 font-bold">Part 6 (14:00–16:45)</span>
+            <span>Streamlit Live Demo</span>
+          </div>
+          <div class="p-2 rounded-lg bg-rose-900/60 border border-rose-700/60 text-rose-200">
+            <span class="block text-[10px] text-rose-300 font-bold">Part 7 (16:45–18:30)</span>
+            <span>Future Roadmap</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PART 1: MOTIVATION & PROBLEM STATEMENT -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+            <span class="text-xs font-bold text-blue-700 uppercase tracking-wider">Part 1: Why Am I Doing This Project & The Problem Statement</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="speakText(document.getElementById('scriptPart1').innerText, this)" class="speech-btn px-2.5 py-0.5 rounded text-[11px] font-bold bg-blue-600 hover:bg-blue-500 text-white shadow-sm transition flex items-center gap-1">🔊 Listen</button>
+            <span class="text-xs font-mono bg-blue-50 text-blue-700 px-2 py-0.5 rounded font-bold">00:00 – 02:30 (2.5 MINS)</span>
+          </div>
+        </div>
+
+        <div class="p-3 bg-blue-50/50 rounded-xl border border-blue-100 text-xs font-mono text-blue-900">
+          <strong>[SCREEN ACTION: Start with your camera / face on screen or project title slide in fullscreen. Speak with energy, high confidence, and enterprise authority.]</strong>
+        </div>
+
+        <div id="scriptPart1" class="p-4 bg-slate-50 rounded-xl text-xs leading-relaxed text-slate-800 space-y-2.5 border border-slate-200">
           <p>
-            <strong class="text-blue-950 font-bold">"Good day, respected evaluators. My name is Devansh.</strong> Today, I am presenting <strong class="text-blue-950">EMIPredict AI</strong>, an enterprise-grade financial risk assessment and automated loan underwriting engine built for retail banking and FinTech."
+            <strong class="text-blue-950 font-bold">"Good day, respected evaluators and mentor. My name is Devansh.</strong> Today, I am proud to present <strong class="text-blue-950">EMIPredict AI</strong>, an enterprise-grade financial risk assessment and dual-target loan underwriting intelligence platform built for modern retail banks and FinTech lenders."
           </p>
           <p>
-            "Traditional loan underwriting takes 24 to 48 hours and relies on crude salary multiples that frequently overlook over-leveraged borrowers. We solved this by developing a <strong>Dual-Task Machine Learning Architecture</strong> evaluated across <strong>400,000 records</strong> across 5 lending scenarios:
-            <strong>Multi-class Eligibility Classification</strong> achieving <strong class="text-emerald-700">98.95% accuracy</strong>, and <strong>Continuous Maximum Safe EMI Regression</strong> achieving an RMSE of just <strong class="text-emerald-700">₹273.92</strong> with an R² of <strong class="text-emerald-700">0.9994</strong>."
+            <strong class="text-slate-900 font-bold">Why am I doing this project?</strong><br>
+            "Across the globe and especially in emerging economies like India, retail consumer credit is expanding at an unprecedented rate of over <strong>25% compound annual growth</strong>. Millions of individuals are applying for consumer credit across e-commerce shopping, home appliances, two-wheelers, education, and personal loans. However, banking institutions are experiencing a surge in <strong>early defaults and Non-Performing Assets (NPAs)</strong>.
           </p>
           <p>
-            "The platform is backed by <strong>MLflow experiment tracking</strong> and deployed as an interactive <strong>multi-page Streamlit web application</strong> with full administrative CRUD capabilities. Let me walk you through the architecture."
+            When I investigated why this occurs, I discovered that traditional banking loan underwriting relies on two catastrophic flaws:
+          </p>
+          <p class="pl-3 border-l-2 border-rose-400 space-y-1">
+            <span><strong>1. The Gross Salary Multiple Fallacy:</strong> Traditional banks evaluate an applicant based on gross income—for instance, <em>'You earn ₹80,000 per month, so we can grant you a ₹20,000 EMI'</em>. But they completely ignore fixed non-discretionary living overheads—such as house rent, children's school fees, groceries, and utilities. If an applicant earns ₹80,000 but pays ₹75,000 in living costs, their true free cash flow is only ₹5,000. Lending them a ₹20,000 EMI guarantees immediate default.</span><br>
+            <span><strong>2. Multi-Line Credit Blindness:</strong> Modern digital consumers hold multiple simultaneous credit lines—a BNPL e-commerce EMI, a smartphone loan, and existing personal credit cards. Traditional rules evaluate each new loan in a silo, blind to how combined debt pushes the borrower's total <strong>Debt-to-Income (DTI) ratio beyond the 40% danger cliff</strong>.</span>
+          </p>
+          <p>
+            <strong class="text-slate-900 font-bold">How does EMIPredict AI solve this?</strong><br>
+            "We solve this crisis by engineering a <strong>Dual-Task Machine Learning Architecture</strong> evaluated across <strong>400,000 borrower records</strong> spanning 5 diverse lending scenarios. Rather than a crude one-size-fits-all threshold, our platform computes true unencumbered disposable cash flow and solves two simultaneous questions in under 200 milliseconds:
+            <strong>First</strong>, multi-class risk classification—determining whether the applicant is <em>Eligible</em>, <em>High Risk</em>, or <em>Not Eligible</em> with <strong>98.95% accuracy</strong>.
+            <strong>Second</strong>, continuous affordability regression—calculating the exact, safe maximum monthly EMI capacity in INR with an RMSE of just <strong>₹273.92</strong>.
+            Let me now transition to VS Code and walk you through the codebase file-by-file."
           </p>
         </div>
       </div>
 
-      <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-        <div class="flex items-center justify-between">
-          <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider">Stage 2: Core Technical Walkthrough (01:00 - 08:00)</span>
-          <span class="text-xs font-mono bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded">7 MINUTES</span>
+      <!-- PART 2: FILE-BY-FILE CODEBASE TOUR -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-indigo-600"></span>
+            <span class="text-xs font-bold text-indigo-700 uppercase tracking-wider">Part 2: Codebase Tour in VS Code — Showing Files & Module Architecture</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="speakText(document.getElementById('scriptPart2').innerText, this)" class="speech-btn px-2.5 py-0.5 rounded text-[11px] font-bold bg-blue-600 hover:bg-blue-500 text-white shadow-sm transition flex items-center gap-1">🔊 Listen</button>
+            <span class="text-xs font-mono bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded font-bold">02:30 – 05:30 (3.0 MINS)</span>
+          </div>
         </div>
 
-        <div class="space-y-2 text-xs text-slate-700">
-          <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
-            <strong>Minute 1–2: Data Pipeline & Zero Data Leakage:</strong> 400K records across 5 scenarios. Split into 70% Train, 10% Val, 20% Test *before* any preprocessing. Fitted Scikit-Learn `ColumnTransformer` strictly on Train. Treated outliers via IQR capping at 1st & 99th percentiles with non-negativity constraints.
+        <div class="p-3 bg-indigo-50/50 rounded-xl border border-indigo-100 text-xs font-mono text-indigo-900">
+          <strong>[SCREEN ACTION: Switch screen sharing to VS Code. Open the file explorer sidebar on the left showing <code>src/</code> and <code>app/</code>. Click into each file as you introduce it.]</strong>
+        </div>
+
+        <div id="scriptPart2" class="p-4 bg-slate-50 rounded-xl text-xs leading-relaxed text-slate-800 space-y-2.5 border border-slate-200">
+          <p>
+            <strong class="text-indigo-950 font-bold">"Now, let us examine the engineering structure of the project inside VS Code.</strong> As you can see in the explorer tree, the codebase is architected into modular, production-ready Python packages under <code>src/</code>, complemented by our interactive multi-page Streamlit application under <code>app/</code>. Let me show you what each specific file does:
+          </p>
+          <div class="space-y-2 text-slate-700 pl-2">
+            <div>
+              <strong>1. <code>src/config.py</code>:</strong> <em>[Click into config.py]</em><br>
+              "This file is our centralized configuration nerve center. It defines absolute project paths, the schemas for our 17 raw numerical features and 8 categorical features, the target definitions, our class mapping dictionary (Eligible = 0, High_Risk = 1, Not_Eligible = 2), and our strict capstone benchmarks—requiring over 90% classification accuracy and an RMSE under ₹2,000."
+            </div>
+            <div>
+              <strong>2. <code>src/data_loader.py</code>:</strong> <em>[Click into data_loader.py]</em><br>
+              "This module handles data ingestion and validation. If the full 400K dataset is downloaded, it stages it into <code>data/raw/</code>. Furthermore, it contains our <code>split_data()</code> function, which performs stratified Train/Validation/Test splitting—70% for training, 10% for validation, and 20% for final test evaluation—guaranteeing zero data leakage."
+            </div>
+            <div>
+              <strong>3. <code>src/feature_engineering.py</code>:</strong> <em>[Click into feature_engineering.py]</em><br>
+              "This is the heart of our domain intelligence. Rather than feeding raw unnormalized numbers into an algorithm, this module calculates the real-world financial ratios: unencumbered disposable cash flow, Debt-to-Income (DTI), Expense-to-Income (ETI), Requested Monthly Burden, and our calibrated 0–100 Composite Financial Health Score."
+            </div>
+            <div>
+              <strong>4. <code>src/preprocessing.py</code>:</strong> <em>[Click into preprocessing.py]</em><br>
+              "Here we construct our production Scikit-Learn <code>ColumnTransformer</code>. It includes our custom <code>OutlierCapper</code>, which applies IQR Winsorization with strict non-negativity floors, alongside median imputers, <code>StandardScaler</code> for continuous variables, and <code>OneHotEncoder</code> with unknown category handling for categoricals."
+            </div>
+            <div>
+              <strong>5. <code>src/statistical_tests.py</code>:</strong> <em>[Click into statistical_tests.py]</em><br>
+              "This module implements our hypothesis testing battery using SciPy. It runs Chi-Square tests of independence for categorical variables, One-Way ANOVA tests across eligibility risk tiers, and Pearson/Spearman correlations against safe EMI capacity."
+            </div>
+            <div>
+              <strong>6. <code>src/classification_models.py</code> & <code>src/regression_models.py</code>:</strong> <em>[Click into both files]</em><br>
+              "These two modules define and benchmark our candidate model suites: Logistic Regression, Random Forest Classifier, and XGBoost Classifier for multi-class risk; and Linear Ridge, Random Forest Regressor, and XGBoost Regressor for continuous EMI capacity."
+            </div>
+            <div>
+              <strong>7. <code>src/mlflow_utils.py</code>:</strong> <em>[Click into mlflow_utils.py]</em><br>
+              "This file encapsulates enterprise MLOps. It connects to an SQLite database tracking URI (<code>sqlite:///mlflow.db</code>), logging parameters, loss metrics, confusion matrix heatmaps, parity plots, and serialized model binaries."
+            </div>
+            <div>
+              <strong>8. <code>src/pipeline.py</code> & <code>src/predict.py</code>:</strong> <em>[Click into pipeline.py and predict.py]</em><br>
+              "<code>pipeline.py</code> is the master training orchestrator that runs the entire end-to-end workflow from raw data to saved models in <code>models/</code>. <code>predict.py</code> provides our real-time <code>EMIPredictor</code> class, which loads the serialized models and executes sub-200ms dual inference with automated underwriting risk explanations."
+            </div>
+            <div>
+              <strong>9. <code>app/</code> Directory:</strong> <em>[Expand app/ folder]</em><br>
+              "Finally, our <code>app/</code> folder contains our production Streamlit suite: <code>Home.py</code>, <code>1_Predict_EMI.py</code> for the Underwriting Studio, <code>2_EDA_Insights.py</code>, <code>3_Model_Evaluation.py</code>, and <code>4_Manage_Data.py</code> for administrative CRUD operations."
+            </div>
           </div>
-          <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
-            <strong>Minute 3–4: Domain Features & Statistical Significance:</strong> Created Debt-to-Income (DTI &lt; 40%), Net Disposable Free Cash Flow, and Financial Health Score (0-100). Validated via Chi-Square ($\chi^2$) and One-Way ANOVA tests ($p &lt; 0.001$).
+        </div>
+      </div>
+
+      <!-- PART 3: 5 CRITICAL CODE LOGICS -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>
+            <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider">Part 3: 5 Critical Code Logics Deep Dive — Line-by-Line Breakdown</span>
           </div>
-          <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
-            <strong>Minute 5–6: Model Development & MLflow Tracking:</strong> Evaluated 3 models each. XGBoost won both tasks (98.95% accuracy; ₹273.92 RMSE) using 2nd-order Taylor series gradient optimization and $L_1/L_2$ regularization. Programmatically logged runs to an SQLite MLflow database (`sqlite:///mlflow.db`).
+          <div class="flex items-center gap-2">
+            <button onclick="speakText(document.getElementById('scriptPart3').innerText, this)" class="speech-btn px-2.5 py-0.5 rounded text-[11px] font-bold bg-blue-600 hover:bg-blue-500 text-white shadow-sm transition flex items-center gap-1">🔊 Listen</button>
+            <span class="text-xs font-mono bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded font-bold">05:30 – 09:00 (3.5 MINS)</span>
           </div>
-          <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
-            <strong>Minute 7: Streamlit Live App & Business ROI:</strong> Demonstrated the live Predictor tool, instant underwriter recommendations, and CRUD data management. Slashes loan processing latency by 80% while curbing NPAs.
+        </div>
+
+        <div class="p-3 bg-emerald-50/50 rounded-xl border border-emerald-100 text-xs font-mono text-emerald-900">
+          <strong>[SCREEN ACTION: In VS Code, navigate directly to each file and highlight the exact line numbers specified below so the evaluator sees the code on screen.]</strong>
+        </div>
+
+        <div id="scriptPart3" class="p-4 bg-slate-50 rounded-xl text-xs leading-relaxed text-slate-800 space-y-2.5 border border-slate-200">
+          <p>
+            <strong class="text-emerald-950 font-bold">"Now, let us examine the critical code logics that give our platform its mathematical rigor.</strong> I will highlight five specific sections in the code:
+          </p>
+          <div class="space-y-3 text-slate-700 pl-2">
+            <div>
+              <strong class="text-slate-900">Logic 1: Zero Data Leakage Split-Before-Fit Pipeline (<code>src/data_loader.py</code> lines 175–195 & <code>src/pipeline.py</code> lines 58–62):</strong><br>
+              <em>[Highlight lines 175–195 in data_loader.py]</em><br>
+              "Notice this code block: we split raw data into 70% Train, 10% Validation, and 20% Test using <code>stratify=df['emi_eligibility']</code>. In <code>pipeline.py</code>, notice that we call <code>preprocessor.fit_transform(train_feat)</code> strictly on the training partition! For test evaluation and live inference, we ONLY invoke <code>preprocessor.transform()</code>. This guarantees that test distribution parameters—such as imputation medians and standard deviation scalers—never contaminate model training."
+            </div>
+            <div>
+              <strong class="text-slate-900">Logic 2: Domain-Informed Outlier Capper with Non-Negativity Floors (<code>src/preprocessing.py</code> lines 34–66):</strong><br>
+              <em>[Open preprocessing.py, highlight lines 49–57]</em><br>
+              "Standard IQR capping at 1.5× can calculate negative lower bounds for positive financial variables. Notice lines 55–57 in our custom <code>OutlierCapper</code>: <code class="bg-slate-200 px-1 rounded font-mono">lower = max(0.0, lower)</code>. For financial features like <code>monthly_salary</code>, <code>requested_amount</code>, and <code>current_emi_amount</code>, we strictly enforce an absolute zero floor. This preserves physical financial reality while clipping extreme tail outliers using the 1st and 99th percentiles."
+            </div>
+            <div>
+              <strong class="text-slate-900">Logic 3: Mathematical Free Cash Flow & 4-Factor Financial Health Scoring (<code>src/feature_engineering.py</code> lines 40–77):</strong><br>
+              <em>[Open feature_engineering.py, highlight lines 40–77]</em><br>
+              "Look at line 46: we compute <code class="bg-slate-200 px-1 rounded font-mono">disposable_income = salary - total_monthly_expenses</code>, where total expenses sums rent, utilities, school fees, and current EMIs. Then, at lines 66–77, we compute our composite 0–100 Financial Health Score: credit score contributes 40 points, Debt-to-Income ratio contributes 25 points, disposable income buffer contributes 20 points, and employment stability contributes 15 points. This single feature captures over 21% of XGBoost's decision weight."
+            </div>
+            <div>
+              <strong class="text-slate-900">Logic 4: XGBoost Objective & Regularized Tree Tuning (<code>src/classification_models.py</code> lines 40–49 & <code>src/regression_models.py</code> lines 37–46):</strong><br>
+              <em>[Open classification_models.py, highlight lines 40–49]</em><br>
+              "Notice our hyperparameters: <code class="bg-slate-200 px-1 rounded font-mono">max_depth=6</code>, <code class="bg-slate-200 px-1 rounded font-mono">learning_rate=0.08</code>, <code class="bg-slate-200 px-1 rounded font-mono">subsample=0.85</code>, and <code class="bg-slate-200 px-1 rounded font-mono">colsample_bytree=0.85</code> with <code class="bg-slate-200 px-1 rounded font-mono">eval_metric='mlogloss'</code>. We utilize 2nd-order Taylor expansions of the loss function, and by subsampling 85% of features per tree split, we completely eliminate multicollinearity between salary and disposable income."
+            </div>
+            <div>
+              <strong class="text-slate-900">Logic 5: Real-Time Dual-Target Inference & Underwriter Risk Rules (<code>src/predict.py</code> lines 29–85):</strong><br>
+              <em>[Open predict.py, highlight lines 29–85]</em><br>
+              "In our <code>predict_single()</code> method, a single JSON applicant payload is transformed through the fitted pipeline, evaluated by the classifier for multi-class risk, and sized by the regressor for maximum safe EMI. Then, lines 59–85 apply automated underwriter decision logic—generating human-readable audit flags whenever credit score is under 650, DTI exceeds 40%, or living expenses exceed cash flow."
+            </div>
           </div>
+        </div>
+      </div>
+
+      <!-- PART 4: STATISTICAL HYPOTHESIS TESTING -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-cyan-600"></span>
+            <span class="text-xs font-bold text-cyan-700 uppercase tracking-wider">Part 4: Scientific Hypothesis Testing Battery</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="speakText(document.getElementById('scriptPart4').innerText, this)" class="speech-btn px-2.5 py-0.5 rounded text-[11px] font-bold bg-blue-600 hover:bg-blue-500 text-white shadow-sm transition flex items-center gap-1">🔊 Listen</button>
+            <span class="text-xs font-mono bg-cyan-50 text-cyan-700 px-2 py-0.5 rounded font-bold">09:00 – 11:00 (2.0 MINS)</span>
+          </div>
+        </div>
+
+        <div class="p-3 bg-cyan-50/50 rounded-xl border border-cyan-100 text-xs font-mono text-cyan-900">
+          <strong>[SCREEN ACTION: In VS Code, open <code>docs/chi_square_tests.csv</code> or show the EDA page in the browser under Tab 3.]</strong>
+        </div>
+
+        <div id="scriptPart4" class="p-4 bg-slate-50 rounded-xl text-xs leading-relaxed text-slate-800 space-y-2.5 border border-slate-200">
+          <p>
+            <strong class="text-cyan-950 font-bold">"Before training any machine learning models, we conducted a rigorous hypothesis testing battery using SciPy.</strong> In machine learning engineering, algorithms should never be trained on assumed feature relevance—every predictor must be statistically proven:
+          </p>
+          <div class="space-y-2 text-slate-700 pl-2">
+            <div>
+              <strong>1. Chi-Square ($\chi^2$) Test of Independence for Categorical Variables:</strong><br>
+              "We formulated the Null Hypothesis ($H_0$) that categorical predictors—such as company type, employment type, and lending scenario—are independent of loan eligibility. The Chi-Square test yielded $p$-values strictly less than <strong>0.001</strong> for all primary categories. For example, company type produced a $\chi^2$ statistic of over 1,200 with $p < 0.0001$. We rejected the Null Hypothesis, confirming that employment stability and company stature have a statistically significant dependence with repayment behavior."
+            </div>
+            <div>
+              <strong>2. One-Way ANOVA ($F$-Tests) for Continuous Variables:</strong><br>
+              "For continuous features, our Null Hypothesis ($H_0$) stated that the mean values of variables like disposable income, credit score, and monthly salary are identical across the three eligibility classes (Eligible, High_Risk, and Not_Eligible). The ANOVA test yielded massive $F$-statistics exceeding <strong>450.0</strong> with $p$-values of <strong>0.000</strong>. This proved that our risk tiers represent genuinely distinct mathematical populations, establishing the foundation for high classification accuracy."
+            </div>
+            <div>
+              <strong>3. Pearson & Spearman Rank Correlations:</strong><br>
+              "For continuous EMI regression, our correlation analysis confirmed that engineered <strong>Disposable Free Cash Flow</strong> holds the strongest positive correlation with safe monthly EMI capacity at <strong>$r = +0.92$</strong>, outperforming raw gross salary at $r = +0.88$. This empirically validates our core premise: free cash flow pays loans, not gross income."
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PART 5: MODEL TOURNAMENT & RESULTS DEEP DIVE -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-purple-600"></span>
+            <span class="text-xs font-bold text-purple-700 uppercase tracking-wider">Part 5: Model Tournament & Empirical Results Deep Dive</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="speakText(document.getElementById('scriptPart5').innerText, this)" class="speech-btn px-2.5 py-0.5 rounded text-[11px] font-bold bg-blue-600 hover:bg-blue-500 text-white shadow-sm transition flex items-center gap-1">🔊 Listen</button>
+            <span class="text-xs font-mono bg-purple-50 text-purple-700 px-2 py-0.5 rounded font-bold">11:00 – 14:00 (3.0 MINS)</span>
+          </div>
+        </div>
+
+        <div class="p-3 bg-purple-50/50 rounded-xl border border-purple-100 text-xs font-mono text-purple-900">
+          <strong>[SCREEN ACTION: Open <code>models/XGBoost_confusion_matrix.png</code> and <code>models/XGBoost_Regressor_actual_vs_predicted.png</code>, or show them in the Model Evaluation tab of Streamlit.]</strong>
+        </div>
+
+        <div id="scriptPart5" class="p-4 bg-slate-50 rounded-xl text-xs leading-relaxed text-slate-800 space-y-2.5 border border-slate-200">
+          <p>
+            <strong class="text-purple-950 font-bold">"Now let us examine the core machine learning results and our model comparison tournament.</strong> To satisfy both tasks, we trained and compared three candidate models per problem type, tracking all runs inside MLflow:
+          </p>
+          <div class="space-y-2 text-slate-700 pl-2">
+            <div>
+              <strong>Multi-Class Eligibility Classification Tournament:</strong><br>
+              "We began with our linear baseline: <strong>Logistic Regression</strong> with $L_2$ regularization, achieving 85.97% accuracy and 0.8674 weighted F1. It struggled because credit default involves non-linear debt thresholds. Next, <strong>Random Forest Classifier</strong> achieved 97.32% accuracy through parallel bagged decision trees. Finally, our champion, <strong>XGBoost Classifier</strong>, achieved an outstanding <strong>98.95% Accuracy, 0.9895 F1-Score, and 0.9998 ROC-AUC</strong>, crushing the capstone requirement of 90%."
+            </div>
+            <div>
+              <strong>Confusion Matrix Analysis:</strong> <em>[Point to Confusion Matrix heatmap]</em><br>
+              "Most importantly from a banking solvency standpoint, look at the confusion matrix diagonal: the misclassification between <strong>Eligible and Not_Eligible is exactly 0.00%</strong>. Our model never approves an uncreditworthy borrower, completely protecting the bank from catastrophic capital loss. The minor 1% errors occur strictly on the boundary between High_Risk and neighboring classes, which in banking practice are routed to human senior underwriters for secondary review."
+            </div>
+            <div>
+              <strong>Maximum Safe EMI Continuous Regression Tournament:</strong><br>
+              "For continuous EMI prediction, <strong>Linear Ridge Regression</strong> served as our baseline with an RMSE of ₹2,641.46 and an R² of 0.9475—failing our ₹2,000 threshold because cash flow capacity drops abruptly when DTI crosses 40%. <strong>Random Forest Regressor</strong> reached an RMSE of ₹294.60. Decisively winning the tournament, <strong>XGBoost Regressor achieved an RMSE of just ₹273.92, an MAE of ₹182.45, and an R² of 0.9994</strong>."
+            </div>
+            <div>
+              <strong>Parity Plot & Homoscedasticity:</strong> <em>[Point to Parity scatter plot]</em><br>
+              "On our actual vs predicted parity plot, the test predictions form a knife-edge ribbon adhering directly to the 45-degree line across the entire ₹500 to ₹50,000 range. Notice that the error variance does not fan out at higher loan amounts, confirming homoscedastic error distribution across all income brackets."
+            </div>
+            <div>
+              <strong>Feature Importance Synergy:</strong><br>
+              "Our Gini gain feature importances reveal the dual logic of lending: <strong>Classification</strong> is dominated by risk metrics—Debt-to-Income ratio (28%) and Financial Health Score (21%). <strong>Regression</strong> is dominated by capacity metrics—Disposable Cash Flow (35%) and Monthly Salary (27%). In short: risk metrics decide <em>whether</em> we lend; cash flow decides <em>how much</em> we can safely lend."
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PART 6: LIVE STREAMLIT APPLICATION DEMO -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-600"></span>
+            <span class="text-xs font-bold text-amber-700 uppercase tracking-wider">Part 6: Live Streamlit Application Demo & Relative Graph Walkthrough</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="speakText(document.getElementById('scriptPart6').innerText, this)" class="speech-btn px-2.5 py-0.5 rounded text-[11px] font-bold bg-blue-600 hover:bg-blue-500 text-white shadow-sm transition flex items-center gap-1">🔊 Listen</button>
+            <span class="text-xs font-mono bg-amber-50 text-amber-700 px-2 py-0.5 rounded font-bold">14:00 – 16:45 (2.75 MINS)</span>
+          </div>
+        </div>
+
+        <div class="p-3 bg-amber-50/50 rounded-xl border border-amber-100 text-xs font-mono text-amber-900">
+          <strong>[SCREEN ACTION: Switch browser window to the live running Streamlit app at <code>http://localhost:8501</code>. Open Page 1: <code>Predict EMI</code>.]</strong>
+        </div>
+
+        <div id="scriptPart6" class="p-4 bg-slate-50 rounded-xl text-xs leading-relaxed text-slate-800 space-y-2.5 border border-slate-200">
+          <p>
+            <strong class="text-amber-950 font-bold">"Now, let us experience the live production platform deployed on Streamlit.</strong> I navigate to Page 1: the <strong>Real-Time Underwriting Studio</strong>.
+          </p>
+          <div class="space-y-2 text-slate-700 pl-2">
+            <div>
+              <em>[Click '🌟 Persona 1: Reeva Shah' and click 'Run Underwriting Assessment']</em><br>
+              "To demonstrate real-time dual inference, I select our pre-configured prime profile: <strong>Reeva Shah</strong>, a 34-year-old Senior MNC Lead earning ₹95,000 per month with an existing ₹8,000 EMI, an excellent 780 CIBIL score, requesting a ₹5,00,000 Vehicle Loan over 48 months. In under 200 milliseconds, both production models execute:"
+            </div>
+            <div>
+              "Look at the results: the classifier awards an immediate <strong>ELIGIBLE</strong> status with 98.4% model confidence. Simultaneously, the regressor determines her <strong>Maximum Safe EMI capacity at ₹15,996 per month</strong>, which easily accommodates her requested installment of ₹10,416 per month."
+            </div>
+            <div>
+              <em>[Scroll down to the Plotly Visual Gauges]</em><br>
+              "Notice our dynamic Plotly visual gauges: her <strong>Debt-to-Income (DTI) ratio is just 8.42%</strong>, sitting comfortably inside the safe green zone well below the 40% threshold. Her <strong>Financial Health Score is 84 out of 100</strong>, reflecting strong liquidity and career longevity."
+            </div>
+            <div>
+              <em>[Scroll to the Waterfall Cash Flow Diagram]</em><br>
+              "Here, the waterfall diagram visualizes her monthly cash journey: starting from ₹95,000 gross salary, subtracting her ₹8,000 current EMI and ₹26,000 living expenses, leaving an unencumbered free cash buffer of <strong>₹61,000</strong>. This proves why she is a prime credit risk."
+            </div>
+            <div>
+              <em>[Briefly demonstrate Persona 2: Priya Patel and Persona 3: Vikram Singh]</em><br>
+              "If we select <strong>Priya Patel</strong> (₹42K salary, 620 CIBIL), the model triggers a <strong>High-Risk conditional approval</strong> with tenure restructuring. When we select <strong>Vikram Singh</strong> (₹30K salary, 510 CIBIL, ₹9K debt), the model automatically declines the application due to a monthly cash flow deficit of -₹14,500. This proves the system is dynamic, sensitive, and mathematically calibrated."
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PART 7: FUTURE EXPANSION ROADMAP & CONCLUSION -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-rose-600"></span>
+            <span class="text-xs font-bold text-rose-700 uppercase tracking-wider">Part 7: Future Expansion Roadmap & Concluding Defense</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="speakText(document.getElementById('scriptPart7').innerText, this)" class="speech-btn px-2.5 py-0.5 rounded text-[11px] font-bold bg-blue-600 hover:bg-blue-500 text-white shadow-sm transition flex items-center gap-1">🔊 Listen</button>
+            <span class="text-xs font-mono bg-rose-50 text-rose-700 px-2 py-0.5 rounded font-bold">16:45 – 18:30 (1.75 MINS)</span>
+          </div>
+        </div>
+
+        <div class="p-3 bg-rose-50/50 rounded-xl border border-rose-100 text-xs font-mono text-rose-900">
+          <strong>[SCREEN ACTION: Switch back to camera or show the 4-Pillar Architecture Diagram in Tab 1.]</strong>
+        </div>
+
+        <div id="scriptPart7" class="p-4 bg-slate-50 rounded-xl text-xs leading-relaxed text-slate-800 space-y-2.5 border border-slate-200">
+          <p>
+            <strong class="text-rose-950 font-bold">"How would I expand EMIPredict AI in a production enterprise environment?</strong> While our current dual-model architecture achieves state-of-the-art accuracy, I have designed a <strong>Four-Pillar Engineering Roadmap</strong> to scale this platform for tier-1 commercial banking:
+          </p>
+          <div class="space-y-1.5 text-slate-700 pl-2">
+            <div>
+              <strong>1. Account Aggregator (AA) Integration:</strong> Connecting with RBI-regulated Account Aggregator NBFCs to ingest verified GST invoices and bank statements directly via Open Banking APIs, eliminating self-reported data bias.
+            </div>
+            <div>
+              <strong>2. Explainable AI & Adverse Action Generation:</strong> Implementing TreeSHAP to generate instant local feature waterfall charts for every declined applicant, auto-generating compliant FCRA/RBI Adverse Action Notices.
+            </div>
+            <div>
+              <strong>3. Event-Driven Streaming via Apache Kafka:</strong> Containerizing inference into FastAPI microservices subscribed to Kafka topics, capable of handling 10,000+ loan evaluations per second during peak festive e-commerce sales.
+            </div>
+            <div>
+              <strong>4. Continuous MLOps Drift Monitoring via Evidently AI:</strong> Tracking Kolmogorov-Smirnov data drift on macroeconomic inflation and interest rates, automatically triggering Airflow retraining pipelines when drift exceeds 0.15.
+            </div>
+          </div>
+          <p class="pt-2 border-t border-slate-200 font-medium text-slate-900">
+            "In conclusion, EMIPredict AI replaces outdated, manual loan underwriting with mathematical cash flow intelligence—achieving <strong>98.95% classification accuracy</strong>, an <strong>RMSE of ₹273.92</strong>, and complete experiment lineage via MLflow.
+            Thank you, respected evaluators and mentor, for your time and guidance. I am now ready for your questions!"
+          </p>
         </div>
       </div>
 
@@ -2164,9 +2954,9 @@
       });
     }
 
-    // TIMER
-    let timerMinutes = 15;
-    let timerDuration = timerMinutes * 60;
+    // TIMER (Calibrated for 17–20 Min Mentor Video Defense)
+    let timerMinutes = 18.5;
+    let timerDuration = Math.round(timerMinutes * 60);
     let timerInterval = null;
     let isRunning = false;
 
@@ -2175,8 +2965,9 @@
       clearInterval(timerInterval);
       isRunning = false;
       timerMinutes = mins;
-      timerDuration = mins * 60;
-      document.getElementById('timerModeLabel').textContent = `${mins} MINS`;
+      timerDuration = Math.round(mins * 60);
+      const labelText = mins === 18.5 ? "18:30 (17–20m)" : `${mins} MINS`;
+      document.getElementById('timerModeLabel').textContent = labelText;
       updateTimerDisplay();
       const btn = document.getElementById('startTimerBtn');
       btn.textContent = 'Start';
