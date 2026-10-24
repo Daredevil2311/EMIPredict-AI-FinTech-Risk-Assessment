@@ -1128,779 +1128,1005 @@ if disposable < req_burden:
     <section id="tab-teleprompter" class="tab-content hidden space-y-6">
       
       <!-- CONFIDENTIAL PRESENTER WARNING BANNER (NEVER SHOW THIS ON SCREEN) -->
-      <div class="bg-gradient-to-r from-rose-900 via-red-900 to-slate-900 text-white p-4 rounded-2xl border-2 border-rose-500 shadow-xl space-y-2">
+      <div class="bg-gradient-to-r from-rose-950 via-slate-900 to-indigo-950 text-white p-4 sm:p-5 rounded-2xl border border-rose-500/50 shadow-lg space-y-3">
         <div class="flex items-center justify-between">
-          <div class="flex items-center gap-2">
-            <span class="text-xl">🚨</span>
-            <span class="font-black text-sm uppercase tracking-wider text-rose-200">CONFIDENTIAL PRESENTER RULE: DO NOT SHOW THIS SCRIPT FILE ON SCREEN!</span>
+          <div class="flex items-center gap-2.5">
+            <span class="w-3 h-3 rounded-full bg-rose-500 animate-pulse"></span>
+            <span class="font-black text-xs sm:text-sm uppercase tracking-wider text-rose-200">Presenter Confidential HUD: Keep This Screen Private!</span>
           </div>
-          <span class="px-2.5 py-0.5 rounded text-[10px] font-bold bg-rose-500 text-white uppercase">Critical Instruction</span>
+          <span class="px-2.5 py-0.5 rounded text-[10px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40 uppercase">Off-Screen Prompter</span>
         </div>
-        <p class="text-xs text-rose-100 leading-relaxed">
-          The evaluators and mentor must <strong>NEVER see this cheat-sheet portal or script notes in the recorded video</strong>!
+        <p class="text-xs text-slate-300 leading-relaxed">
+          The evaluators must <strong>NEVER see this cheat sheet or browser notes</strong> during the recording. Keep this portal open on your <strong>phone, tablet, or a second monitor</strong>. In the recorded video, your laptop screen should <strong>ONLY display VS Code (code files) and the Streamlit Web Application (localhost:8501)</strong>, with your camera in a <strong>small floating PIP bubble in the bottom-right corner</strong>.
         </p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-2 pt-1 text-[11px] text-rose-200">
-          <div class="p-2.5 bg-black/30 rounded-lg border border-rose-500/30">
-            <strong class="text-white block mb-0.5">📱 Where To Keep This Script:</strong>
-            Keep this mastery portal open on your <strong>phone, tablet, or a second monitor</strong> (or minimized/printed out as your private prompter).
-          </div>
-          <div class="p-2.5 bg-black/30 rounded-lg border border-rose-500/30">
-            <strong class="text-white block mb-0.5">💻 What To Show On Laptop Screen:</strong>
-            Record ONLY your actual <strong>project files in VS Code</strong> and the live <strong>Streamlit Web App</strong> in your browser (<code>localhost:8501</code>).
-          </div>
-          <div class="p-2.5 bg-black/30 rounded-lg border border-rose-500/30">
-            <strong class="text-white block mb-0.5">👤 Webcam Placement:</strong>
-            Enable your webcam as a <strong>small floating Picture-in-Picture (PIP) bubble in the bottom-right corner</strong> (using OBS, Loom, Zoom, or Windows Camera pinned).
-          </div>
-        </div>
       </div>
 
-      <!-- STAGE PROGRESS BAR & QUICK NAV -->
-      <div class="bg-gradient-to-r from-blue-950 via-indigo-900 to-slate-900 text-white p-5 rounded-2xl shadow-md border border-white/10 space-y-3">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-700/60 pb-3">
+      <!-- INTERACTIVE CONTROL PANEL: SCENE SELECTOR & VIEW MODE SWITCHER -->
+      <div class="bg-slate-900 text-white p-4 sm:p-5 rounded-2xl border border-slate-800 shadow-md space-y-4">
+        
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-slate-800 pb-3">
           <div>
-            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-400 text-slate-950 uppercase tracking-wide">Mentor-Calibrated Dual Playbook</span>
-            <h2 class="text-lg font-black text-white mt-1">🎥 17 to 20 Min Recording: Laptop Screen Action + Spoken Narration</h2>
-            <p class="text-xs text-slate-300 mt-0.5">Synchronizes your physical screen (VS Code / Streamlit), mouse actions, and small floating webcam with your exact verbal script.</p>
+            <div class="text-[10px] uppercase font-bold text-cyan-400 tracking-wider">Video Director Control Room</div>
+            <h2 class="text-lg font-black text-white mt-0.5">🎥 17 to 20 Min Video Recording: Screen Actions & Memory Script</h2>
           </div>
-          <div class="flex flex-col sm:items-end gap-1">
-            <span class="text-xs font-mono bg-white/10 px-3 py-1 rounded text-cyan-300 border border-white/15">Total Runtime: 18:30 (Bounds: 17m – 20m)</span>
-            <div id="videoTaskProgressBadge" class="text-[11px] font-mono text-amber-300 font-bold">0 / 35 Tasks Completed (0%)</div>
+          
+          <!-- VIEW MODE SWITCHER -->
+          <div class="flex items-center gap-1.5 bg-slate-950 p-1 rounded-xl border border-slate-800 self-start md:self-auto">
+            <button onclick="setScriptDisplayMode('bullets')" id="btn-mode-bullets" class="mode-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-cyan-600 text-white shadow transition flex items-center gap-1.5">
+              <span>⚡ Memory Cards (Bullet Points)</span>
+            </button>
+            <button onclick="setScriptDisplayMode('full')" id="btn-mode-full" class="mode-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition flex items-center gap-1.5">
+              <span>📜 Full Teleprompter (Word-for-Word)</span>
+            </button>
           </div>
         </div>
 
-        <!-- PROGRESS BAR -->
-        <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden border border-slate-700">
-          <div id="videoTaskProgressBar" class="bg-gradient-to-r from-cyan-400 via-emerald-400 to-amber-400 h-full rounded-full transition-all duration-300" style="width: 0%"></div>
+        <!-- 7-STAGE SCENE NAVIGATOR PILLS -->
+        <div class="flex items-center gap-1.5 overflow-x-auto pb-1" id="scenePillContainer">
+          <button onclick="setActiveScene(1)" id="pill-scene-1" class="scene-pill px-3 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white shadow-sm whitespace-nowrap transition">
+            1. Why & Problem (0:00)
+          </button>
+          <button onclick="setActiveScene(2)" id="pill-scene-2" class="scene-pill px-3 py-2 rounded-xl text-xs font-medium bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 whitespace-nowrap transition">
+            2. Codebase Tour (2:30)
+          </button>
+          <button onclick="setActiveScene(3)" id="pill-scene-3" class="scene-pill px-3 py-2 rounded-xl text-xs font-medium bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 whitespace-nowrap transition">
+            3. 5 Code Logics (5:30)
+          </button>
+          <button onclick="setActiveScene(4)" id="pill-scene-4" class="scene-pill px-3 py-2 rounded-xl text-xs font-medium bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 whitespace-nowrap transition">
+            4. Stats Tests (9:00)
+          </button>
+          <button onclick="setActiveScene(5)" id="pill-scene-5" class="scene-pill px-3 py-2 rounded-xl text-xs font-medium bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 whitespace-nowrap transition">
+            5. Model Results (11:00)
+          </button>
+          <button onclick="setActiveScene(6)" id="pill-scene-6" class="scene-pill px-3 py-2 rounded-xl text-xs font-medium bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 whitespace-nowrap transition">
+            6. Live Demo (14:00)
+          </button>
+          <button onclick="setActiveScene(7)" id="pill-scene-7" class="scene-pill px-3 py-2 rounded-xl text-xs font-medium bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 whitespace-nowrap transition">
+            7. Future Roadmap (16:45)
+          </button>
+          <button onclick="setActiveScene('all')" id="pill-scene-all" class="scene-pill px-3 py-2 rounded-xl text-xs font-semibold bg-slate-800/80 text-amber-400 border border-amber-500/30 hover:bg-amber-500/20 whitespace-nowrap transition">
+            📑 View All 7 Scenes
+          </button>
         </div>
 
-        <!-- 7-STAGE TIMELINE PILLS -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-1.5 text-[11px] font-medium text-center">
-          <div class="p-2 rounded-lg bg-blue-900/60 border border-blue-700/60 text-blue-200">
-            <span class="block text-[10px] text-blue-300 font-bold">Part 1 (00:00–02:30)</span>
-            <span>Why & Problem</span>
-          </div>
-          <div class="p-2 rounded-lg bg-indigo-900/60 border border-indigo-700/60 text-indigo-200">
-            <span class="block text-[10px] text-indigo-300 font-bold">Part 2 (02:30–05:30)</span>
-            <span>VS Code File Tour</span>
-          </div>
-          <div class="p-2 rounded-lg bg-emerald-900/60 border border-emerald-700/60 text-emerald-200">
-            <span class="block text-[10px] text-emerald-300 font-bold">Part 3 (05:30–09:00)</span>
-            <span>5 Core Code Logics</span>
-          </div>
-          <div class="p-2 rounded-lg bg-cyan-900/60 border border-cyan-700/60 text-cyan-200">
-            <span class="block text-[10px] text-cyan-300 font-bold">Part 4 (09:00–11:00)</span>
-            <span>Statistical Tests</span>
-          </div>
-          <div class="p-2 rounded-lg bg-purple-900/60 border border-purple-700/60 text-purple-200">
-            <span class="block text-[10px] text-purple-300 font-bold">Part 5 (11:00–14:00)</span>
-            <span>Models & Results</span>
-          </div>
-          <div class="p-2 rounded-lg bg-amber-900/60 border border-amber-700/60 text-amber-200">
-            <span class="block text-[10px] text-amber-300 font-bold">Part 6 (14:00–16:45)</span>
-            <span>Streamlit Live Demo</span>
-          </div>
-          <div class="p-2 rounded-lg bg-rose-900/60 border border-rose-700/60 text-rose-200">
-            <span class="block text-[10px] text-rose-300 font-bold">Part 7 (16:45–18:30)</span>
-            <span>Future Roadmap</span>
-          </div>
-        </div>
       </div>
 
-      <!-- PRE-RECORDING SETUP CHECKLIST -->
-      <div class="bg-slate-900 text-white p-5 rounded-2xl border border-slate-700 shadow-sm space-y-3">
-        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-          <div class="flex items-center gap-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
-            <h3 class="text-sm font-bold text-cyan-300 uppercase tracking-wider">🚀 Pre-Recording Laptop Setup Checklist (Before Hitting Record)</h3>
+      <!-- ============================================================== -->
+      <!-- SCENE 1: MOTIVATION & PROBLEM STATEMENT (00:00 - 02:30)        -->
+      <!-- ============================================================== -->
+      <div id="scene-card-1" class="scene-card bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+        
+        <!-- SCENE HEADER & METRICS -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-black bg-blue-100 text-blue-800 border border-blue-200">Scene 1 of 7</span>
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Opening Pitch</span>
+            </div>
+            <h3 class="text-lg font-black text-slate-900 mt-1">Why Am I Doing This Project & The Retail Lending Crisis</h3>
           </div>
-          <span class="text-xs font-mono text-slate-400">Environment Readiness</span>
+          
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-blue-50 text-blue-700 border border-blue-200">⏱️ 00:00 – 02:30 (2.5 Min)</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700">📺 Chrome: Home.py</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700">👤 Camera: Bottom-Right PIP</span>
+            <button onclick="speakText(document.getElementById('scriptPart1').innerText, this)" class="speech-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-600 hover:bg-blue-500 text-white shadow transition flex items-center gap-1">🔊 Coach</button>
+          </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-slate-300">
-          <label class="flex items-start gap-2 p-2 bg-slate-800/80 rounded-lg cursor-pointer hover:bg-slate-800 transition">
-            <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-cyan-500 focus:ring-0">
-            <span><strong>Task P1: Launch Streamlit Web App:</strong> PowerShell: <code>streamlit run "app/Home.py"</code> ➔ Open <code>http://localhost:8501</code> in Chrome.</span>
-          </label>
-          <label class="flex items-start gap-2 p-2 bg-slate-800/80 rounded-lg cursor-pointer hover:bg-slate-800 transition">
-            <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-cyan-500 focus:ring-0">
-            <span><strong>Task P2: Pre-Open 10 File Tabs in VS Code:</strong> Open `config.py`, `data_loader.py`, `feature_engineering.py`, `preprocessing.py`, `statistical_tests.py`, `classification_models.py`, `regression_models.py`, `mlflow_utils.py`, `pipeline.py`, `predict.py`.</span>
-          </label>
-          <label class="flex items-start gap-2 p-2 bg-slate-800/80 rounded-lg cursor-pointer hover:bg-slate-800 transition">
-            <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-cyan-500 focus:ring-0">
-            <span><strong>Task P3: Configure Floating Webcam Bubble (PIP):</strong> Position camera preview in bottom-right corner. Test eye level.</span>
-          </label>
-          <label class="flex items-start gap-2 p-2 bg-slate-800/80 rounded-lg cursor-pointer hover:bg-slate-800 transition">
-            <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-cyan-500 focus:ring-0">
-            <span><strong>Task P4: Hide Cheat Sheet:</strong> Move this mastery HTML file to your phone/second screen. Only share VS Code & Browser!</span>
-          </label>
+
+        <!-- 2-COLUMN BENTO GRID -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          
+          <!-- LEFT: LAPTOP & MOUSE ACTIONS -->
+          <div class="lg:col-span-5 p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+            <div class="font-bold text-xs uppercase tracking-wider text-slate-900 flex items-center gap-2">
+              <span>💻 Laptop Screen & Mouse Operations</span>
+            </div>
+            
+            <div class="space-y-2 text-xs text-slate-700">
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-blue-600">1</span>
+                <div><strong>Start Video Recorder:</strong> Hit record in OBS/Loom and start timer at <code>00:00</code>.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-blue-600">2</span>
+                <div><strong>Screen Display:</strong> Open Chrome at <code>http://localhost:8501</code> showing the Streamlit <strong>Home Page</strong>.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-blue-600">3</span>
+                <div><strong>Mouse Action:</strong> Hover cursor smoothly over the title <em>"EMIPredict AI - Financial Risk Assessment"</em>.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-blue-600">4</span>
+                <div><strong>Mouse Action:</strong> Scroll down slightly to highlight the 4 KPI cards: <strong>400,000 Records</strong>, <strong>98.95% XGBoost Accuracy</strong>, and <strong>₹273.92 RMSE</strong>.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-blue-600">5</span>
+                <div><strong>Camera Cue:</strong> Look straight into the webcam lens while delivering the 2 Fatal Flaws. Finish at <strong>02:30</strong>!</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: EASY-TO-MEMORIZE BULLETS (DEFAULT) & FULL SCRIPT (TOGGLEABLE) -->
+          <div class="lg:col-span-7 space-y-3">
+            
+            <!-- MEMORY BULLETS VIEW -->
+            <div class="memory-bullets-box p-4 rounded-xl bg-blue-50/70 border border-blue-200 space-y-2.5">
+              <div class="font-bold text-xs uppercase tracking-wider text-blue-950 flex items-center justify-between">
+                <span>🧠 4 Memory Bullets (What To Say Aloud)</span>
+                <span class="text-[10px] text-blue-700 bg-blue-100 px-2 py-0.5 rounded font-mono font-bold">Easy to Glance & Speak</span>
+              </div>
+              
+              <ul class="space-y-2 text-xs text-slate-800">
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>1. Retail Credit Boom & Surging NPAs:</strong> Consumer credit is expanding at <strong>25% CAGR</strong>, but banks face rising defaults and non-performing assets because traditional underwriting is severely outdated.</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>2. Fatal Flaw 1 (The Gross Salary Multiple Fallacy):</strong> Banks lend based on gross income (e.g. <em>'Salary is ₹80K, approve a ₹20K EMI'</em>) but completely ignore living overheads (rent, school fees). If expenses are ₹75K, free cash is only ₹5K—guaranteeing default!</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>3. Fatal Flaw 2 (Multi-Line Credit Blindness):</strong> Modern borrowers hold concurrent micro-EMIs (BNPL, appliances, credit cards). Siloed evaluations miss that total <strong>Debt-to-Income (DTI) crosses the 40% danger cliff</strong>.</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>4. The EMIPredict AI Solution:</strong> A <strong>Dual-Task Machine Learning Architecture</strong> evaluated on <strong>400,000 records</strong> that computes true free cash flow in under 200ms: <strong>98.95% eligibility accuracy</strong> and <strong>₹273.92 safe EMI RMSE</strong>.</div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- FULL TELEPROMPTER SCRIPT (EXPANDABLE) -->
+            <details class="full-script-box group rounded-xl bg-slate-50 border border-slate-200 p-3 text-xs leading-relaxed text-slate-700">
+              <summary class="font-bold text-slate-900 cursor-pointer list-none flex items-center justify-between">
+                <span>📜 View Word-for-Word Teleprompter Script</span>
+                <span class="text-blue-600 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div id="scriptPart1" class="pt-3 space-y-2 border-t border-slate-200 mt-2 text-slate-800">
+                <p>
+                  <strong class="text-blue-950 font-bold">"Good day, respected evaluators and mentor. My name is Devansh.</strong> Today, I am proud to present <strong class="text-blue-950">EMIPredict AI</strong>, an enterprise-grade financial risk assessment and dual-target loan underwriting intelligence platform built for modern retail banks and FinTech lenders."
+                </p>
+                <p>
+                  <strong class="text-slate-900 font-bold">Why am I doing this project?</strong> Across the globe and especially in emerging economies like India, retail consumer credit is expanding at an unprecedented rate of over <strong>25% compound annual growth</strong>. Millions of individuals are applying for credit across e-commerce, home appliances, two-wheelers, education, and personal loans. However, banking institutions are experiencing a severe surge in <strong>early defaults and Non-Performing Assets (NPAs)</strong>.
+                </p>
+                <p>
+                  When I investigated why this occurs, I discovered that traditional banking loan underwriting relies on two catastrophic flaws:
+                  <strong>First, The Gross Salary Multiple Fallacy:</strong> Traditional banks evaluate an applicant based on gross income (for example, <em>'Salary is ₹80,000, so approve a ₹20,000 EMI'</em>). But they completely ignore fixed non-discretionary living costs—such as rent, children's school fees, groceries, and utilities. If an applicant earns ₹80,000 but pays ₹75,000 in living costs, their true free cash flow is only ₹5,000. Granting them a ₹20,000 EMI guarantees immediate default!
+                  <strong>Second, Multi-Line Credit Blindness:</strong> Modern digital consumers hold multiple simultaneous credit lines—a BNPL e-commerce EMI, an appliance loan, and existing credit cards. Traditional rules evaluate each new loan in a silo, blind to how combined debt pushes the borrower's total <strong>Debt-to-Income (DTI) ratio beyond the 40% danger cliff</strong>.
+                </p>
+                <p>
+                  <strong class="text-slate-900 font-bold">How does EMIPredict AI solve this?</strong> We solve this crisis by engineering a <strong>Dual-Task Machine Learning Architecture</strong> evaluated across <strong>400,000 borrower records</strong> spanning 5 diverse lending scenarios. Rather than a crude one-size-fits-all threshold, our platform computes true unencumbered disposable cash flow and solves two simultaneous questions in under 200 milliseconds:
+                  <strong>First</strong>, multi-class risk classification—determining whether the applicant is <em>Eligible</em>, <em>High Risk</em>, or <em>Not Eligible</em> with <strong>98.95% accuracy</strong>.
+                  <strong>Second</strong>, continuous affordability regression—calculating the exact, safe maximum monthly EMI capacity in INR with an RMSE of just <strong>₹273.92</strong>.
+                  Let me now transition to VS Code and walk you through the codebase file-by-file."
+                </p>
+              </div>
+            </details>
+
+          </div>
         </div>
+
+        <!-- FOOTER NAV -->
+        <div class="flex items-center justify-between border-t border-slate-100 pt-3 text-xs">
+          <span class="text-slate-400">Next Up: VS Code Codebase Tour</span>
+          <button onclick="setActiveScene(2)" class="px-4 py-1.5 rounded-lg font-bold bg-blue-600 hover:bg-blue-500 text-white transition flex items-center gap-1">
+            <span>Next: Scene 2 (VS Code Tour)</span>
+            <span>➔</span>
+          </button>
+        </div>
+
       </div>
 
-      <!-- PART 1: MOTIVATION & PROBLEM STATEMENT -->
-      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
-          <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-blue-600"></span>
-            <h3 class="text-base font-black text-slate-900">Part 1: Motivation, Problem Statement & The Solution</h3>
-          </div>
-          <div class="flex items-center gap-2">
-            <button onclick="speakText(document.getElementById('scriptPart1').innerText, this)" class="speech-btn px-2.5 py-1 rounded text-[11px] font-bold bg-blue-600 hover:bg-blue-500 text-white shadow-sm transition flex items-center gap-1">🔊 Listen</button>
-            <span class="text-xs font-mono bg-blue-50 text-blue-700 px-2.5 py-1 rounded font-bold border border-blue-200">00:00 – 02:30 (2.5 MINS)</span>
-          </div>
-        </div>
 
-        <!-- SCREEN & WEBCAM DIRECTIVE BOX -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 p-3 bg-blue-50/60 rounded-xl border border-blue-200 text-xs">
+      <!-- ============================================================== -->
+      <!-- SCENE 2: VS CODE FILE-BY-FILE TOUR (02:30 - 05:30)             -->
+      <!-- ============================================================== -->
+      <div id="scene-card-2" class="scene-card hidden bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+        
+        <!-- SCENE HEADER & METRICS -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
           <div>
-            <span class="font-bold text-blue-900 block mb-0.5">📺 WHAT MUST BE ON YOUR LAPTOP SCREEN:</span>
-            <span class="text-slate-700">Open Chrome at <code>http://localhost:8501</code> showing the <strong>Streamlit Home Page</strong> with the project title and executive KPI metric cards.</span>
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-black bg-indigo-100 text-indigo-800 border border-indigo-200">Scene 2 of 7</span>
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Architecture Overview</span>
+            </div>
+            <h3 class="text-lg font-black text-slate-900 mt-1">VS Code Codebase Tour: Showing Important Project Files</h3>
           </div>
-          <div>
-            <span class="font-bold text-blue-900 block mb-0.5">👤 FLOATING WEBCAM STATUS:</span>
-            <span class="text-slate-700">Small floating round/rectangular bubble in bottom-right corner. Maintain strong eye contact with camera.</span>
+          
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">⏱️ 02:30 – 05:30 (3.0 Min)</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700">📺 VS Code (120% Zoom)</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700">👤 Camera: Bottom-Right PIP</span>
+            <button onclick="speakText(document.getElementById('scriptPart2').innerText, this)" class="speech-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-600 hover:bg-blue-500 text-white shadow transition flex items-center gap-1">🔊 Coach</button>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
-          <!-- LEFT: LAPTOP ACTIONS -->
-          <div class="lg:col-span-5 bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2.5 text-xs">
-            <div class="font-bold text-slate-900 uppercase tracking-wide text-[11px]">
-              <span>🖱️ Laptop & Mouse Actions During Part 1</span>
+        <!-- 2-COLUMN BENTO GRID -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          
+          <!-- LEFT: LAPTOP & MOUSE ACTIONS -->
+          <div class="lg:col-span-5 p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+            <div class="font-bold text-xs uppercase tracking-wider text-slate-900 flex items-center gap-2">
+              <span>💻 Laptop Screen & Mouse Operations</span>
             </div>
-            <div class="space-y-2 text-slate-700">
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-blue-600">
-                <span><strong>Action 1.1:</strong> Hit Record and start timer at <code>00:00</code>.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-blue-600">
-                <span><strong>Action 1.2:</strong> Hover mouse over the main header: <em>"EMIPredict AI - Financial Risk Assessment Platform"</em>.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-blue-600">
-                <span><strong>Action 1.3:</strong> Gently scroll down to highlight the 4 KPI cards: hover cursor over <strong>400,000 Records</strong>, <strong>98.95% XGBoost Accuracy</strong>, and <strong>₹273.92 RMSE</strong>.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-blue-600">
-                <span><strong>Action 1.4:</strong> Look into camera while explaining Fatal Flaw 1 (Salary Multiple) & Fatal Flaw 2 (Multi-line credit).</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-blue-600">
-                <span><strong>Action 1.5:</strong> Time Checkpoint: Finish Part 1 right at <strong>02:30</strong> before pressing <code>Alt + Tab</code>.</span>
-              </label>
+            
+            <div class="space-y-1.5 text-xs text-slate-700">
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-indigo-600">1</span>
+                <div><strong>Alt+Tab to VS Code:</strong> Press <code>Alt + Tab</code> at 02:30. Ensure left Explorer tree is expanded showing <code>src/</code> and <code>app/</code>.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-indigo-600">2</span>
+                <div><strong>Click <code>src/config.py</code>:</strong> Scroll lines 24–64 (features) and lines 69–96 (target definitions & benchmarks).</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-indigo-600">3</span>
+                <div><strong>Click <code>src/data_loader.py</code>:</strong> Scroll to lines 175–200 showing <code>split_data()</code>.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-indigo-600">4</span>
+                <div><strong>Click <code>src/feature_engineering.py</code>:</strong> Show <code>compute_financial_features()</code>.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-indigo-600">5</span>
+                <div><strong>Click <code>src/preprocessing.py</code>:</strong> Show <code>OutlierCapper</code> (lines 34–66) & <code>ColumnTransformer</code>.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-indigo-600">6</span>
+                <div><strong>Click <code>src/statistical_tests.py</code>:</strong> Show Chi-Square, ANOVA, and Correlation tests.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-indigo-600">7</span>
+                <div><strong>Click <code>classification_models.py</code> & <code>regression_models.py</code>:</strong> Show model setups.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-indigo-600">8</span>
+                <div><strong>Click <code>src/mlflow_utils.py</code>:</strong> Point cursor to <code>sqlite:///mlflow.db</code> (line 21).</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-indigo-600">9</span>
+                <div><strong>Click <code>pipeline.py</code> & <code>predict.py</code>:</strong> Show master pipeline & real-time inference.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-indigo-600">10</span>
+                <div><strong>Expand <code>app/</code> folder:</strong> Show `Home.py` and the 4 page modules. Finish at <strong>05:30</strong>!</div>
+              </div>
             </div>
           </div>
 
-          <!-- RIGHT: SPOKEN SCRIPT -->
-          <div class="lg:col-span-7 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs leading-relaxed text-slate-800 space-y-2">
-            <div class="font-bold text-slate-900 uppercase tracking-wide text-[11px] flex items-center justify-between">
-              <span>🗣️ What To Say Aloud (Word-for-Word Script)</span>
-              <span class="text-[10px] text-slate-400 font-normal">Speak clearly and authoritatively</span>
+          <!-- RIGHT: EASY-TO-MEMORIZE BULLETS & FULL SCRIPT -->
+          <div class="lg:col-span-7 space-y-3">
+            
+            <!-- MEMORY BULLETS VIEW -->
+            <div class="memory-bullets-box p-4 rounded-xl bg-indigo-50/70 border border-indigo-200 space-y-2.5">
+              <div class="font-bold text-xs uppercase tracking-wider text-indigo-950 flex items-center justify-between">
+                <span>🧠 4 Memory Bullets (What To Say Aloud)</span>
+                <span class="text-[10px] text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded font-mono font-bold">Easy to Glance & Speak</span>
+              </div>
+              
+              <ul class="space-y-2 text-xs text-slate-800">
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>1. Modular Architecture:</strong> Cleanly structured into production Python packages in <code>src/</code> and an interactive multi-page Streamlit web app in <code>app/</code>.</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>2. Pipeline Nerve Center:</strong> <code>config.py</code> acts as the single source of truth for all schemas and benchmarks; <code>data_loader.py</code> enforces zero data leakage with stratified 70/10/20 splitting.</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>3. Domain Rules & Preprocessing:</strong> <code>feature_engineering.py</code> extracts unencumbered cash flow; <code>preprocessing.py</code> applies custom non-negativity outlier capping with <code>ColumnTransformer</code>.</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>4. Models, MLOps & Inference:</strong> 3 classifiers and 3 regressors tracked in an SQLite-backed MLflow registry (<code>sqlite:///mlflow.db</code>); <code>predict.py</code> delivers real-time dual predictions in &lt; 200ms.</div>
+                </li>
+              </ul>
             </div>
-            <div id="scriptPart1" class="space-y-2">
-              <p>
-                <strong class="text-blue-950 font-bold">"Good day, respected evaluators and mentor. My name is Devansh.</strong> Today, I am proud to present <strong class="text-blue-950">EMIPredict AI</strong>, an enterprise-grade financial risk assessment and dual-target loan underwriting intelligence platform built for modern retail banks and FinTech lenders."
-              </p>
-              <p>
-                <strong class="text-slate-900 font-bold">Why am I doing this project?</strong><br>
-                "Across the globe and especially in emerging economies like India, retail consumer credit is expanding at an unprecedented rate of over <strong>25% compound annual growth</strong>. Millions of individuals are applying for consumer credit across e-commerce shopping, home appliances, two-wheelers, education, and personal loans. However, banking institutions are experiencing a severe surge in <strong>early defaults and Non-Performing Assets (NPAs)</strong>."
-              </p>
-              <p>
-                "When I investigated why this occurs, I discovered that traditional banking loan underwriting relies on two catastrophic flaws:
-                <strong>First, The Gross Salary Multiple Fallacy:</strong> Traditional banks evaluate an applicant based on gross income (for example, <em>'Salary is ₹80,000, so approve a ₹20,000 EMI'</em>). But they completely ignore fixed non-discretionary living costs—such as rent, children's school fees, groceries, and utilities. If an applicant earns ₹80,000 but pays ₹75,000 in living costs, their true free cash flow is only ₹5,000. Granting them a ₹20,000 EMI guarantees immediate default!
-                <strong>Second, Multi-Line Credit Blindness:</strong> Modern digital consumers hold multiple simultaneous credit lines—a BNPL e-commerce EMI, an appliance loan, and existing credit cards. Traditional rules evaluate each new loan in a silo, blind to how combined debt pushes the borrower's total <strong>Debt-to-Income (DTI) ratio beyond the 40% danger cliff</strong>."
-              </p>
-              <p>
-                <strong class="text-slate-900 font-bold">How does EMIPredict AI solve this?</strong><br>
-                "We solve this crisis by engineering a <strong>Dual-Task Machine Learning Architecture</strong> evaluated across <strong>400,000 borrower records</strong> spanning 5 diverse lending scenarios. Rather than a crude one-size-fits-all threshold, our platform computes true unencumbered disposable cash flow and solves two simultaneous questions in under 200 milliseconds:
-                <strong>First</strong>, multi-class risk classification—determining whether the applicant is <em>Eligible</em>, <em>High Risk</em>, or <em>Not Eligible</em> with <strong>98.95% accuracy</strong>.
-                <strong>Second</strong>, continuous affordability regression—calculating the exact, safe maximum monthly EMI capacity in INR with an RMSE of just <strong>₹273.92</strong>.
-                Let me now transition to VS Code and walk you through the codebase file-by-file."
-              </p>
-            </div>
+
+            <!-- FULL TELEPROMPTER SCRIPT (EXPANDABLE) -->
+            <details class="full-script-box group rounded-xl bg-slate-50 border border-slate-200 p-3 text-xs leading-relaxed text-slate-700">
+              <summary class="font-bold text-slate-900 cursor-pointer list-none flex items-center justify-between">
+                <span>📜 View Word-for-Word Teleprompter Script</span>
+                <span class="text-indigo-600 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div id="scriptPart2" class="pt-3 space-y-2 border-t border-slate-200 mt-2 text-slate-800">
+                <p>
+                  <strong class="text-indigo-950 font-bold">"Now, let us examine the engineering structure of the project inside VS Code.</strong> As you can see in the explorer tree, the codebase is architected into modular, production-ready Python packages under <code>src/</code>, complemented by our interactive multi-page Streamlit application under <code>app/</code>. Let me show you what each specific file does:
+                </p>
+                <p>
+                  <strong>1. <code>src/config.py</code>:</strong> <em>[Click config.py tab]</em> This file is our centralized configuration nerve center. It defines absolute project paths, schemas for our 17 numerical and 8 categorical features, target definitions, class mapping dictionary (Eligible = 0, High_Risk = 1, Not_Eligible = 2), and strict benchmark thresholds (90% accuracy, ₹2,000 RMSE).<br>
+                  <strong>2. <code>src/data_loader.py</code>:</strong> <em>[Click data_loader.py tab]</em> This module automates data ingestion and validation. Furthermore, it contains our <code>split_data()</code> function, which performs stratified Train/Validation/Test splitting—70% for training, 10% for validation, and 20% for test—guaranteeing zero data leakage.<br>
+                  <strong>3. <code>src/feature_engineering.py</code>:</strong> <em>[Click feature_engineering.py tab]</em> This is the heart of our domain intelligence. It calculates real-world financial ratios: unencumbered disposable cash flow, Debt-to-Income (DTI), Expense-to-Income (ETI), Requested Monthly Burden, and our calibrated 0–100 Composite Financial Health Score.<br>
+                  <strong>4. <code>src/preprocessing.py</code>:</strong> <em>[Click preprocessing.py tab]</em> Here we construct our Scikit-Learn <code>ColumnTransformer</code>. It includes our custom <code>OutlierCapper</code> with non-negativity floors, median imputers, <code>StandardScaler</code> for continuous variables, and <code>OneHotEncoder</code> with unknown category handling for categoricals.<br>
+                  <strong>5. <code>src/statistical_tests.py</code>:</strong> <em>[Click statistical_tests.py tab]</em> Implements our hypothesis testing battery using SciPy: Chi-Square tests of independence, One-Way ANOVA tests across risk tiers, and Pearson/Spearman correlations.<br>
+                  <strong>6. <code>src/classification_models.py</code> & <code>src/regression_models.py</code>:</strong> <em>[Click both files]</em> Define and benchmark our model suites: Logistic Regression, Random Forest, and XGBoost Classifier for risk tiers; and Linear Ridge, Random Forest Regressor, and XGBoost Regressor for EMI capacity.<br>
+                  <strong>7. <code>src/mlflow_utils.py</code>:</strong> <em>[Click mlflow_utils.py tab]</em> Encapsulates enterprise MLOps. Connects to <code>sqlite:///mlflow.db</code>, logging parameters, metrics, confusion matrix heatmaps, parity plots, and serialized model binaries.<br>
+                  <strong>8. <code>src/pipeline.py</code> & <code>src/predict.py</code>:</strong> <em>[Click pipeline.py and predict.py tabs]</em> <code>pipeline.py</code> is the master orchestrator running the full training workflow. <code>predict.py</code> provides our real-time <code>EMIPredictor</code> class executing sub-200ms dual inference with automated underwriting risk explanations.<br>
+                  <strong>9. <code>app/</code> Directory:</strong> <em>[Expand app/ folder in explorer]</em> Contains our production Streamlit suite: <code>Home.py</code>, <code>1_Predict_EMI.py</code> for the Underwriting Studio, <code>2_EDA_Insights.py</code>, <code>3_Model_Evaluation.py</code>, and <code>4_Manage_Data.py</code> for administrative CRUD."
+                </p>
+              </div>
+            </details>
+
           </div>
         </div>
+
+        <!-- FOOTER NAV -->
+        <div class="flex items-center justify-between border-t border-slate-100 pt-3 text-xs">
+          <button onclick="setActiveScene(1)" class="px-3 py-1.5 rounded-lg font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
+            <span>◀ Prev: Scene 1</span>
+          </button>
+          <button onclick="setActiveScene(3)" class="px-4 py-1.5 rounded-lg font-bold bg-indigo-600 hover:bg-indigo-500 text-white transition flex items-center gap-1">
+            <span>Next: Scene 3 (5 Code Logics)</span>
+            <span>➔</span>
+          </button>
+        </div>
+
       </div>
 
-      <!-- PART 2: CODEBASE TOUR IN VS CODE -->
-      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
-          <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-indigo-600"></span>
-            <h3 class="text-base font-black text-slate-900">Part 2: Codebase Tour in VS Code — Showing Project Files</h3>
-          </div>
-          <div class="flex items-center gap-2">
-            <button onclick="speakText(document.getElementById('scriptPart2').innerText, this)" class="speech-btn px-2.5 py-1 rounded text-[11px] font-bold bg-blue-600 hover:bg-blue-500 text-white shadow-sm transition flex items-center gap-1">🔊 Listen</button>
-            <span class="text-xs font-mono bg-indigo-50 text-indigo-700 px-2.5 py-1 rounded font-bold border border-indigo-200">02:30 – 05:30 (3.0 MINS)</span>
-          </div>
-        </div>
 
-        <!-- SCREEN & WEBCAM DIRECTIVE BOX -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 p-3 bg-indigo-50/60 rounded-xl border border-indigo-200 text-xs">
+      <!-- ============================================================== -->
+      <!-- SCENE 3: 5 CRITICAL CODE LOGICS (05:30 - 09:00)               -->
+      <!-- ============================================================== -->
+      <div id="scene-card-3" class="scene-card hidden bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+        
+        <!-- SCENE HEADER & METRICS -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
           <div>
-            <span class="font-bold text-indigo-900 block mb-0.5">📺 WHAT MUST BE ON YOUR LAPTOP SCREEN:</span>
-            <span class="text-slate-700"><strong>VS Code</strong> in dark mode, zoom 120%. Show the left Explorer tree with `src/` and `app/` folders.</span>
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-black bg-emerald-100 text-emerald-800 border border-emerald-200">Scene 3 of 7</span>
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Algorithmic Rigor</span>
+            </div>
+            <h3 class="text-lg font-black text-slate-900 mt-1">5 Critical Code Logics Deep Dive ("This Particular Section Does This")</h3>
           </div>
-          <div>
-            <span class="font-bold text-indigo-900 block mb-0.5">👤 FLOATING WEBCAM STATUS:</span>
-            <span class="text-slate-700">Small floating PIP bubble in bottom-right corner. Presenter stays visible while walking through files.</span>
+          
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">⏱️ 05:30 – 09:00 (3.5 Min)</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700">📺 VS Code Code Lines</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700">👤 Camera: Bottom-Right PIP</span>
+            <button onclick="speakText(document.getElementById('scriptPart3').innerText, this)" class="speech-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-600 hover:bg-blue-500 text-white shadow transition flex items-center gap-1">🔊 Coach</button>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
-          <!-- LEFT: LAPTOP ACTIONS -->
-          <div class="lg:col-span-5 bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2.5 text-xs">
-            <div class="font-bold text-slate-900 uppercase tracking-wide text-[11px]">
-              <span>🖱️ Laptop & Mouse Actions During Part 2</span>
+        <!-- 2-COLUMN BENTO GRID -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          
+          <!-- LEFT: LAPTOP & MOUSE ACTIONS -->
+          <div class="lg:col-span-5 p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+            <div class="font-bold text-xs uppercase tracking-wider text-slate-900 flex items-center gap-2">
+              <span>💻 Laptop Screen & Mouse Operations</span>
             </div>
-            <div class="space-y-1.5 text-slate-700">
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-indigo-600">
-                <span><strong>Action 2.1:</strong> Press <code>Alt + Tab</code> to switch smoothly from browser to VS Code.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-indigo-600">
-                <span><strong>Action 2.2:</strong> Click tab <code>src/config.py</code>. Highlight lines 24–64 (features) and lines 69–96 (benchmarks).</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-indigo-600">
-                <span><strong>Action 2.3:</strong> Click tab <code>src/data_loader.py</code>. Scroll to <code>split_data()</code> lines 175–200.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-indigo-600">
-                <span><strong>Action 2.4:</strong> Click tab <code>src/feature_engineering.py</code>. Point out <code>compute_financial_features()</code>.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-indigo-600">
-                <span><strong>Action 2.5:</strong> Click tab <code>src/preprocessing.py</code>. Show <code>OutlierCapper</code> & <code>ColumnTransformer</code>.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-indigo-600">
-                <span><strong>Action 2.6:</strong> Click tab <code>src/statistical_tests.py</code>. Show Chi-Square, ANOVA, and Correlation functions.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-indigo-600">
-                <span><strong>Action 2.7:</strong> Click tabs <code>classification_models.py</code> & <code>regression_models.py</code>.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-indigo-600">
-                <span><strong>Action 2.8:</strong> Click tab <code>src/mlflow_utils.py</code>. Highlight line 21: <code>sqlite:///mlflow.db</code>.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-indigo-600">
-                <span><strong>Action 2.9:</strong> Click tabs <code>pipeline.py</code> & <code>predict.py</code> (orchestrator & real-time inference).</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-indigo-600">
-                <span><strong>Action 2.10:</strong> Expand <code>app/</code> folder in explorer: show <code>Home.py</code> and the 4 page modules.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-indigo-600">
-                <span><strong>Action 2.11:</strong> Time Checkpoint: Conclude codebase tour at the <strong>05:30</strong> mark.</span>
-              </label>
+            
+            <div class="space-y-2 text-xs text-slate-700">
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-emerald-600">1</span>
+                <div><strong>Logic 1 (Zero Leakage):</strong> In <code>data_loader.py</code>, drag mouse to highlight lines 175–195 (`train_test_split`). Switch to `pipeline.py`, highlight lines 58–62 (`fit_transform` on train, `transform` on test).</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-emerald-600">2</span>
+                <div><strong>Logic 2 (Non-Negativity Floor):</strong> In <code>preprocessing.py</code>, scroll lines 49–57. Circle line 56: <code>lower = max(0.0, lower)</code> with mouse cursor.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-emerald-600">3</span>
+                <div><strong>Logic 3 (Cash Flow & Health Score):</strong> In <code>feature_engineering.py</code>, highlight line 46 (disposable cash flow) and lines 66–77 (health score formula).</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-emerald-600">4</span>
+                <div><strong>Logic 4 (XGBoost Regularization):</strong> In <code>classification_models.py</code>, highlight lines 40–49 (`subsample=0.85`, `colsample_bytree=0.85`).</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-emerald-600">5</span>
+                <div><strong>Logic 5 (Dual Inference & Rules):</strong> In <code>predict.py</code>, highlight lines 29–85 (`predict_single()` & automated risk flags). Finish at <strong>09:00</strong>!</div>
+              </div>
             </div>
           </div>
 
-          <!-- RIGHT: SPOKEN SCRIPT -->
-          <div class="lg:col-span-7 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs leading-relaxed text-slate-800 space-y-2">
-            <div class="font-bold text-slate-900 uppercase tracking-wide text-[11px] flex items-center justify-between">
-              <span>🗣️ What To Say Aloud (Word-for-Word Script)</span>
-              <span class="text-[10px] text-slate-400 font-normal">Click each file tab as you introduce it</span>
+          <!-- RIGHT: EASY-TO-MEMORIZE BULLETS & FULL SCRIPT -->
+          <div class="lg:col-span-7 space-y-3">
+            
+            <!-- MEMORY BULLETS VIEW -->
+            <div class="memory-bullets-box p-4 rounded-xl bg-emerald-50/70 border border-emerald-200 space-y-2.5">
+              <div class="font-bold text-xs uppercase tracking-wider text-emerald-950 flex items-center justify-between">
+                <span>🧠 5 Memory Bullets (What To Say Aloud)</span>
+                <span class="text-[10px] text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-mono font-bold">Easy to Glance & Speak</span>
+              </div>
+              
+              <ul class="space-y-2 text-xs text-slate-800">
+                <li class="flex items-start gap-2">
+                  <span class="text-emerald-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>1. Logic 1 (Zero Data Leakage):</strong> Preprocessor is strictly fitted on Train (`fit_transform`). Test data and live applicants ONLY pass through `transform()`, preventing test parameter contamination.</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-emerald-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>2. Logic 2 (Non-Negativity Outlier Floors):</strong> Standard IQR can yield negative lower bounds. Line 56 sets `lower = max(0.0, lower)` to preserve physical reality (salaries cannot be negative).</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-emerald-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>3. Logic 3 (Cash Flow & 4-Factor Health Score):</strong> Line 46 subtracts living costs from salary. Lines 66–77 combine Credit Score (40%), DTI (25%), Cash Buffer (20%), and Job Stability (15%) into a 0–100 score.</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-emerald-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>4. Logic 4 (XGBoost Regularization):</strong> Uses 2nd-order Taylor expansions. Subsampling 85% of features per tree split completely eliminates collinearity between salary and cash flow.</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-emerald-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>5. Logic 5 (Dual Inference & Business Rules):</strong> Executes both models in one pass, generating transparent underwriter audit flags for subprime scores, DTI &gt; 40%, or cash deficits.</div>
+                </li>
+              </ul>
             </div>
-            <div id="scriptPart2" class="space-y-2">
-              <p>
-                <strong class="text-indigo-950 font-bold">"Now, let us examine the engineering structure of the project inside VS Code.</strong> As you can see in the explorer tree, the codebase is architected into modular, production-ready Python packages under <code>src/</code>, complemented by our interactive multi-page Streamlit application under <code>app/</code>. Let me show you what each specific file does:
-              </p>
-              <p>
-                <strong>1. <code>src/config.py</code>:</strong> <em>[Click config.py tab]</em> This file is our centralized configuration nerve center. It defines absolute project paths, schemas for our 17 numerical and 8 categorical features, target definitions, class mapping dictionary (Eligible = 0, High_Risk = 1, Not_Eligible = 2), and strict benchmark thresholds (90% accuracy, ₹2,000 RMSE).<br>
-                <strong>2. <code>src/data_loader.py</code>:</strong> <em>[Click data_loader.py tab]</em> This module automates data ingestion and validation. Furthermore, it contains our <code>split_data()</code> function, which performs stratified Train/Validation/Test splitting—70% for training, 10% for validation, and 20% for test—guaranteeing zero data leakage.<br>
-                <strong>3. <code>src/feature_engineering.py</code>:</strong> <em>[Click feature_engineering.py tab]</em> This is the heart of our domain intelligence. It calculates real-world financial ratios: unencumbered disposable cash flow, Debt-to-Income (DTI), Expense-to-Income (ETI), Requested Monthly Burden, and our calibrated 0–100 Composite Financial Health Score.<br>
-                <strong>4. <code>src/preprocessing.py</code>:</strong> <em>[Click preprocessing.py tab]</em> Here we construct our Scikit-Learn <code>ColumnTransformer</code>. It includes our custom <code>OutlierCapper</code> with non-negativity floors, median imputers, <code>StandardScaler</code> for continuous variables, and <code>OneHotEncoder</code> with unknown category handling for categoricals.<br>
-                <strong>5. <code>src/statistical_tests.py</code>:</strong> <em>[Click statistical_tests.py tab]</em> Implements our hypothesis testing battery using SciPy: Chi-Square tests of independence, One-Way ANOVA tests across risk tiers, and Pearson/Spearman correlations.<br>
-                <strong>6. <code>src/classification_models.py</code> & <code>src/regression_models.py</code>:</strong> <em>[Click both files]</em> Define and benchmark our model suites: Logistic Regression, Random Forest, and XGBoost Classifier for risk tiers; and Linear Ridge, Random Forest Regressor, and XGBoost Regressor for EMI capacity.<br>
-                <strong>7. <code>src/mlflow_utils.py</code>:</strong> <em>[Click mlflow_utils.py tab]</em> Encapsulates enterprise MLOps. Connects to <code>sqlite:///mlflow.db</code>, logging parameters, metrics, confusion matrix heatmaps, parity plots, and serialized model binaries.<br>
-                <strong>8. <code>src/pipeline.py</code> & <code>src/predict.py</code>:</strong> <em>[Click pipeline.py and predict.py tabs]</em> <code>pipeline.py</code> is the master orchestrator running the full training workflow. <code>predict.py</code> provides our real-time <code>EMIPredictor</code> class executing sub-200ms dual inference with automated underwriting risk explanations.<br>
-                <strong>9. <code>app/</code> Directory:</strong> <em>[Expand app/ folder in explorer]</em> Contains our production Streamlit suite: <code>Home.py</code>, <code>1_Predict_EMI.py</code> for the Underwriting Studio, <code>2_EDA_Insights.py</code>, <code>3_Model_Evaluation.py</code>, and <code>4_Manage_Data.py</code> for administrative CRUD."
-              </p>
-            </div>
+
+            <!-- FULL TELEPROMPTER SCRIPT (EXPANDABLE) -->
+            <details class="full-script-box group rounded-xl bg-slate-50 border border-slate-200 p-3 text-xs leading-relaxed text-slate-700">
+              <summary class="font-bold text-slate-900 cursor-pointer list-none flex items-center justify-between">
+                <span>📜 View Word-for-Word Teleprompter Script</span>
+                <span class="text-emerald-600 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div id="scriptPart3" class="pt-3 space-y-2 border-t border-slate-200 mt-2 text-slate-800">
+                <p>
+                  <strong class="text-emerald-950 font-bold">"Now, let us examine the critical code logics that give our platform its mathematical rigor.</strong> I will highlight five specific sections in the code:
+                </p>
+                <p>
+                  <strong>Logic 1: Zero Data Leakage Split-Before-Fit Pipeline:</strong> <em>[Highlight lines 175–195 in data_loader.py]</em><br>
+                  "This particular section of code guarantees zero data leakage: we split raw data into 70% Train, 10% Validation, and 20% Test using <code>stratify=df['emi_eligibility']</code>. In <code>pipeline.py</code>, notice that we call <code>preprocessor.fit_transform(train_feat)</code> strictly on the training partition! For test evaluation and live inference, we ONLY invoke <code>preprocessor.transform()</code>. This guarantees that test distribution parameters—such as imputation medians and standard deviation scalers—never contaminate model training."
+                </p>
+                <p>
+                  <strong>Logic 2: Domain-Informed Outlier Capper with Non-Negativity Floors:</strong> <em>[Highlight lines 49–57 in preprocessing.py]</em><br>
+                  "This particular section of code handles extreme financial outliers: standard IQR capping at 1.5× can calculate negative lower bounds for positive financial variables. Notice line 56 in our custom <code>OutlierCapper</code>: <code>lower = max(0.0, lower)</code>. For financial features like <code>monthly_salary</code>, <code>requested_amount</code>, and <code>current_emi_amount</code>, we strictly enforce an absolute zero floor. This preserves physical financial reality while clipping extreme tail outliers using the 1st and 99th percentiles."
+                </p>
+                <p>
+                  <strong>Logic 3: Mathematical Free Cash Flow & 4-Factor Health Scoring:</strong> <em>[Highlight lines 40–77 in feature_engineering.py]</em><br>
+                  "This particular section of code derives unencumbered liquidity: look at line 46—we compute <code>disposable_income = salary - total_monthly_expenses</code>, where total expenses sums rent, utilities, school fees, and current EMIs. Then, at lines 66–77, we compute our composite 0–100 Financial Health Score: credit score contributes 40 points, Debt-to-Income ratio contributes 25 points, disposable income buffer contributes 20 points, and employment stability contributes 15 points. This single feature captures over 21% of XGBoost's decision weight."
+                </p>
+                <p>
+                  <strong>Logic 4: XGBoost Objective & Taylor Gradient Optimization:</strong> <em>[Highlight lines 40–49 in classification_models.py]</em><br>
+                  "This particular section of code configures our champion algorithms: notice our hyperparameters—<code>max_depth=6</code>, <code>learning_rate=0.08</code>, <code>subsample=0.85</code>, and <code>colsample_bytree=0.85</code> with <code>eval_metric='mlogloss'</code>. We utilize 2nd-order Taylor expansions of the loss function, and by subsampling 85% of features per tree split, we completely eliminate multicollinearity between salary and disposable income."
+                </p>
+                <p>
+                  <strong>Logic 5: Real-Time Dual-Target Inference & Underwriter Rules:</strong> <em>[Highlight lines 29–85 in predict.py]</em><br>
+                  "This particular section of code bridges ML predictions with banking business rules: in our <code>predict_single()</code> method, a single JSON applicant payload is transformed through the fitted pipeline, evaluated by the classifier for multi-class risk, and sized by the regressor for maximum safe EMI. Then, lines 59–85 apply automated underwriter decision logic—generating human-readable audit flags whenever credit score is under 650, DTI exceeds 40%, or living expenses exceed cash flow."
+                </p>
+              </div>
+            </details>
+
           </div>
         </div>
+
+        <!-- FOOTER NAV -->
+        <div class="flex items-center justify-between border-t border-slate-100 pt-3 text-xs">
+          <button onclick="setActiveScene(2)" class="px-3 py-1.5 rounded-lg font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
+            <span>◀ Prev: Scene 2</span>
+          </button>
+          <button onclick="setActiveScene(4)" class="px-4 py-1.5 rounded-lg font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition flex items-center gap-1">
+            <span>Next: Scene 4 (Stats Tests)</span>
+            <span>➔</span>
+          </button>
+        </div>
+
       </div>
 
-      <!-- PART 3: 5 CRITICAL CODE LOGICS -->
-      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
-          <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-emerald-600"></span>
-            <h3 class="text-base font-black text-slate-900">Part 3: 5 Critical Code Logics Deep Dive — Line-by-Line Breakdown</h3>
-          </div>
-          <div class="flex items-center gap-2">
-            <button onclick="speakText(document.getElementById('scriptPart3').innerText, this)" class="speech-btn px-2.5 py-1 rounded text-[11px] font-bold bg-blue-600 hover:bg-blue-500 text-white shadow-sm transition flex items-center gap-1">🔊 Listen</button>
-            <span class="text-xs font-mono bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded font-bold border border-emerald-200">05:30 – 09:00 (3.5 MINS)</span>
-          </div>
-        </div>
 
-        <!-- SCREEN & WEBCAM DIRECTIVE BOX -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 p-3 bg-emerald-50/60 rounded-xl border border-emerald-200 text-xs">
+      <!-- ============================================================== -->
+      <!-- SCENE 4: STATISTICAL HYPOTHESIS TESTING (09:00 - 11:00)        -->
+      <!-- ============================================================== -->
+      <div id="scene-card-4" class="scene-card hidden bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+        
+        <!-- SCENE HEADER & METRICS -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
           <div>
-            <span class="font-bold text-emerald-900 block mb-0.5">📺 WHAT MUST BE ON YOUR LAPTOP SCREEN:</span>
-            <span class="text-slate-700"><strong>VS Code Editor</strong> actively displaying the specific lines of code being discussed.</span>
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-black bg-cyan-100 text-cyan-800 border border-cyan-200">Scene 4 of 7</span>
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Scientific Validation</span>
+            </div>
+            <h3 class="text-lg font-black text-slate-900 mt-1">Scientific Hypothesis Testing Battery (SciPy)</h3>
           </div>
-          <div>
-            <span class="font-bold text-emerald-900 block mb-0.5">👤 FLOATING WEBCAM STATUS:</span>
-            <span class="text-slate-700">Small floating PIP bubble in bottom-right corner.</span>
+          
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-cyan-50 text-cyan-700 border border-cyan-200">⏱️ 09:00 – 11:00 (2.0 Min)</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700">📺 Streamlit: EDA Tab 3</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700">👤 Camera: Bottom-Right PIP</span>
+            <button onclick="speakText(document.getElementById('scriptPart4').innerText, this)" class="speech-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-600 hover:bg-blue-500 text-white shadow transition flex items-center gap-1">🔊 Coach</button>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
-          <!-- LEFT: LAPTOP ACTIONS -->
-          <div class="lg:col-span-5 bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2.5 text-xs">
-            <div class="font-bold text-slate-900 uppercase tracking-wide text-[11px]">
-              <span>🖱️ Laptop & Mouse Actions During Part 3</span>
+        <!-- 2-COLUMN BENTO GRID -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          
+          <!-- LEFT: LAPTOP & MOUSE ACTIONS -->
+          <div class="lg:col-span-5 p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+            <div class="font-bold text-xs uppercase tracking-wider text-slate-900 flex items-center gap-2">
+              <span>💻 Laptop Screen & Mouse Operations</span>
             </div>
-            <div class="space-y-2 text-slate-700">
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-emerald-600">
-                <span><strong>Action 3.1 (Logic 1):</strong> In <code>src/data_loader.py</code>, drag mouse to highlight lines 175–195 (stratified split). Then switch to <code>pipeline.py</code> and highlight lines 58–62 (<code>fit_transform</code> on train, <code>transform</code> on test).</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-emerald-600">
-                <span><strong>Action 3.2 (Logic 2):</strong> Switch to <code>src/preprocessing.py</code>, scroll to lines 49–57. Circle line 56: <code>lower = max(0.0, lower)</code> with mouse cursor.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-emerald-600">
-                <span><strong>Action 3.3 (Logic 3):</strong> Switch to <code>src/feature_engineering.py</code>, highlight line 46 (disposable cash flow) and lines 66–77 (4-factor health score formula).</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-emerald-600">
-                <span><strong>Action 3.4 (Logic 4):</strong> Switch to <code>src/classification_models.py</code>, highlight lines 40–49 (XGBoost <code>subsample=0.85</code> and <code>colsample_bytree=0.85</code>).</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-emerald-600">
-                <span><strong>Action 3.5 (Logic 5):</strong> Switch to <code>src/predict.py</code>, highlight lines 29–85 (dual prediction and underwriter risk rule checks).</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-emerald-600">
-                <span><strong>Action 3.6:</strong> Time Checkpoint: Conclude code logics at the <strong>09:00</strong> mark.</span>
-              </label>
+            
+            <div class="space-y-2 text-xs text-slate-700">
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-cyan-600">1</span>
+                <div><strong>Alt+Tab to Chrome:</strong> Press <code>Alt + Tab</code>. Click Page 2: <code>EDA Insights</code> → Tab 3: <code>Risk & Credit Correlations</code>.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-cyan-600">2</span>
+                <div><strong>Point to Chi-Square:</strong> Circle the $p < 0.001$ and $χ² > 1200$ values across company type & scenarios.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-cyan-600">3</span>
+                <div><strong>Point to ANOVA Results:</strong> Hover over the $F > 450.0$ ($p = 0.000$) values for credit score and disposable income.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-cyan-600">4</span>
+                <div><strong>Point to Correlation Heatmap:</strong> Hover cursor over Pearson $r = +0.92$ for Disposable Cash Flow. Finish at <strong>11:00</strong>!</div>
+              </div>
             </div>
           </div>
 
-          <!-- RIGHT: SPOKEN SCRIPT -->
-          <div class="lg:col-span-7 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs leading-relaxed text-slate-800 space-y-2">
-            <div class="font-bold text-slate-900 uppercase tracking-wide text-[11px] flex items-center justify-between">
-              <span>🗣️ What To Say Aloud (Word-for-Word Script)</span>
-              <span class="text-[10px] text-slate-400 font-normal">State "This particular section of code does this..."</span>
+          <!-- RIGHT: EASY-TO-MEMORIZE BULLETS & FULL SCRIPT -->
+          <div class="lg:col-span-7 space-y-3">
+            
+            <!-- MEMORY BULLETS VIEW -->
+            <div class="memory-bullets-box p-4 rounded-xl bg-cyan-50/70 border border-cyan-200 space-y-2.5">
+              <div class="font-bold text-xs uppercase tracking-wider text-cyan-950 flex items-center justify-between">
+                <span>🧠 3 Memory Bullets (What To Say Aloud)</span>
+                <span class="text-[10px] text-cyan-700 bg-cyan-100 px-2 py-0.5 rounded font-mono font-bold">Easy to Glance & Speak</span>
+              </div>
+              
+              <ul class="space-y-2 text-xs text-slate-800">
+                <li class="flex items-start gap-2">
+                  <span class="text-cyan-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>1. Chi-Square (χ²) Independence ($p < 0.001$):</strong> Formulated $H_0$ that categorical predictors are independent of loan eligibility. Rejected $H_0$; company type ($χ² > 1200$) and employment stability have statistically proven dependence.</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cyan-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>2. One-Way ANOVA ($F > 450.0, p = 0.000$):</strong> Tested $H_0$ that continuous predictors have equal means across risk classes. Rejected $H_0$; risk tiers represent distinct mathematical populations.</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cyan-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>3. Pearson Correlation ($r = +0.92$):</strong> Proved that engineered <strong>Disposable Free Cash Flow</strong> is the #1 predictor of safe monthly EMI capacity ($r = +0.92$), outperforming raw gross salary ($r = +0.88$).</div>
+                </li>
+              </ul>
             </div>
-            <div id="scriptPart3" class="space-y-2">
-              <p>
-                <strong class="text-emerald-950 font-bold">"Now, let us examine the critical code logics that give our platform its mathematical rigor.</strong> I will highlight five specific sections in the code:
-              </p>
-              <p>
-                <strong>Logic 1: Zero Data Leakage Split-Before-Fit Pipeline:</strong> <em>[Highlight lines 175–195 in data_loader.py]</em><br>
-                "This particular section of code guarantees zero data leakage: we split raw data into 70% Train, 10% Validation, and 20% Test using <code>stratify=df['emi_eligibility']</code>. In <code>pipeline.py</code>, notice that we call <code>preprocessor.fit_transform(train_feat)</code> strictly on the training partition! For test evaluation and live inference, we ONLY invoke <code>preprocessor.transform()</code>. This guarantees that test distribution parameters—such as imputation medians and standard deviation scalers—never contaminate model training."
-              </p>
-              <p>
-                <strong>Logic 2: Domain-Informed Outlier Capper with Non-Negativity Floors:</strong> <em>[Highlight lines 49–57 in preprocessing.py]</em><br>
-                "This particular section of code handles extreme financial outliers: standard IQR capping at 1.5× can calculate negative lower bounds for positive financial variables. Notice line 56 in our custom <code>OutlierCapper</code>: <code>lower = max(0.0, lower)</code>. For financial features like <code>monthly_salary</code>, <code>requested_amount</code>, and <code>current_emi_amount</code>, we strictly enforce an absolute zero floor. This preserves physical financial reality while clipping extreme tail outliers using the 1st and 99th percentiles."
-              </p>
-              <p>
-                <strong>Logic 3: Mathematical Free Cash Flow & 4-Factor Health Scoring:</strong> <em>[Highlight lines 40–77 in feature_engineering.py]</em><br>
-                "This particular section of code derives unencumbered liquidity: look at line 46—we compute <code>disposable_income = salary - total_monthly_expenses</code>, where total expenses sums rent, utilities, school fees, and current EMIs. Then, at lines 66–77, we compute our composite 0–100 Financial Health Score: credit score contributes 40 points, Debt-to-Income ratio contributes 25 points, disposable income buffer contributes 20 points, and employment stability contributes 15 points. This single feature captures over 21% of XGBoost's decision weight."
-              </p>
-              <p>
-                <strong>Logic 4: XGBoost Objective & Taylor Gradient Optimization:</strong> <em>[Highlight lines 40–49 in classification_models.py]</em><br>
-                "This particular section of code configures our champion algorithms: notice our hyperparameters—<code>max_depth=6</code>, <code>learning_rate=0.08</code>, <code>subsample=0.85</code>, and <code>colsample_bytree=0.85</code> with <code>eval_metric='mlogloss'</code>. We utilize 2nd-order Taylor expansions of the loss function, and by subsampling 85% of features per tree split, we completely eliminate multicollinearity between salary and disposable income."
-              </p>
-              <p>
-                <strong>Logic 5: Real-Time Dual-Target Inference & Underwriter Rules:</strong> <em>[Highlight lines 29–85 in predict.py]</em><br>
-                "This particular section of code bridges ML predictions with banking business rules: in our <code>predict_single()</code> method, a single JSON applicant payload is transformed through the fitted pipeline, evaluated by the classifier for multi-class risk, and sized by the regressor for maximum safe EMI. Then, lines 59–85 apply automated underwriter decision logic—generating human-readable audit flags whenever credit score is under 650, DTI exceeds 40%, or living expenses exceed cash flow."
-              </p>
-            </div>
+
+            <!-- FULL TELEPROMPTER SCRIPT (EXPANDABLE) -->
+            <details class="full-script-box group rounded-xl bg-slate-50 border border-slate-200 p-3 text-xs leading-relaxed text-slate-700">
+              <summary class="font-bold text-slate-900 cursor-pointer list-none flex items-center justify-between">
+                <span>📜 View Word-for-Word Teleprompter Script</span>
+                <span class="text-cyan-600 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div id="scriptPart4" class="pt-3 space-y-2 border-t border-slate-200 mt-2 text-slate-800">
+                <p>
+                  <strong class="text-cyan-950 font-bold">"Before training any machine learning models, we conducted a rigorous hypothesis testing battery using SciPy.</strong> In machine learning engineering, algorithms should never be trained on assumed feature relevance—every predictor must be statistically proven:
+                </p>
+                <p>
+                  <strong>1. Chi-Square (χ²) Test of Independence for Categorical Variables:</strong><br>
+                  "We formulated the Null Hypothesis ($H_0$) that categorical predictors—such as company type, employment type, and lending scenario—are independent of loan eligibility. The Chi-Square test yielded $p$-values strictly less than <strong>0.001</strong> for all primary categories. For example, company type produced a χ² statistic of over 1,200 with $p < 0.0001$. We rejected the Null Hypothesis, confirming that employment stability and company stature have a statistically significant dependence with repayment behavior."
+                </p>
+                <p>
+                  <strong>2. One-Way ANOVA ($F$-Tests) for Continuous Variables:</strong><br>
+                  "For continuous features, our Null Hypothesis ($H_0$) stated that the mean values of variables like disposable income, credit score, and monthly salary are identical across the three eligibility classes (Eligible, High_Risk, and Not_Eligible). The ANOVA test yielded massive $F$-statistics exceeding <strong>450.0</strong> with $p$-values of <strong>0.000</strong>. This proved that our risk tiers represent genuinely distinct mathematical populations, establishing the foundation for high classification accuracy."
+                </p>
+                <p>
+                  <strong>3. Pearson & Spearman Rank Correlations:</strong><br>
+                  "For continuous EMI regression, our correlation analysis confirmed that engineered <strong>Disposable Free Cash Flow</strong> holds the strongest positive correlation with safe monthly EMI capacity at <strong>$r = +0.92$</strong>, outperforming raw gross salary at $r = +0.88$. This empirically validates our core premise: free cash flow pays loans, not gross income."
+                </p>
+              </div>
+            </details>
+
           </div>
         </div>
+
+        <!-- FOOTER NAV -->
+        <div class="flex items-center justify-between border-t border-slate-100 pt-3 text-xs">
+          <button onclick="setActiveScene(3)" class="px-3 py-1.5 rounded-lg font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
+            <span>◀ Prev: Scene 3</span>
+          </button>
+          <button onclick="setActiveScene(5)" class="px-4 py-1.5 rounded-lg font-bold bg-cyan-600 hover:bg-cyan-500 text-white transition flex items-center gap-1">
+            <span>Next: Scene 5 (Model Results)</span>
+            <span>➔</span>
+          </button>
+        </div>
+
       </div>
 
-      <!-- PART 4: STATISTICAL HYPOTHESIS TESTING -->
-      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
-          <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-cyan-600"></span>
-            <h3 class="text-base font-black text-slate-900">Part 4: Scientific Hypothesis Testing Battery</h3>
-          </div>
-          <div class="flex items-center gap-2">
-            <button onclick="speakText(document.getElementById('scriptPart4').innerText, this)" class="speech-btn px-2.5 py-1 rounded text-[11px] font-bold bg-blue-600 hover:bg-blue-500 text-white shadow-sm transition flex items-center gap-1">🔊 Listen</button>
-            <span class="text-xs font-mono bg-cyan-50 text-cyan-700 px-2.5 py-1 rounded font-bold border border-cyan-200">09:00 – 11:00 (2.0 MINS)</span>
-          </div>
-        </div>
 
-        <!-- SCREEN & WEBCAM DIRECTIVE BOX -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 p-3 bg-cyan-50/60 rounded-xl border border-cyan-200 text-xs">
+      <!-- ============================================================== -->
+      <!-- SCENE 5: MODEL TOURNAMENT & RESULTS (11:00 - 14:00)            -->
+      <!-- ============================================================== -->
+      <div id="scene-card-5" class="scene-card hidden bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+        
+        <!-- SCENE HEADER & METRICS -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
           <div>
-            <span class="font-bold text-cyan-900 block mb-0.5">📺 WHAT MUST BE ON YOUR LAPTOP SCREEN:</span>
-            <span class="text-slate-700">Streamlit Page 2 (<code>EDA Insights</code>) ➔ Tab 3 (<code>Risk & Credit Correlations</code>) OR <code>docs/chi_square_tests.csv</code> in VS Code.</span>
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-black bg-purple-100 text-purple-800 border border-purple-200">Scene 5 of 7</span>
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Tournament Champions</span>
+            </div>
+            <h3 class="text-lg font-black text-slate-900 mt-1">Model Tournament & Empirical Results Deep Dive</h3>
           </div>
-          <div>
-            <span class="font-bold text-cyan-900 block mb-0.5">👤 FLOATING WEBCAM STATUS:</span>
-            <span class="text-slate-700">Small floating PIP bubble in bottom-right corner.</span>
+          
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-purple-50 text-purple-700 border border-purple-200">⏱️ 11:00 – 14:00 (3.0 Min)</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700">📺 Streamlit: Model Evaluation</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700">👤 Camera: Bottom-Right PIP</span>
+            <button onclick="speakText(document.getElementById('scriptPart5').innerText, this)" class="speech-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-600 hover:bg-blue-500 text-white shadow transition flex items-center gap-1">🔊 Coach</button>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
-          <!-- LEFT: LAPTOP ACTIONS -->
-          <div class="lg:col-span-5 bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2.5 text-xs">
-            <div class="font-bold text-slate-900 uppercase tracking-wide text-[11px]">
-              <span>🖱️ Laptop & Mouse Actions During Part 4</span>
+        <!-- 2-COLUMN BENTO GRID -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          
+          <!-- LEFT: LAPTOP & MOUSE ACTIONS -->
+          <div class="lg:col-span-5 p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+            <div class="font-bold text-xs uppercase tracking-wider text-slate-900 flex items-center gap-2">
+              <span>💻 Laptop Screen & Mouse Operations</span>
             </div>
-            <div class="space-y-2 text-slate-700">
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-cyan-600">
-                <span><strong>Action 4.1:</strong> Press <code>Alt + Tab</code> to browser, click Page 2: <code>EDA Insights</code> ➔ Tab 3: <code>Risk & Credit Correlations</code>.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-cyan-600">
-                <span><strong>Action 4.2:</strong> Point cursor to Chi-Square table: highlight p-values strictly &lt; 0.001 ($\chi^2 > 1200$).</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-cyan-600">
-                <span><strong>Action 4.3:</strong> Hover cursor over ANOVA results: highlight ANOVA F-statistic &gt; 450.0 ($p = 0.000$) across risk groups.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-cyan-600">
-                <span><strong>Action 4.4:</strong> Scroll to Correlation Heatmap: point to Pearson $r = +0.92$ for Disposable Cash Flow.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-cyan-600">
-                <span><strong>Action 4.5:</strong> Time Checkpoint: Conclude statistical section at the <strong>11:00</strong> mark.</span>
-              </label>
+            
+            <div class="space-y-2 text-xs text-slate-700">
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-purple-600">1</span>
+                <div><strong>Click Page 3:</strong> In Streamlit left sidebar, click Page 3: <code>Model Evaluation</code>.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-purple-600">2</span>
+                <div><strong>Tab 1 (Classification):</strong> Highlight <strong>XGBoost Classifier row (98.95% accuracy, 0.9895 F1, 0.9998 ROC-AUC)</strong>.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-purple-600">3</span>
+                <div><strong>Tab 2 (Regression):</strong> Click Tab 2, highlight <strong>XGBoost Regressor row (₹273.92 RMSE, 0.9994 R²)</strong>.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-purple-600">4</span>
+                <div><strong>Tab 3 (Artifacts):</strong> Scroll to Confusion Matrix: circle the <strong>0.00% misclassification between Eligible and Not_Eligible</strong>.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-purple-600">5</span>
+                <div><strong>Parity Plot & Gain:</strong> Trace the 45-degree line. Point to Gini gain (DTI 28% vs Cash Flow 35%). Finish at <strong>14:00</strong>!</div>
+              </div>
             </div>
           </div>
 
-          <!-- RIGHT: SPOKEN SCRIPT -->
-          <div class="lg:col-span-7 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs leading-relaxed text-slate-800 space-y-2">
-            <div class="font-bold text-slate-900 uppercase tracking-wide text-[11px] flex items-center justify-between">
-              <span>🗣️ What To Say Aloud (Word-for-Word Script)</span>
-              <span class="text-[10px] text-slate-400 font-normal">Demonstrate scientific hypothesis testing</span>
+          <!-- RIGHT: EASY-TO-MEMORIZE BULLETS & FULL SCRIPT -->
+          <div class="lg:col-span-7 space-y-3">
+            
+            <!-- MEMORY BULLETS VIEW -->
+            <div class="memory-bullets-box p-4 rounded-xl bg-purple-50/70 border border-purple-200 space-y-2.5">
+              <div class="font-bold text-xs uppercase tracking-wider text-purple-950 flex items-center justify-between">
+                <span>🧠 4 Memory Bullets (What To Say Aloud)</span>
+                <span class="text-[10px] text-purple-700 bg-purple-100 px-2 py-0.5 rounded font-mono font-bold">Easy to Glance & Speak</span>
+              </div>
+              
+              <ul class="space-y-2 text-xs text-slate-800">
+                <li class="flex items-start gap-2">
+                  <span class="text-purple-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>1. Multi-Class Classification Winner:</strong> Baseline Logistic Regression (85.97%) → Random Forest (97.32%) → **XGBoost Champion (98.95% Accuracy, 0.9895 F1, 0.9998 ROC-AUC)**.</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-purple-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>2. Capital Solvency Guarantee:</strong> Confusion matrix misclassification between **Eligible and Not_Eligible is exactly 0.00%**! The bank never lends to a defaulter; minor 1% errors occur strictly on High_Risk borders.</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-purple-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>3. Continuous Regression Winner:</strong> Linear Ridge failed (₹2,641 RMSE); **XGBoost Regressor won at ₹273.92 RMSE and 0.9994 R²**, crushing the ₹2,000 capstone benchmark by 86%.</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-purple-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>4. Feature Importance Synergy:</strong> Risk metrics (DTI 28%, Health Score 21%) dictate *whether* to lend; Cash Flow metrics (Disposable Income 35%, Salary 27%) dictate *how much* to safely lend.</div>
+                </li>
+              </ul>
             </div>
-            <div id="scriptPart4" class="space-y-2">
-              <p>
-                <strong class="text-cyan-950 font-bold">"Before training any machine learning models, we conducted a rigorous hypothesis testing battery using SciPy.</strong> In machine learning engineering, algorithms should never be trained on assumed feature relevance—every predictor must be statistically proven:
-              </p>
-              <p>
-                <strong>1. Chi-Square ($\chi^2$) Test of Independence for Categorical Variables:</strong><br>
-                "We formulated the Null Hypothesis ($H_0$) that categorical predictors—such as company type, employment type, and lending scenario—are independent of loan eligibility. The Chi-Square test yielded $p$-values strictly less than <strong>0.001</strong> for all primary categories. For example, company type produced a $\chi^2$ statistic of over 1,200 with $p < 0.0001$. We rejected the Null Hypothesis, confirming that employment stability and company stature have a statistically significant dependence with repayment behavior."
-              </p>
-              <p>
-                <strong>2. One-Way ANOVA ($F$-Tests) for Continuous Variables:</strong><br>
-                "For continuous features, our Null Hypothesis ($H_0$) stated that the mean values of variables like disposable income, credit score, and monthly salary are identical across the three eligibility classes (Eligible, High_Risk, and Not_Eligible). The ANOVA test yielded massive $F$-statistics exceeding <strong>450.0</strong> with $p$-values of <strong>0.000</strong>. This proved that our risk tiers represent genuinely distinct mathematical populations, establishing the foundation for high classification accuracy."
-              </p>
-              <p>
-                <strong>3. Pearson & Spearman Rank Correlations:</strong><br>
-                "For continuous EMI regression, our correlation analysis confirmed that engineered <strong>Disposable Free Cash Flow</strong> holds the strongest positive correlation with safe monthly EMI capacity at <strong>$r = +0.92$</strong>, outperforming raw gross salary at $r = +0.88$. This empirically validates our core premise: free cash flow pays loans, not gross income."
-              </p>
-            </div>
+
+            <!-- FULL TELEPROMPTER SCRIPT (EXPANDABLE) -->
+            <details class="full-script-box group rounded-xl bg-slate-50 border border-slate-200 p-3 text-xs leading-relaxed text-slate-700">
+              <summary class="font-bold text-slate-900 cursor-pointer list-none flex items-center justify-between">
+                <span>📜 View Word-for-Word Teleprompter Script</span>
+                <span class="text-purple-600 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div id="scriptPart5" class="pt-3 space-y-2 border-t border-slate-200 mt-2 text-slate-800">
+                <p>
+                  <strong class="text-purple-950 font-bold">"Now let us examine the core machine learning results and our model comparison tournament.</strong> To satisfy both tasks, we trained and compared three candidate models per problem type, tracking all runs inside MLflow:
+                </p>
+                <p>
+                  <strong>Multi-Class Eligibility Classification Tournament:</strong><br>
+                  "We began with our linear baseline: <strong>Logistic Regression</strong> with $L_2$ regularization, achieving 85.97% accuracy and 0.8674 weighted F1. It struggled because credit default involves non-linear debt thresholds. Next, <strong>Random Forest Classifier</strong> achieved 97.32% accuracy through parallel bagged decision trees. Finally, our champion, <strong>XGBoost Classifier</strong>, achieved an outstanding <strong>98.95% Accuracy, 0.9895 F1-Score, and 0.9998 ROC-AUC</strong>, crushing the capstone requirement of 90%."
+                </p>
+                <p>
+                  <strong>Confusion Matrix Analysis:</strong> <em>[Point to Confusion Matrix heatmap]</em><br>
+                  "Most importantly from a banking solvency standpoint, look at the confusion matrix diagonal: the misclassification between <strong>Eligible and Not_Eligible is exactly 0.00%</strong>. Our model never approves an uncreditworthy borrower, completely protecting the bank from catastrophic capital loss. The minor 1% errors occur strictly on the boundary between High_Risk and neighboring classes, which in banking practice are routed to human senior underwriters for secondary review."
+                </p>
+                <p>
+                  <strong>Maximum Safe EMI Continuous Regression Tournament:</strong><br>
+                  "For continuous EMI prediction, <strong>Linear Ridge Regression</strong> served as our baseline with an RMSE of ₹2,641.46 and an R² of 0.9475—failing our ₹2,000 threshold because cash flow capacity drops abruptly when DTI crosses 40%. <strong>Random Forest Regressor</strong> reached an RMSE of ₹294.60. Decisively winning the tournament, <strong>XGBoost Regressor achieved an RMSE of just ₹273.92, an MAE of ₹182.45, and an R² of 0.9994</strong>."
+                </p>
+                <p>
+                  <strong>Parity Plot & Homoscedasticity:</strong> <em>[Point to Parity scatter plot]</em><br>
+                  "On our actual vs predicted parity plot, the test predictions form a knife-edge ribbon adhering directly to the 45-degree line across the entire ₹500 to ₹50,000 range. Notice that the error variance does not fan out at higher loan amounts, confirming homoscedastic error distribution across all income brackets."
+                </p>
+                <p>
+                  <strong>Feature Importance Synergy:</strong><br>
+                  "Our Gini gain feature importances reveal the dual logic of lending: <strong>Classification</strong> is dominated by risk metrics—Debt-to-Income ratio (28%) and Financial Health Score (21%). <strong>Regression</strong> is dominated by capacity metrics—Disposable Cash Flow (35%) and Monthly Salary (27%). In short: risk metrics decide <em>whether</em> we lend; cash flow decides <em>how much</em> we can safely lend."
+                </p>
+              </div>
+            </details>
+
           </div>
         </div>
+
+        <!-- FOOTER NAV -->
+        <div class="flex items-center justify-between border-t border-slate-100 pt-3 text-xs">
+          <button onclick="setActiveScene(4)" class="px-3 py-1.5 rounded-lg font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
+            <span>◀ Prev: Scene 4</span>
+          </button>
+          <button onclick="setActiveScene(6)" class="px-4 py-1.5 rounded-lg font-bold bg-purple-600 hover:bg-purple-500 text-white transition flex items-center gap-1">
+            <span>Next: Scene 6 (Live Demo)</span>
+            <span>➔</span>
+          </button>
+        </div>
+
       </div>
 
-      <!-- PART 5: MODEL TOURNAMENT & EMPIRICAL RESULTS -->
-      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
-          <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-purple-600"></span>
-            <h3 class="text-base font-black text-slate-900">Part 5: Model Tournament & Empirical Results Deep Dive</h3>
-          </div>
-          <div class="flex items-center gap-2">
-            <button onclick="speakText(document.getElementById('scriptPart5').innerText, this)" class="speech-btn px-2.5 py-1 rounded text-[11px] font-bold bg-blue-600 hover:bg-blue-500 text-white shadow-sm transition flex items-center gap-1">🔊 Listen</button>
-            <span class="text-xs font-mono bg-purple-50 text-purple-700 px-2.5 py-1 rounded font-bold border border-purple-200">11:00 – 14:00 (3.0 MINS)</span>
-          </div>
-        </div>
 
-        <!-- SCREEN & WEBCAM DIRECTIVE BOX -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 p-3 bg-purple-50/60 rounded-xl border border-purple-200 text-xs">
+      <!-- ============================================================== -->
+      <!-- SCENE 6: LIVE STREAMLIT APPLICATION DEMO (14:00 - 16:45)       -->
+      <!-- ============================================================== -->
+      <div id="scene-card-6" class="scene-card hidden bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+        
+        <!-- SCENE HEADER & METRICS -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
           <div>
-            <span class="font-bold text-purple-900 block mb-0.5">📺 WHAT MUST BE ON YOUR LAPTOP SCREEN:</span>
-            <span class="text-slate-700">Streamlit Page 3: <strong>Model Evaluation</strong> showing Leaderboard Tables, Confusion Matrix Heatmap & Parity Plot.</span>
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-black bg-amber-100 text-amber-800 border border-amber-200">Scene 6 of 7</span>
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Interactive Production Proof</span>
+            </div>
+            <h3 class="text-lg font-black text-slate-900 mt-1">Live Streamlit Underwriting Studio Demo</h3>
           </div>
-          <div>
-            <span class="font-bold text-purple-900 block mb-0.5">👤 FLOATING WEBCAM STATUS:</span>
-            <span class="text-slate-700">Small floating PIP bubble in bottom-right corner.</span>
+          
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-amber-50 text-amber-700 border border-amber-200">⏱️ 14:00 – 16:45 (2.75 Min)</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700">📺 Streamlit: Predict EMI</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700">👤 Camera: Bottom-Right PIP</span>
+            <button onclick="speakText(document.getElementById('scriptPart6').innerText, this)" class="speech-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-600 hover:bg-blue-500 text-white shadow transition flex items-center gap-1">🔊 Coach</button>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
-          <!-- LEFT: LAPTOP ACTIONS -->
-          <div class="lg:col-span-5 bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2.5 text-xs">
-            <div class="font-bold text-slate-900 uppercase tracking-wide text-[11px]">
-              <span>🖱️ Laptop & Mouse Actions During Part 5</span>
+        <!-- 2-COLUMN BENTO GRID -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          
+          <!-- LEFT: LAPTOP & MOUSE ACTIONS -->
+          <div class="lg:col-span-5 p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+            <div class="font-bold text-xs uppercase tracking-wider text-slate-900 flex items-center gap-2">
+              <span>💻 Laptop Screen & Mouse Operations</span>
             </div>
-            <div class="space-y-2 text-slate-700">
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-purple-600">
-                <span><strong>Action 5.1:</strong> In Streamlit left sidebar, click Page 3: <code>Model Evaluation</code>.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-purple-600">
-                <span><strong>Action 5.2:</strong> On Tab 1: highlight <strong>XGBoost Classifier row (98.95% accuracy, 0.9895 F1, 0.9998 ROC-AUC)</strong>.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-purple-600">
-                <span><strong>Action 5.3:</strong> Click Tab 2: highlight <strong>XGBoost Regressor row (₹273.92 RMSE, 0.9994 R²)</strong>.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-purple-600">
-                <span><strong>Action 5.4:</strong> Click Tab 3 (Artifacts): circle the Confusion Matrix diagonal showing <strong>0.00% misclassification between Eligible & Not_Eligible</strong>.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-purple-600">
-                <span><strong>Action 5.5:</strong> Scroll to Parity Plot: trace the tight 45-degree parity ribbon.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-purple-600">
-                <span><strong>Action 5.6:</strong> Time Checkpoint: Wrap up results tournament at the <strong>14:00</strong> mark.</span>
-              </label>
+            
+            <div class="space-y-2 text-xs text-slate-700">
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-amber-600">1</span>
+                <div><strong>Click Page 1:</strong> In Streamlit left sidebar, click Page 1: <code>Predict EMI</code> (Underwriting Studio).</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-amber-600">2</span>
+                <div><strong>Click Reeva Shah:</strong> Click preset button <strong>`🌟 Persona 1: Reeva Shah`</strong>. Show auto-filled 22 inputs.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-amber-600">3</span>
+                <div><strong>Click Run Underwrite:</strong> Click glowing button <strong>`⚡ Run Real-Time Underwriting Assessment`</strong>.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-amber-600">4</span>
+                <div><strong>Show Output Cards:</strong> Point cursor to green **ELIGIBLE** badge (98.4%) and Safe EMI: **₹15,996 / mo**.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-amber-600">5</span>
+                <div><strong>Scroll to Gauges & Waterfall:</strong> Show DTI at 8.42% (green), Health at 84/100, and ₹61K monthly cash surplus.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-amber-600">6</span>
+                <div><strong>20s Contrast:</strong> Click `⚠️ Priya Patel` (Conditional) and `🛑 Vikram Singh` (Decline). Finish at <strong>16:45</strong>!</div>
+              </div>
             </div>
           </div>
 
-          <!-- RIGHT: SPOKEN SCRIPT -->
-          <div class="lg:col-span-7 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs leading-relaxed text-slate-800 space-y-2">
-            <div class="font-bold text-slate-900 uppercase tracking-wide text-[11px] flex items-center justify-between">
-              <span>🗣️ What To Say Aloud (Word-for-Word Script)</span>
-              <span class="text-[10px] text-slate-400 font-normal">Deliver model metrics with authority</span>
+          <!-- RIGHT: EASY-TO-MEMORIZE BULLETS & FULL SCRIPT -->
+          <div class="lg:col-span-7 space-y-3">
+            
+            <!-- MEMORY BULLETS VIEW -->
+            <div class="memory-bullets-box p-4 rounded-xl bg-amber-50/70 border border-amber-200 space-y-2.5">
+              <div class="font-bold text-xs uppercase tracking-wider text-amber-950 flex items-center justify-between">
+                <span>🧠 4 Memory Bullets (What To Say Aloud)</span>
+                <span class="text-[10px] text-amber-700 bg-amber-100 px-2 py-0.5 rounded font-mono font-bold">Easy to Glance & Speak</span>
+              </div>
+              
+              <ul class="space-y-2 text-xs text-slate-800">
+                <li class="flex items-start gap-2">
+                  <span class="text-amber-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>1. Reeva Shah Profile:</strong> 34-year-old MNC Lead earning ₹95K/mo with 780 CIBIL requesting a ₹5 Lakh Vehicle Loan over 48 months.</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-amber-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>2. Instant Dual Verdict (&lt; 200ms):</strong> Classifier awards **ELIGIBLE** (98.4% confidence); Regressor sizes Safe EMI at **₹15,996/mo** (well above requested ₹10,416 installment).</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-amber-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>3. Dynamic Visualizations:</strong> Plotly speedometer shows an ultra-safe **8.42% DTI**; Waterfall chart proves an unencumbered **₹61,000 monthly cash surplus**.</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-amber-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>4. Edge Case Sensitivity:</strong> Priya Patel (620 CIBIL) triggers a conditional offer with tenure restructuring; Vikram Singh (510 CIBIL, -₹14.5K deficit) is automatically declined.</div>
+                </li>
+              </ul>
             </div>
-            <div id="scriptPart5" class="space-y-2">
-              <p>
-                <strong class="text-purple-950 font-bold">"Now let us examine the core machine learning results and our model comparison tournament.</strong> To satisfy both tasks, we trained and compared three candidate models per problem type, tracking all runs inside MLflow:
-              </p>
-              <p>
-                <strong>Multi-Class Eligibility Classification Tournament:</strong><br>
-                "We began with our linear baseline: <strong>Logistic Regression</strong> with $L_2$ regularization, achieving 85.97% accuracy and 0.8674 weighted F1. It struggled because credit default involves non-linear debt thresholds. Next, <strong>Random Forest Classifier</strong> achieved 97.32% accuracy through parallel bagged decision trees. Finally, our champion, <strong>XGBoost Classifier</strong>, achieved an outstanding <strong>98.95% Accuracy, 0.9895 F1-Score, and 0.9998 ROC-AUC</strong>, crushing the capstone requirement of 90%."
-              </p>
-              <p>
-                <strong>Confusion Matrix Analysis:</strong> <em>[Point to Confusion Matrix heatmap]</em><br>
-                "Most importantly from a banking solvency standpoint, look at the confusion matrix diagonal: the misclassification between <strong>Eligible and Not_Eligible is exactly 0.00%</strong>. Our model never approves an uncreditworthy borrower, completely protecting the bank from catastrophic capital loss. The minor 1% errors occur strictly on the boundary between High_Risk and neighboring classes, which in banking practice are routed to human senior underwriters for secondary review."
-              </p>
-              <p>
-                <strong>Maximum Safe EMI Continuous Regression Tournament:</strong><br>
-                "For continuous EMI prediction, <strong>Linear Ridge Regression</strong> served as our baseline with an RMSE of ₹2,641.46 and an R² of 0.9475—failing our ₹2,000 threshold because cash flow capacity drops abruptly when DTI crosses 40%. <strong>Random Forest Regressor</strong> reached an RMSE of ₹294.60. Decisively winning the tournament, <strong>XGBoost Regressor achieved an RMSE of just ₹273.92, an MAE of ₹182.45, and an R² of 0.9994</strong>."
-              </p>
-              <p>
-                <strong>Parity Plot & Homoscedasticity:</strong> <em>[Point to Parity scatter plot]</em><br>
-                "On our actual vs predicted parity plot, the test predictions form a knife-edge ribbon adhering directly to the 45-degree line across the entire ₹500 to ₹50,000 range. Notice that the error variance does not fan out at higher loan amounts, confirming homoscedastic error distribution across all income brackets."
-              </p>
-              <p>
-                <strong>Feature Importance Synergy:</strong><br>
-                "Our Gini gain feature importances reveal the dual logic of lending: <strong>Classification</strong> is dominated by risk metrics—Debt-to-Income ratio (28%) and Financial Health Score (21%). <strong>Regression</strong> is dominated by capacity metrics—Disposable Cash Flow (35%) and Monthly Salary (27%). In short: risk metrics decide <em>whether</em> we lend; cash flow decides <em>how much</em> we can safely lend."
-              </p>
-            </div>
+
+            <!-- FULL TELEPROMPTER SCRIPT (EXPANDABLE) -->
+            <details class="full-script-box group rounded-xl bg-slate-50 border border-slate-200 p-3 text-xs leading-relaxed text-slate-700">
+              <summary class="font-bold text-slate-900 cursor-pointer list-none flex items-center justify-between">
+                <span>📜 View Word-for-Word Teleprompter Script</span>
+                <span class="text-amber-600 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div id="scriptPart6" class="pt-3 space-y-2 border-t border-slate-200 mt-2 text-slate-800">
+                <p>
+                  <strong class="text-amber-950 font-bold">"Now, let us experience the live production platform deployed on Streamlit.</strong> I navigate to Page 1: the <strong>Real-Time Underwriting Studio</strong>.
+                </p>
+                <p>
+                  <em>[Click '🌟 Persona 1: Reeva Shah' and click 'Run Underwriting Assessment']</em><br>
+                  "To demonstrate real-time dual inference, I select our pre-configured prime profile: <strong>Reeva Shah</strong>, a 34-year-old Senior MNC Lead earning ₹95,000 per month with an existing ₹8,000 EMI, an excellent 780 CIBIL score, requesting a ₹5,00,000 Vehicle Loan over 48 months. In under 200 milliseconds, both production models execute:"
+                </p>
+                <p>
+                  "Look at the results: the classifier awards an immediate <strong>ELIGIBLE</strong> status with 98.4% model confidence. Simultaneously, the regressor determines her <strong>Maximum Safe EMI capacity at ₹15,996 per month</strong>, which easily accommodates her requested installment of ₹10,416 per month."
+                </p>
+                <p>
+                  <em>[Scroll down to the Plotly Visual Gauges]</em><br>
+                  "Notice our dynamic Plotly visual gauges: her <strong>Debt-to-Income (DTI) ratio is just 8.42%</strong>, sitting comfortably inside the safe green zone well below the 40% threshold. Her <strong>Financial Health Score is 84 out of 100</strong>, reflecting strong liquidity and career longevity."
+                </p>
+                <p>
+                  <em>[Scroll to the Waterfall Cash Flow Diagram]</em><br>
+                  "Here, the waterfall diagram visualizes her monthly cash journey: starting from ₹95,000 gross salary, subtracting her ₹8,000 current EMI and ₹26,000 living expenses, leaving an unencumbered free cash buffer of <strong>₹61,000</strong>. This proves why she is a prime credit risk."
+                </p>
+                <p>
+                  <em>[Briefly demonstrate Persona 2: Priya Patel and Persona 3: Vikram Singh]</em><br>
+                  "If we select <strong>Priya Patel</strong> (₹42K salary, 620 CIBIL), the model triggers a <strong>High-Risk conditional approval</strong> with tenure restructuring. When we select <strong>Vikram Singh</strong> (₹30K salary, 510 CIBIL, ₹9K debt), the model automatically declines the application due to a monthly cash flow deficit of -₹14,500. This proves the system is dynamic, sensitive, and mathematically calibrated."
+                </p>
+              </div>
+            </details>
+
           </div>
         </div>
+
+        <!-- FOOTER NAV -->
+        <div class="flex items-center justify-between border-t border-slate-100 pt-3 text-xs">
+          <button onclick="setActiveScene(5)" class="px-3 py-1.5 rounded-lg font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
+            <span>◀ Prev: Scene 5</span>
+          </button>
+          <button onclick="setActiveScene(7)" class="px-4 py-1.5 rounded-lg font-bold bg-amber-600 hover:bg-amber-500 text-white transition flex items-center gap-1">
+            <span>Next: Scene 7 (Roadmap)</span>
+            <span>➔</span>
+          </button>
+        </div>
+
       </div>
 
-      <!-- PART 6: LIVE STREAMLIT APPLICATION DEMO -->
-      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
-          <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-amber-600"></span>
-            <h3 class="text-base font-black text-slate-900">Part 6: Live Streamlit Application Demo & Relative Graph Walkthrough</h3>
-          </div>
-          <div class="flex items-center gap-2">
-            <button onclick="speakText(document.getElementById('scriptPart6').innerText, this)" class="speech-btn px-2.5 py-1 rounded text-[11px] font-bold bg-blue-600 hover:bg-blue-500 text-white shadow-sm transition flex items-center gap-1">🔊 Listen</button>
-            <span class="text-xs font-mono bg-amber-50 text-amber-700 px-2.5 py-1 rounded font-bold border border-amber-200">14:00 – 16:45 (2.75 MINS)</span>
-          </div>
-        </div>
 
-        <!-- SCREEN & WEBCAM DIRECTIVE BOX -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 p-3 bg-amber-50/60 rounded-xl border border-amber-200 text-xs">
+      <!-- ============================================================== -->
+      <!-- SCENE 7: FUTURE ROADMAP & CONCLUSION (16:45 - 18:30)           -->
+      <!-- ============================================================== -->
+      <div id="scene-card-7" class="scene-card hidden bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+        
+        <!-- SCENE HEADER & METRICS -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
           <div>
-            <span class="font-bold text-amber-900 block mb-0.5">📺 WHAT MUST BE ON YOUR LAPTOP SCREEN:</span>
-            <span class="text-slate-700">Streamlit Page 1: <strong>Predict EMI (Underwriting Studio)</strong> at <code>http://localhost:8501</code>.</span>
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-black bg-rose-100 text-rose-800 border border-rose-200">Scene 7 of 7</span>
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Enterprise Vision</span>
+            </div>
+            <h3 class="text-lg font-black text-slate-900 mt-1">Future Engineering Expansion Roadmap & Final Close</h3>
           </div>
-          <div>
-            <span class="font-bold text-amber-900 block mb-0.5">👤 FLOATING WEBCAM STATUS:</span>
-            <span class="text-slate-700">Small floating PIP bubble in bottom-right corner.</span>
+          
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-rose-50 text-rose-700 border border-rose-200">⏱️ 16:45 – 18:30 (1.75 Min)</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700">📺 Streamlit Home Page</span>
+            <span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700">👤 Camera: Bottom-Right PIP</span>
+            <button onclick="speakText(document.getElementById('scriptPart7').innerText, this)" class="speech-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-600 hover:bg-blue-500 text-white shadow transition flex items-center gap-1">🔊 Coach</button>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
-          <!-- LEFT: LAPTOP ACTIONS -->
-          <div class="lg:col-span-5 bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2.5 text-xs">
-            <div class="font-bold text-slate-900 uppercase tracking-wide text-[11px]">
-              <span>🖱️ Laptop & Mouse Actions During Part 6</span>
+        <!-- 2-COLUMN BENTO GRID -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          
+          <!-- LEFT: LAPTOP & MOUSE ACTIONS -->
+          <div class="lg:col-span-5 p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+            <div class="font-bold text-xs uppercase tracking-wider text-slate-900 flex items-center gap-2">
+              <span>💻 Laptop Screen & Mouse Operations</span>
             </div>
-            <div class="space-y-1.5 text-slate-700">
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-amber-600">
-                <span><strong>Action 6.1:</strong> In Streamlit left sidebar, click Page 1: <code>Predict EMI</code>.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-amber-600">
-                <span><strong>Action 6.2:</strong> Click preset button <code>🌟 Persona 1: Reeva Shah</code>. Point out the 22 pre-filled inputs.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-amber-600">
-                <span><strong>Action 6.3:</strong> Click <code>⚡ Run Real-Time Underwriting Assessment</code>.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-amber-600">
-                <span><strong>Action 6.4:</strong> Point cursor to green <strong>ELIGIBLE</strong> badge (98.4%) and Safe EMI: <strong>₹15,996 / mo</strong>.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-amber-600">
-                <span><strong>Action 6.5:</strong> Scroll down to Plotly Gauges: show DTI at 8.42% (green) and Health Score at 84/100.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-amber-600">
-                <span><strong>Action 6.6:</strong> Scroll down to Waterfall Cash Flow: trace ₹95K salary ➔ ₹61K surplus.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-amber-600">
-                <span><strong>Action 6.7:</strong> (20-second demo): Click <code>⚠️ Persona 2: Priya Patel</code> and <code>🛑 Persona 3: Vikram Singh</code> to show conditional and decline logic.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-amber-600">
-                <span><strong>Action 6.8:</strong> Time Checkpoint: Conclude live demo at the <strong>16:45</strong> mark.</span>
-              </label>
+            
+            <div class="space-y-2 text-xs text-slate-700">
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-rose-600">1</span>
+                <div><strong>Switch Screen:</strong> Switch back to Streamlit Home Page or project summary.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-rose-600">2</span>
+                <div><strong>Webcam Focus:</strong> Look directly into the camera lens with executive presence.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-rose-600">3</span>
+                <div><strong>State 4 Pillars:</strong> Clearly articulate the 4 scaling pillars with authority.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-rose-600">4</span>
+                <div><strong>Final Closing:</strong> Deliver closing thank-you statement.</div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 rounded-lg bg-white border border-slate-200/80">
+                <span class="font-black text-rose-600">5</span>
+                <div><strong>Stop Recording:</strong> Hit stop at <strong>18:30</strong> (verify recorded duration is between 17:00 and 20:00!).</div>
+              </div>
             </div>
           </div>
 
-          <!-- RIGHT: SPOKEN SCRIPT -->
-          <div class="lg:col-span-7 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs leading-relaxed text-slate-800 space-y-2">
-            <div class="font-bold text-slate-900 uppercase tracking-wide text-[11px] flex items-center justify-between">
-              <span>🗣️ What To Say Aloud (Word-for-Word Script)</span>
-              <span class="text-[10px] text-slate-400 font-normal">Walk through the dynamic visualizations</span>
+          <!-- RIGHT: EASY-TO-MEMORIZE BULLETS & FULL SCRIPT -->
+          <div class="lg:col-span-7 space-y-3">
+            
+            <!-- MEMORY BULLETS VIEW -->
+            <div class="memory-bullets-box p-4 rounded-xl bg-rose-50/70 border border-rose-200 space-y-2.5">
+              <div class="font-bold text-xs uppercase tracking-wider text-rose-950 flex items-center justify-between">
+                <span>🧠 5 Memory Bullets (What To Say Aloud)</span>
+                <span class="text-[10px] text-rose-700 bg-rose-100 px-2 py-0.5 rounded font-mono font-bold">Easy to Glance & Speak</span>
+              </div>
+              
+              <ul class="space-y-2 text-xs text-slate-800">
+                <li class="flex items-start gap-2">
+                  <span class="text-rose-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>1. Pillar 1 (Account Aggregator AA):</strong> Connecting to RBI Open Banking APIs to ingest verified bank statements and GST data, removing self-reported applicant bias.</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-rose-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>2. Pillar 2 (Explainable AI SHAP/LIME):</strong> Generating local feature waterfall charts for adverse action notices compliant with RBI and FCRA fair lending regulations.</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-rose-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>3. Pillar 3 (Kafka + FastAPI Streaming):</strong> Asynchronous microservices processing 10,000+ loan evaluations per second during peak festive flash sales.</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-rose-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>4. Pillar 4 (Evidently AI Drift Monitoring):</strong> Tracking Kolmogorov-Smirnov drift on inflation and interest rate shifts, auto-triggering Airflow retraining pipelines.</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-rose-600 font-bold text-sm leading-none">•</span>
+                  <div><strong>5. Final Sign-Off:</strong> EMIPredict AI replaces outdated guesswork with mathematical cash flow physics—achieving 98.95% accuracy and ₹273.92 RMSE. Thank you!</div>
+                </li>
+              </ul>
             </div>
-            <div id="scriptPart6" class="space-y-2">
-              <p>
-                <strong class="text-amber-950 font-bold">"Now, let us experience the live production platform deployed on Streamlit.</strong> I navigate to Page 1: the <strong>Real-Time Underwriting Studio</strong>.
-              </p>
-              <p>
-                <em>[Click '🌟 Persona 1: Reeva Shah' and click 'Run Underwriting Assessment']</em><br>
-                "To demonstrate real-time dual inference, I select our pre-configured prime profile: <strong>Reeva Shah</strong>, a 34-year-old Senior MNC Lead earning ₹95,000 per month with an existing ₹8,000 EMI, an excellent 780 CIBIL score, requesting a ₹5,00,000 Vehicle Loan over 48 months. In under 200 milliseconds, both production models execute:"
-              </p>
-              <p>
-                "Look at the results: the classifier awards an immediate <strong>ELIGIBLE</strong> status with 98.4% model confidence. Simultaneously, the regressor determines her <strong>Maximum Safe EMI capacity at ₹15,996 per month</strong>, which easily accommodates her requested installment of ₹10,416 per month."
-              </p>
-              <p>
-                <em>[Scroll down to the Plotly Visual Gauges]</em><br>
-                "Notice our dynamic Plotly visual gauges: her <strong>Debt-to-Income (DTI) ratio is just 8.42%</strong>, sitting comfortably inside the safe green zone well below the 40% threshold. Her <strong>Financial Health Score is 84 out of 100</strong>, reflecting strong liquidity and career longevity."
-              </p>
-              <p>
-                <em>[Scroll to the Waterfall Cash Flow Diagram]</em><br>
-                "Here, the waterfall diagram visualizes her monthly cash journey: starting from ₹95,000 gross salary, subtracting her ₹8,000 current EMI and ₹26,000 living expenses, leaving an unencumbered free cash buffer of <strong>₹61,000</strong>. This proves why she is a prime credit risk."
-              </p>
-              <p>
-                <em>[Briefly demonstrate Persona 2: Priya Patel and Persona 3: Vikram Singh]</em><br>
-                "If we select <strong>Priya Patel</strong> (₹42K salary, 620 CIBIL), the model triggers a <strong>High-Risk conditional approval</strong> with tenure restructuring. When we select <strong>Vikram Singh</strong> (₹30K salary, 510 CIBIL, ₹9K debt), the model automatically declines the application due to a monthly cash flow deficit of -₹14,500. This proves the system is dynamic, sensitive, and mathematically calibrated."
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- PART 7: FUTURE EXPANSION ROADMAP & CONCLUSION -->
-      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
-          <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-rose-600"></span>
-            <h3 class="text-base font-black text-slate-900">Part 7: Future Expansion Roadmap & Concluding Defense</h3>
-          </div>
-          <div class="flex items-center gap-2">
-            <button onclick="speakText(document.getElementById('scriptPart7').innerText, this)" class="speech-btn px-2.5 py-1 rounded text-[11px] font-bold bg-blue-600 hover:bg-blue-500 text-white shadow-sm transition flex items-center gap-1">🔊 Listen</button>
-            <span class="text-xs font-mono bg-rose-50 text-rose-700 px-2.5 py-1 rounded font-bold border border-rose-200">16:45 – 18:30 (1.75 MINS)</span>
+            <!-- FULL TELEPROMPTER SCRIPT (EXPANDABLE) -->
+            <details class="full-script-box group rounded-xl bg-slate-50 border border-slate-200 p-3 text-xs leading-relaxed text-slate-700">
+              <summary class="font-bold text-slate-900 cursor-pointer list-none flex items-center justify-between">
+                <span>📜 View Word-for-Word Teleprompter Script</span>
+                <span class="text-rose-600 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div id="scriptPart7" class="pt-3 space-y-2 border-t border-slate-200 mt-2 text-slate-800">
+                <p>
+                  <strong class="text-rose-950 font-bold">"How would I expand EMIPredict AI in a production enterprise environment?</strong> While our current dual-model architecture achieves state-of-the-art accuracy, I have designed a <strong>Four-Pillar Engineering Roadmap</strong> to scale this platform for tier-1 commercial banking:
+                </p>
+                <p>
+                  <strong>1. Account Aggregator (AA) Integration:</strong> Connecting with RBI-regulated Account Aggregator NBFCs to ingest verified GST invoices and bank statements directly via Open Banking APIs, eliminating self-reported data bias.<br>
+                  <strong>2. Explainable AI & Adverse Action Generation:</strong> Implementing TreeSHAP to generate instant local feature waterfall charts for every declined applicant, auto-generating compliant FCRA/RBI Adverse Action Notices.<br>
+                  <strong>3. Event-Driven Streaming via Apache Kafka:</strong> Containerizing inference into FastAPI microservices subscribed to Kafka topics, capable of handling 10,000+ loan evaluations per second during peak festive e-commerce sales.<br>
+                  <strong>4. Continuous MLOps Drift Monitoring via Evidently AI:</strong> Tracking Kolmogorov-Smirnov data drift on macroeconomic inflation and interest rates, automatically triggering Airflow retraining pipelines when drift exceeds 0.15.
+                </p>
+                <p class="pt-2 border-t border-slate-200 font-medium text-slate-900">
+                  "In conclusion, EMIPredict AI replaces outdated, manual loan underwriting with mathematical cash flow intelligence—achieving <strong>98.95% classification accuracy</strong>, an <strong>RMSE of ₹273.92</strong>, and complete experiment lineage via MLflow.
+                  Thank you, respected evaluators and mentor, for your time and guidance. I am now ready for your questions!"
+                </p>
+              </div>
+            </details>
+
           </div>
         </div>
 
-        <!-- SCREEN & WEBCAM DIRECTIVE BOX -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 p-3 bg-rose-50/60 rounded-xl border border-rose-200 text-xs">
-          <div>
-            <span class="font-bold text-rose-900 block mb-0.5">📺 WHAT MUST BE ON YOUR LAPTOP SCREEN:</span>
-            <span class="text-slate-700">Streamlit Home Page OR VS Code terminal showing SQLite database / project summary.</span>
-          </div>
-          <div>
-            <span class="font-bold text-rose-900 block mb-0.5">👤 FLOATING WEBCAM STATUS:</span>
-            <span class="text-slate-700">Small floating PIP bubble in bottom-right corner (or expand slightly for final personal thank you).</span>
-          </div>
+        <!-- FOOTER NAV -->
+        <div class="flex items-center justify-between border-t border-slate-100 pt-3 text-xs">
+          <button onclick="setActiveScene(6)" class="px-3 py-1.5 rounded-lg font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
+            <span>◀ Prev: Scene 6</span>
+          </button>
+          <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200">
+            ✅ 18:30 Complete Recording Rehearsed!
+          </span>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
-          <!-- LEFT: LAPTOP ACTIONS -->
-          <div class="lg:col-span-5 bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2.5 text-xs">
-            <div class="font-bold text-slate-900 uppercase tracking-wide text-[11px]">
-              <span>🖱️ Laptop & Mouse Actions During Part 7</span>
-            </div>
-            <div class="space-y-2 text-slate-700">
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-rose-600">
-                <span><strong>Action 7.1:</strong> Switch screen to Streamlit Home page or terminal.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-rose-600">
-                <span><strong>Action 7.2:</strong> Clearly articulate the 4 Pillars (Account Aggregator, SHAP/LIME, Kafka/FastAPI streaming, Evidently AI).</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-rose-600">
-                <span><strong>Action 7.3:</strong> Look directly into camera lens to deliver final concluding defense statement with confidence and polite gratitude.</span>
-              </label>
-              <label class="flex items-start gap-2 cursor-pointer">
-                <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-rose-600">
-                <span><strong>Action 7.4:</strong> Stop recording at <strong>18:30</strong> (confirm within 17:00 – 20:00 range!).</span>
-              </label>
-            </div>
-          </div>
-
-          <!-- RIGHT: SPOKEN SCRIPT -->
-          <div class="lg:col-span-7 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs leading-relaxed text-slate-800 space-y-2">
-            <div class="font-bold text-slate-900 uppercase tracking-wide text-[11px] flex items-center justify-between">
-              <span>🗣️ What To Say Aloud (Word-for-Word Script)</span>
-              <span class="text-[10px] text-slate-400 font-normal">Deliver strong closing impression</span>
-            </div>
-            <div id="scriptPart7" class="space-y-2">
-              <p>
-                <strong class="text-rose-950 font-bold">"How would I expand EMIPredict AI in a production enterprise environment?</strong> While our current dual-model architecture achieves state-of-the-art accuracy, I have designed a <strong>Four-Pillar Engineering Roadmap</strong> to scale this platform for tier-1 commercial banking:
-              </p>
-              <p>
-                <strong>1. Account Aggregator (AA) Integration:</strong> Connecting with RBI-regulated Account Aggregator NBFCs to ingest verified GST invoices and bank statements directly via Open Banking APIs, eliminating self-reported data bias.<br>
-                <strong>2. Explainable AI & Adverse Action Generation:</strong> Implementing TreeSHAP to generate instant local feature waterfall charts for every declined applicant, auto-generating compliant FCRA/RBI Adverse Action Notices.<br>
-                <strong>3. Event-Driven Streaming via Apache Kafka:</strong> Containerizing inference into FastAPI microservices subscribed to Kafka topics, capable of handling 10,000+ loan evaluations per second during peak festive e-commerce sales.<br>
-                <strong>4. Continuous MLOps Drift Monitoring via Evidently AI:</strong> Tracking Kolmogorov-Smirnov data drift on macroeconomic inflation and interest rates, automatically triggering Airflow retraining pipelines when drift exceeds 0.15.
-              </p>
-              <p class="pt-2 border-t border-slate-200 font-medium text-slate-900">
-                "In conclusion, EMIPredict AI replaces outdated, manual loan underwriting with mathematical cash flow intelligence—achieving <strong>98.95% classification accuracy</strong>, an <strong>RMSE of ₹273.92</strong>, and complete experiment lineage via MLflow.
-                Thank you, respected evaluators and mentor, for your time and guidance. I am now ready for your questions!"
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- POST-RECORDING VERIFICATION CHECKLIST -->
-      <div class="bg-emerald-950 text-white p-5 rounded-2xl border border-emerald-800 shadow-sm space-y-3">
-        <div class="flex items-center justify-between border-b border-emerald-800 pb-2">
-          <div class="flex items-center gap-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            <h3 class="text-sm font-bold text-emerald-300 uppercase tracking-wider">🏁 Post-Recording Quality & Submission Checklist</h3>
-          </div>
-          <span class="text-xs font-mono text-emerald-300">Final Verification</span>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-slate-200">
-          <label class="flex items-start gap-2 p-2 bg-emerald-900/60 rounded-lg cursor-pointer hover:bg-emerald-900 transition border border-emerald-800/60">
-            <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-emerald-400">
-            <span><strong>Check 1: Exact Runtime:</strong> Confirm the recorded video is strictly between <strong>17:00 and 20:00</strong> minutes.</span>
-          </label>
-          <label class="flex items-start gap-2 p-2 bg-emerald-900/60 rounded-lg cursor-pointer hover:bg-emerald-900 transition border border-emerald-800/60">
-            <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-emerald-400">
-            <span><strong>Check 2: Audio & Video Sync:</strong> Scrub through the recording to verify your speech matches mouse cursor movements.</span>
-          </label>
-          <label class="flex items-start gap-2 p-2 bg-emerald-900/60 rounded-lg cursor-pointer hover:bg-emerald-900 transition border border-emerald-800/60">
-            <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-emerald-400">
-            <span><strong>Check 3: Code Legibility:</strong> Confirm that line numbers and syntax in VS Code are sharp and readable at 1080p.</span>
-          </label>
-          <label class="flex items-start gap-2 p-2 bg-emerald-900/60 rounded-lg cursor-pointer hover:bg-emerald-900 transition border border-emerald-800/60">
-            <input type="checkbox" onchange="updateVideoTaskProgress()" class="video-task-checkbox mt-0.5 rounded text-emerald-400">
-            <span><strong>Check 4: Export Format:</strong> Save file as <code>Devansh_EMIPredict_AI_Capstone_Presentation.mp4</code> ready for submission.</span>
-          </label>
-        </div>
       </div>
 
     </section>
@@ -3341,6 +3567,9 @@ if disposable < req_burden:
       if (activeBtn) {
         activeBtn.classList.add('active');
       }
+      if (tabId === 'tab-teleprompter' && typeof setActiveScene === 'function') {
+        setActiveScene(currentSceneNum || 1);
+      }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -3361,6 +3590,71 @@ if disposable < req_burden:
     }
 
     
+    
+    // INTERACTIVE SCENE CONTROLLER (TAB 3)
+    let currentSceneNum = 1;
+    let scriptDisplayMode = 'bullets'; // 'bullets' or 'full'
+
+    function setActiveScene(sceneId) {
+      playSound('click');
+      const allCards = document.querySelectorAll('.scene-card');
+      const allPills = document.querySelectorAll('.scene-pill');
+
+      if (sceneId === 'all') {
+        allCards.forEach(card => card.classList.remove('hidden'));
+        allPills.forEach(pill => {
+          pill.className = 'scene-pill px-3 py-2 rounded-xl text-xs font-medium bg-slate-800 text-slate-300 hover:text-white transition';
+        });
+        const pillAll = document.getElementById('pill-scene-all');
+        if (pillAll) {
+          pillAll.className = 'scene-pill px-3 py-2 rounded-xl text-xs font-bold bg-amber-500 text-slate-950 shadow transition';
+        }
+        return;
+      }
+
+      currentSceneNum = parseInt(sceneId);
+      allCards.forEach((card, idx) => {
+        if (idx + 1 === currentSceneNum) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      allPills.forEach(pill => {
+        pill.className = 'scene-pill px-3 py-2 rounded-xl text-xs font-medium bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition';
+      });
+
+      const activePill = document.getElementById(`pill-scene-${currentSceneNum}`);
+      if (activePill) {
+        activePill.className = 'scene-pill px-3 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white shadow transition';
+      }
+
+      // Smooth scroll to card
+      const activeCard = document.getElementById(`scene-card-${currentSceneNum}`);
+      if (activeCard) {
+        activeCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    function setScriptDisplayMode(mode) {
+      playSound('click');
+      scriptDisplayMode = mode;
+      const btnBullets = document.getElementById('btn-mode-bullets');
+      const btnFull = document.getElementById('btn-mode-full');
+      const allDetails = document.querySelectorAll('.full-script-box');
+
+      if (mode === 'bullets') {
+        btnBullets.className = 'mode-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-cyan-600 text-white shadow transition flex items-center gap-1.5';
+        btnFull.className = 'mode-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition flex items-center gap-1.5';
+        allDetails.forEach(d => d.removeAttribute('open'));
+      } else {
+        btnFull.className = 'mode-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-cyan-600 text-white shadow transition flex items-center gap-1.5';
+        btnBullets.className = 'mode-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition flex items-center gap-1.5';
+        allDetails.forEach(d => d.setAttribute('open', 'true'));
+      }
+    }
+
     // VIDEO TASK PROGRESS TRACKER
     function updateVideoTaskProgress() {
       const checkboxes = document.querySelectorAll('.video-task-checkbox');
